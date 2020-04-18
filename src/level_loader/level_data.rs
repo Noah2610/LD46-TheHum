@@ -14,7 +14,7 @@ impl Into<Transform> for &PosData {
     fn into(self) -> Transform {
         let mut transform = Transform::default();
         transform.set_translation_x(self.x);
-        transform.set_translation_x(self.y);
+        transform.set_translation_y(self.y);
         transform
     }
 }

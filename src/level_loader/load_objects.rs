@@ -9,7 +9,6 @@ pub(super) fn load_objects(
     for object in objects {
         match object.object_type.as_str() {
             "Player" => {
-                dbg!("PLAYER");
                 let transform: Transform = (&object).into();
                 let _player = entities::init_player(world, transform.clone());
                 player_transform = Some(transform);
@@ -21,7 +20,6 @@ pub(super) fn load_objects(
     }
 
     if let Some(camera_transform) = player_transform {
-        dbg!("CAMERA");
         let _camera = entities::init_camera(world, camera_transform);
     }
 
