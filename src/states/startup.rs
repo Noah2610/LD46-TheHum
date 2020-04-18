@@ -19,8 +19,6 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Startup {
 }
 
 fn insert_resources(world: &mut World) {
-    use deathframe::core::resources::prelude::SpriteSheetHandles;
-
     let sprite_sheet_handles = SpriteSheetHandles::<PathBuf>::default();
     world.insert(sprite_sheet_handles);
 }

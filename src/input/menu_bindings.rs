@@ -1,3 +1,5 @@
+// resources/config/menu_bindings.ron
+
 use deathframe::amethyst::input::{BindingTypes, InputBundle};
 use std::fmt;
 
@@ -8,7 +10,10 @@ pub struct MenuBindings;
 pub enum MenuAxis {}
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum MenuAction {}
+pub enum MenuAction {
+    Enter,
+    Back,
+}
 
 impl BindingTypes for MenuBindings {
     type Axis = MenuAxis;
