@@ -1,5 +1,4 @@
 use super::init_prelude::*;
-use deathframe::core::geo::prelude::{Point, Rect};
 
 pub fn init_camera(world: &mut World, level_size: Size) -> Entity {
     use deathframe::amethyst::renderer::Camera;
@@ -10,9 +9,6 @@ pub fn init_camera(world: &mut World, level_size: Size) -> Entity {
     };
 
     let camera_settings = world.read_resource::<Settings>().camera.clone();
-
-    let mut transform = Transform::default();
-    transform.set_translation_z(camera_settings.z);
 
     let size = level_size;
 
@@ -27,12 +23,11 @@ pub fn init_camera(world: &mut World, level_size: Size) -> Entity {
         right:  half_size.w,
     };
 
+    let mut transform = Transform::default();
+    transform.set_translation_xyz(half_size.w, half_size.h, camera_settings.z);
+
     world
         .create_entity()
-        .with(Confined::from(
-            Rect::from(&size)
-                .with_offset(&Point::new(half_size.w, half_size.h)),
-        ))
         .with(transform)
         .with(size)
         .with(camera)
