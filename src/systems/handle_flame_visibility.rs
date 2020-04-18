@@ -24,7 +24,7 @@ impl<'a> System<'a> for HandleFlameVisibilitySystem {
         ): Self::SystemData,
     ) {
         let mut visibility_loader = EntityComponentInserter::default()
-            .with_priority(InsertionAction::Insert);
+            .with_priority(InsertionAction::Remove);
 
         for (flame, flame_transform) in (&flame_store, &transform_store).join()
         {

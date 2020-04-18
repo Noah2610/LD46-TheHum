@@ -1,3 +1,4 @@
+mod bonfire;
 mod camera;
 mod player;
 
@@ -12,5 +13,6 @@ mod init_prelude {
     pub use std::path::PathBuf;
 }
 
+pub use bonfire::init_bonfire;
 pub use camera::init_camera;
 pub use player::init_player;

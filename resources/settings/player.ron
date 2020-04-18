@@ -5,14 +5,12 @@
         w: 8.0,
         h: 8.0
     ),
-    hitbox: [
-        (
-            top:     4.0,
-            bottom: -4.0,
-            left:   -4.0,
-            right:   4.0,
-        ),
-    ],
+    hitbox: [(
+        top:     4.0,
+        bottom: -4.0,
+        left:   -4.0,
+        right:   4.0,
+    )],
     movable: (
         acceleration:           500.0,
         max_velocity:           50.0,

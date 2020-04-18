@@ -1,4 +1,5 @@
 pub mod prelude {
+    pub use super::bonfire_settings::BonfireSettings;
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
@@ -8,6 +9,7 @@ pub mod prelude {
     pub use super::Settings;
 }
 
+mod bonfire_settings;
 mod camera_settings;
 mod general_settings;
 mod player_settings;
@@ -29,6 +31,7 @@ pub struct Settings {
     pub tiles:   TilesSettings,
     pub songs:   SongsSettings,
     pub sounds:  SoundsSettings,
+    pub bonfire: BonfireSettings,
 }
 
 impl Settings {
@@ -40,6 +43,7 @@ impl Settings {
             tiles:   load_settings("tiles.ron")?,
             songs:   load_settings("songs.ron")?,
             sounds:  load_settings("sounds.ron")?,
+            bonfire: load_settings("bonfire.ron")?,
         })
     }
 }

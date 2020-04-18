@@ -10,6 +10,12 @@ pub(super) fn load_objects(
                 let transform: Transform = (&object).into();
                 let _player = entities::init_player(world, transform.clone());
             }
+
+            "Bonfire" => {
+                let transform: Transform = (&object).into();
+                let _bonfire = entities::init_bonfire(world, transform.clone());
+            }
+
             unknown => {
                 eprintln!("[WARNING]\n    Unknown object type: {}", unknown)
             }

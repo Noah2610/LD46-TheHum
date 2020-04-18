@@ -1,0 +1,27 @@
+// src/settings/bonfire_settings.rs
+#![enable(implicit_some)]
+(
+    size: (
+        w: 16.0,
+        h: 40.0,
+    ),
+    hitbox: [(
+        top:     16.0,
+        bottom: -16.0,
+        left:   -16.0,
+        right:   16.0,
+    )],
+    flame: (
+        radius: 100.0,
+    ),
+    animations: {
+        Idle: Cycle([
+            (0, 100),
+            (1, 100),
+            (2, 100),
+            (3, 100),
+            (4, 100),
+            (5, 100),
+        ]),
+    },
+)
