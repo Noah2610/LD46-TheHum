@@ -14,9 +14,11 @@
         ),
     ],
     movable: (
-        acceleration: 300.0,
-        max_velocity: 500.0,
-        jump_strength: 50.0,
+        acceleration:           300.0,
+        max_velocity:           500.0,
+        jump_strength:          50.0,
+        kill_jump_strength:     -50.0,
+        kill_jump_min_velocity: 10.0,
     ),
     base_friction: (
         friction_x: 100.0,

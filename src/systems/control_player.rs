@@ -31,20 +31,24 @@ impl<'a> System<'a> for ControlPlayerSystem {
                 }
             }
 
-            let on_ground = {
-                use deathframe::physics::query::exp::prelude_variants::*;
-                collider
-                    .query::<FindQuery<CollisionTag>>()
-                    .exp(&And(vec![IsSide(Bottom), IsTag(CollisionTag::Solid)]))
-                    .run()
-                    .is_some()
-            };
-
             // JUMP
-            if on_ground {
-                if input_manager.is_down(IngameAction::Jump) {
+            if input_manager.is_down(IngameAction::Jump) {
+                let on_ground = {
+                    use deathframe::physics::query::exp::prelude_variants::*;
+                    collider
+                        .query::<FindQuery<CollisionTag>>()
+                        .exp(&And(vec![
+                            IsSide(Bottom),
+                            IsTag(CollisionTag::Solid),
+                        ]))
+                        .run()
+                        .is_some()
+                };
+                if on_ground {
                     movable.add_action(MoveAction::Jump);
                 }
+            } else if input_manager.is_up(IngameAction::Jump) {
+                movable.add_action(MoveAction::KillJump);
             }
         }
     }

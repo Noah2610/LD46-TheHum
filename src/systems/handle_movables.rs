@@ -34,6 +34,15 @@ impl<'a> System<'a> for HandleMovablesSystem {
                     MoveAction::Jump => {
                         velocity.increase(&Axis::Y, data.jump_strength);
                     }
+
+                    MoveAction::KillJump => {
+                        let vel = velocity.y;
+                        if vel > data.kill_jump_min_velocity {
+                            let decreased = (vel + data.kill_jump_strength)
+                                .max(data.kill_jump_min_velocity);
+                            velocity.set(&Axis::Y, decreased);
+                        }
+                    }
                 }
             }
         }

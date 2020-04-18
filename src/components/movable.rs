@@ -4,6 +4,7 @@ use super::component_prelude::*;
 pub enum MoveAction {
     Walk(f32),
     Jump,
+    KillJump,
 }
 
 #[derive(Component, Clone, Deserialize)]
@@ -24,9 +25,11 @@ impl From<MovableData> for Movable {
 
 #[derive(Clone, Deserialize)]
 pub struct MovableData {
-    pub acceleration:  f32,
-    pub max_velocity:  f32,
-    pub jump_strength: f32,
+    pub acceleration:           f32,
+    pub max_velocity:           f32,
+    pub jump_strength:          f32,
+    pub kill_jump_strength:     f32,
+    pub kill_jump_min_velocity: f32,
 }
 
 impl ActionQueue for Movable {
