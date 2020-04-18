@@ -1,6 +1,8 @@
 use super::init_prelude::*;
 use std::path::PathBuf;
 
+const HALO_MARGIN: f32 = 8.0;
+
 pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
     let bonfire_settings = world.read_resource::<Settings>().bonfire.clone();
 
@@ -34,7 +36,7 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         halo_transform
     };
     let halo_size = Size::from({
-        let s = bonfire_settings.flame.radius * 2.0;
+        let s = bonfire_settings.flame.radius * 2.0 + HALO_MARGIN;
         (s, s)
     });
 
