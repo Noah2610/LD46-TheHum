@@ -4,4 +4,22 @@
     "Ground": (
         is_solid: true,
     ),
+
+    "Reactive": (
+        is_solid: false,
+        reactive_animations: {
+            OnEnter: Once([
+                (0, 50),
+                (1, 50),
+            ]),
+            OnSteady: Once([
+                (2, 100),
+                (3, 100),
+            ]),
+            OnLeave: Once([
+                (2, 50),
+                (1, 50),
+            ]),
+        },
+    ),
 }
