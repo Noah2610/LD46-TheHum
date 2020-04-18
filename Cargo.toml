@@ -1,0 +1,43 @@
+[package]
+name = "deathframe-template"
+version = "0.0.0"
+authors = []
+edition = "2018"
+
+[dependencies]
+ron = "0.5.1"
+
+[dependencies.deathframe]
+version = "*"
+git = "https://github.com/Noah2610/deathframe"
+branch = "develop"
+features = [
+    "animation",
+    "audio",
+    "physics",
+    "vulkan",
+]
+
+[dependencies.serde]
+version = "1.0.104"
+features = ["derive"]
+
+[features]
+default = []
+debug = ["deathframe/debug"]
+
+[profile.dev]
+opt-level        = 2
+debug            = true
+debug-assertions = true
+codegen-units    = 8
+incremental      = true
+overflow-checks  = true
+
+[profile.release]
+opt-level        = 3
+debug            = false
+debug-assertions = false
+codegen-units    = 1
+incremental      = true
+overflow-checks  = false

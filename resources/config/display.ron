@@ -1,0 +1,12 @@
+(
+    title:          "deathframe-template",
+    fullscreen:     None,
+    dimensions:     Some((720, 720)),
+    max_dimensions: Some((720, 720)),
+    min_dimensions: Some((720, 720)),
+    visibility:     true,
+    decorations:    true,
+    maximized:      false,
+    resizable:      true,
+    transparent:    false,
+)

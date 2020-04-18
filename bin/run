@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# shellcheck source=./share.sh disable=SC2155
+_dir="$( dirname "$( realpath "$0" )" )"
+source "${_dir}/share.sh"
+unset _dir
+
+function main {
+    cargo_cmd \
+        run --features debug "$@"
+}
+
+main "$@"
