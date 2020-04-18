@@ -7,10 +7,19 @@ pub enum MoveAction {
 }
 
 #[derive(Component, Clone, Deserialize)]
+#[serde(from = "MovableData")]
 pub struct Movable {
     pub data: MovableData,
-    #[serde(skip)]
     actions:  Vec<MoveAction>,
+}
+
+impl From<MovableData> for Movable {
+    fn from(data: MovableData) -> Self {
+        Self {
+            data,
+            actions: Default::default(),
+        }
+    }
 }
 
 #[derive(Clone, Deserialize)]

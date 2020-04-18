@@ -1,5 +1,5 @@
 pub mod prelude {
-    pub use super::movable::{Movable, MoveAction};
+    pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;
     pub use deathframe::components::prelude::*;
 }

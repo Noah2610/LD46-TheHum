@@ -22,6 +22,7 @@ pub fn init_player(world: &mut World) -> Entity {
         .with(transform)
         .with(player_settings.size)
         .with(player_settings.hitbox)
+        .with(player_settings.movable)
         .with(sprite_render)
         .with(Velocity::default())
         .with(ScaleOnce::default())

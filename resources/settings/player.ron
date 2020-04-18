@@ -14,4 +14,9 @@
             right:   8.0,
         ),
     ],
+    movable: (
+        acceleration: 300.0,
+        max_velocity: 500.0,
+        jump_strength: 50.0,
+    ),
 )
