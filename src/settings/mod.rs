@@ -2,6 +2,8 @@ pub mod prelude {
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
+    pub use super::songs_settings::SongsSettings;
+    pub use super::sounds_settings::SoundsSettings;
     pub use super::tiles_settings::{TileSettings, TilesSettings};
     pub use super::Settings;
 }
@@ -9,6 +11,8 @@ pub mod prelude {
 mod camera_settings;
 mod general_settings;
 mod player_settings;
+mod songs_settings;
+mod sounds_settings;
 mod tiles_settings;
 
 use crate::resource;
@@ -23,6 +27,8 @@ pub struct Settings {
     pub player:  PlayerSettings,
     pub camera:  CameraSettings,
     pub tiles:   TilesSettings,
+    pub songs:   SongsSettings,
+    pub sounds:  SoundsSettings,
 }
 
 impl Settings {
@@ -32,6 +38,8 @@ impl Settings {
             player:  load_settings("player.ron")?,
             camera:  load_settings("camera.ron")?,
             tiles:   load_settings("tiles.ron")?,
+            songs:   load_settings("songs.ron")?,
+            sounds:  load_settings("sounds.ron")?,
         })
     }
 }
