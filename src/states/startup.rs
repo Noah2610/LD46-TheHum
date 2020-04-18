@@ -40,6 +40,7 @@ fn load_songs(world: &mut World) {
             .load_audio(
                 song_key,
                 resource(format!("audio/bgm/{}", song_settings.file)),
+                song_settings.should_loop,
                 world,
             )
             .unwrap();
@@ -51,7 +52,7 @@ fn load_songs(world: &mut World) {
 fn load_sounds(world: &mut World) {
     let sounds_settings = world.read_resource::<Settings>().sounds.clone();
 
-    let mut sounds = Songs::<SoundKey>::default();
+    let mut sounds = Sounds::<SoundKey>::default();
 
     for (sound_key, sound_settings) in sounds_settings.sounds {
         sounds

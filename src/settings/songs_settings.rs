@@ -11,7 +11,8 @@ pub struct SongsSettings {
 
 #[derive(Clone, Deserialize)]
 pub struct SongSettings {
-    pub file: String,
+    pub file:        String,
+    pub should_loop: bool,
 }
 
 impl From<HashMap<SongKey, SongSettings>> for SongsSettings {

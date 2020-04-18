@@ -3,8 +3,10 @@
 {
     MainMenu: (
         file: "deathfloor_floor1_wip.ogg",
+        should_loop: true,
     ),
     Ambience: (
         file: "cntrlgun.ogg",
+        should_loop: true,
     ),
 }

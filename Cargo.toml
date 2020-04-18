@@ -10,6 +10,7 @@ serde_json = "1.0.51"
 
 [dependencies.deathframe]
 version = "*"
+# path = "../deathframe"
 git = "https://github.com/Noah2610/deathframe"
 branch = "develop-ld46"
 features = [
