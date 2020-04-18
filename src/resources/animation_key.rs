@@ -7,7 +7,7 @@ pub enum AnimationKey {
 
 #[derive(PartialEq, Eq, Hash, Clone, Deserialize, Debug)]
 pub enum ReactiveAnimationKey {
-    Idle,
+    Default,
     OnEnter,
     OnSteady,
     OnLeave,
@@ -22,6 +22,6 @@ impl Default for AnimationKey {
 
 impl Default for ReactiveAnimationKey {
     fn default() -> Self {
-        Self::Idle
+        Self::Default
     }
 }

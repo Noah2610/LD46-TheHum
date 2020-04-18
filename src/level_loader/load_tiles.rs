@@ -44,8 +44,18 @@ pub(super) fn load_tiles(
             if let Some(reactive_animations) =
                 &tile_settings.reactive_animations
             {
+                let mut animations = reactive_animations.clone();
+                if let Err(_) = animations.play(ReactiveAnimationKey::Default) {
+                    eprintln!(
+                        "[WARNING]\n    A tile with `reactive_animations` \
+                         should define the `Default` animation.\n    Without, \
+                         once the player has triggered any animation,\n    it \
+                         will reset to sprite `0`, which is probably not what \
+                         you want."
+                    );
+                }
                 entity_builder = entity_builder
-                    .with(reactive_animations.clone())
+                    .with(animations)
                     .with(Collidable::new(CollisionTag::ReactiveTile))
                     .with(Hitbox::from(vec![Rect::from(&tile_size)]));
             }
