@@ -20,10 +20,20 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
             data.world,
         )
         .unwrap();
+
+        let _ = data
+            .world
+            .write_resource::<Songs<SongKey>>()
+            .play(&SongKey::Ambience);
     }
 
     fn on_stop(&mut self, data: StateData<GameData<'a, 'b>>) {
         data.world.delete_all();
+
+        let _ = data
+            .world
+            .write_resource::<Songs<SongKey>>()
+            .stop(&SongKey::Ambience);
     }
 
     fn update(

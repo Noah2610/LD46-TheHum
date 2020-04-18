@@ -1,3 +1,10 @@
 // src/settings/songs_settings.rs
 #![enable(implicit_some)]
-{}
+{
+    MainMenu: (
+        file: "deathfloor_floor1_wip.ogg",
+    ),
+    Ambience: (
+        file: "cntrlgun.ogg",
+    ),
+}
