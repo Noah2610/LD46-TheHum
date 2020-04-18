@@ -2,12 +2,14 @@ pub mod prelude {
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
+    pub use super::tiles_settings::{TileSettings, TilesSettings};
     pub use super::Settings;
 }
 
 mod camera_settings;
 mod general_settings;
 mod player_settings;
+mod tiles_settings;
 
 use crate::resource;
 use deathframe::amethyst;
@@ -20,6 +22,7 @@ pub struct Settings {
     pub general: GeneralSettings,
     pub player:  PlayerSettings,
     pub camera:  CameraSettings,
+    pub tiles:   TilesSettings,
 }
 
 impl Settings {
@@ -28,6 +31,7 @@ impl Settings {
             general: load_settings("general.ron")?,
             player:  load_settings("player.ron")?,
             camera:  load_settings("camera.ron")?,
+            tiles:   load_settings("tiles.ron")?,
         })
     }
 }
