@@ -2,6 +2,7 @@ pub mod prelude {
     pub use super::flame::{Flame, VisibleInFlame};
     pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;
+    pub use super::trigger_reactive_animation::TriggerReactiveAnimation;
     pub use deathframe::components::prelude::*;
 }
 
@@ -13,3 +14,4 @@ mod component_prelude {
 mod flame;
 mod movable;
 mod player;
+mod trigger_reactive_animation;

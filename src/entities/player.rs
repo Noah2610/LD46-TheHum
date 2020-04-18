@@ -25,6 +25,7 @@ pub fn init_player(world: &mut World, transform: Transform) -> Entity {
         .with(Collider::new(CollisionTag::Player))
         .with(Collidable::new(CollisionTag::Player))
         .with(Solid::new(SolidTag::Player))
+        .with(TriggerReactiveAnimation::default())
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)

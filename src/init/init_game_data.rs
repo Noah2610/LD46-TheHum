@@ -32,7 +32,8 @@ pub(super) fn build_game_data<'a, 'b>(
         PhysicsBundle::<CollisionTag, SolidTag>::new().with_deps(&[]);
     let animation_bundle = AnimationBundle::<AnimationKey>::new();
     let reactive_animation_bundle =
-        AnimationBundle::<ReactiveAnimationKey>::new();
+        AnimationBundle::<ReactiveAnimationKey>::new()
+            .with_name_suffix("_reactive");
 
     let custom_game_data = GameDataBuilder::default()
         .custom(CustomData::default())
@@ -126,6 +127,12 @@ pub(super) fn build_game_data<'a, 'b>(
             UpdatePlayerAnimationSystem::default(),
             "update_player_animation_system",
             &["control_player_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateReactiveAnimationsSystem::default(),
+            "update_reactive_animations_system",
+            &["update_collisions_system"],
         )?
         // - comment for easier copy/pasting -
         ;
