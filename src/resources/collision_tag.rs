@@ -15,4 +15,17 @@ impl CTag for CollisionTag {
     }
 }
 
-pub type SolidTag = CollisionTag;
+#[derive(PartialEq, Eq, Hash, Clone, Deserialize)]
+pub enum SolidTag {
+    Player,
+    Solid,
+}
+
+impl CTag for SolidTag {
+    fn collides_with(&self, other: &Self) -> bool {
+        match (self, other) {
+            (SolidTag::Player, SolidTag::Solid) => true,
+            _ => false,
+        }
+    }
+}

@@ -7,10 +7,10 @@
     ),
     hitbox: [
         (
-            top:     8.0,
-            bottom: -8.0,
-            left:   -8.0,
-            right:   8.0,
+            top:     2.0,
+            bottom: -2.0,
+            left:   -2.0,
+            right:   2.0,
         ),
     ],
     movable: (

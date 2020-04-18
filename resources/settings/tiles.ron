@@ -1,5 +1,7 @@
 // src/settings/tiles_settings.rs
 #![enable(implicit_some)]
 {
-
+    "Ground": (
+        is_solid: true,
+    ),
 }

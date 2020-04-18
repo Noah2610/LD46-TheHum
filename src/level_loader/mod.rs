@@ -11,6 +11,7 @@ mod load_prelude {
     pub(super) use crate::entities;
     pub(super) use crate::resource;
     pub(super) use crate::resources::prelude::*;
+    pub(super) use crate::settings::prelude::*;
     pub(super) use amethyst::ecs::{World, WorldExt};
     pub(super) use amethyst::prelude::Builder;
     pub(super) use deathframe::amethyst;
