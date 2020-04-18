@@ -99,6 +99,12 @@ pub(super) fn build_game_data<'a, 'b>(
             UpdateLifecycleSystem::default(),
             "update_lifecycle_system",
             &[],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            ControlPlayerSystem::default(),
+            "control_player_system",
+            &[],
         )?;
 
     Ok(custom_game_data)
