@@ -15,7 +15,7 @@ pub(super) fn load_tiles(
             let sprite_sheet = world
                 .write_resource::<SpriteSheetHandles<PathBuf>>()
                 .get_or_load(
-                    resource(format!("spritesheets/tiles/{}", &tile.ts)),
+                    resource(format!("spritesheets/tilesets/{}", &tile.ts)),
                     world,
                 );
             SpriteRender {
