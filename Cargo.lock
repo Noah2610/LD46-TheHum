@@ -964,16 +964,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "deathframe-template"
-version = "0.0.0"
-dependencies = [
- "deathframe",
- "ron",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "deathframe_animation"
 version = "0.1.0"
 source = "git+https://github.com/Noah2610/deathframe?branch=develop#de12e6069f942caf83682b311b5b8216f03eb100"
@@ -1589,6 +1579,16 @@ name = "lazycell"
 version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b294d6fa9ee409a054354afc4352b0b9ef7ca222c69b8812cbea9e7d2bf3783f"
+
+[[package]]
+name = "ld46"
+version = "0.0.0"
+dependencies = [
+ "deathframe",
+ "ron",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "lewton"
