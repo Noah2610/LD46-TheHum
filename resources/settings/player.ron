@@ -1,4 +1,17 @@
-// src/settings/general_settings.rs
+// src/settings/player_settings.rs
 #![enable(implicit_some)]
 (
+    z: 1.0,
+    size: (
+        w: 16.0,
+        h: 16.0
+    ),
+    hitbox: [
+        (
+            top:     8.0,
+            bottom: -8.0,
+            left:   -8.0,
+            right:   8.0,
+        ),
+    ],
 )

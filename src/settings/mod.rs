@@ -1,9 +1,11 @@
 pub mod prelude {
+    pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
     pub use super::Settings;
 }
 
+mod camera_settings;
 mod general_settings;
 mod player_settings;
 
@@ -17,6 +19,7 @@ use std::fs::File;
 pub struct Settings {
     pub general: GeneralSettings,
     pub player:  PlayerSettings,
+    pub camera:  CameraSettings,
 }
 
 impl Settings {
@@ -24,6 +27,7 @@ impl Settings {
         Ok(Self {
             general: load_settings("general.ron")?,
             player:  load_settings("player.ron")?,
+            camera:  load_settings("camera.ron")?,
         })
     }
 }
