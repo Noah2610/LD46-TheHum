@@ -17,6 +17,12 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
     ) -> Trans<GameData<'a, 'b>, StateEvent> {
         data.data.update(data.world, DispatcherId::Ingame).unwrap();
 
+        let input_manager =
+            data.world.read_resource::<InputManager<MenuBindings>>();
+        if input_manager.is_down(MenuAction::Back) {
+            return Trans::Pop;
+        }
+
         Trans::None
     }
 }
