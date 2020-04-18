@@ -30,7 +30,7 @@
     flame: (
         radius: 50.0,
     ),
-    animations_container: {
+    animations: {
         Idle: Cycle([
             (0, 500),
             (1, 500),
