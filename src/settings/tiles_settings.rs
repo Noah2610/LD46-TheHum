@@ -1,6 +1,8 @@
 // resources/settings/tiles.ron
 
+use crate::components::prelude::*;
 use crate::level_loader::TileType;
+use crate::resources::prelude::ReactiveAnimationKey;
 use std::collections::HashMap;
 
 #[derive(Clone, Deserialize)]
@@ -17,7 +19,8 @@ impl TilesSettings {
 
 #[derive(Clone, Deserialize)]
 pub struct TileSettings {
-    pub is_solid: Option<bool>,
+    pub is_solid:            Option<bool>,
+    pub reactive_animations: Option<AnimationsContainer<ReactiveAnimationKey>>,
 }
 
 impl From<HashMap<TileType, TileSettings>> for TilesSettings {

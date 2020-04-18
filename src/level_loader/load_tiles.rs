@@ -40,6 +40,13 @@ pub(super) fn load_tiles(
                     .with(Solid::new(SolidTag::Solid))
                     .with(Hitbox::from(vec![Rect::from(&tile_size)]));
             }
+
+            if let Some(reactive_animations) =
+                &tile_settings.reactive_animations
+            {
+                entity_builder =
+                    entity_builder.with(reactive_animations.clone());
+            }
         }
 
         entity_builder.build();
