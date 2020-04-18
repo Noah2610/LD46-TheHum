@@ -6,6 +6,7 @@ edition = "2018"
 
 [dependencies]
 ron = "0.5.1"
+serde_json = "1.0.51"
 
 [dependencies.deathframe]
 version = "*"

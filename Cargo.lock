@@ -970,6 +970,7 @@ dependencies = [
  "deathframe",
  "ron",
  "serde",
+ "serde_json",
 ]
 
 [[package]]
