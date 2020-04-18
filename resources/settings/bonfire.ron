@@ -27,6 +27,8 @@
 
     /// HALO SETTINGS
     halo: (
+        size_margin: 8.0,
+
         /// optional animation
         // animation: [
         //     (0, 1000),

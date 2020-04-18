@@ -14,5 +14,6 @@ pub struct BonfireSettings {
 
 #[derive(Clone, Deserialize)]
 pub struct HaloSettings {
-    pub animation: Option<Animation>,
+    pub size_margin: f32,
+    pub animation:   Option<Animation>,
 }
