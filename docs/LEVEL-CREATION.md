@@ -8,5 +8,6 @@ Available fields for a tile config ...
 
 ## Object types
 - `Player`
+- `Bonfire`
 
 [`resources/settings/tiles.ron`]: https://github.com/Noah2610/LD46/blob/master/resources/settings/tiles.ron
