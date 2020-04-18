@@ -19,6 +19,7 @@ mod load_prelude {
 }
 
 use crate::components::prelude::*;
+use crate::entities;
 use amethyst::ecs::World;
 use deathframe::amethyst;
 use level_data::*;
@@ -34,6 +35,7 @@ pub fn load_level(
 
     let tile_size: Size = (&level.level.tile_size).into();
 
+    let _camera = entities::init_camera(world, (&level.level.size).into());
     load_tiles::load_tiles(world, level.tiles, tile_size)?;
     load_objects::load_objects(world, level.objects)?;
 
