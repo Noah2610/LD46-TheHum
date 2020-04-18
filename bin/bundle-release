@@ -1,0 +1,110 @@
+#!/bin/bash
+# Copied from `deathfloor`.
+#
+# Bundles (already) built executable in `target/release`
+# together with the `resources/` directory into a ZIP file.
+
+_dir="$( dirname "$( realpath "$0" )" )"
+# shellcheck source=./share.sh
+source "${_dir}/share.sh"
+unset _dir
+
+check "zip"
+check "basename"
+check "dirname"
+check "git"
+
+# Suffix for the bundled directory and ZIP file names
+# First command-line argument.
+SUFFIX="$1"
+[ -z "$SUFFIX" ] && SUFFIX="default"
+
+GAME_NAME="ld46"
+BINARY_FILENAME="$GAME_NAME"
+TARGET_BINARY_FILENAME="$GAME_NAME"
+
+# Path to the resources/ directory
+RESOURCES_DIR="${ROOT}/resources"
+# Path to the root target/ directory
+TARGET_DIR="${ROOT}/target"
+# Directory where bundled release ZIPs are placed
+RELEASE_DIR="${ROOT}/releases"
+# Files to include in bundle
+INCLUDE_FILES=( \
+    "${ROOT}/README.md"
+    "${ROOT}/LICENSE"
+)
+VERSION=
+
+function main {
+    set_version
+
+    [ -d "$RELEASE_DIR" ] || mkdir -p "$RELEASE_DIR"
+
+    bundle_release
+}
+
+function set_version {
+    if [ -z "$GITHUB_ACTIONS" ]; then
+        # LOCAL
+        VERSION="$( git rev-parse HEAD )"
+    else
+        # GITHUB ACTION
+        VERSION="$GITHUB_REF"
+        VERSION="${VERSION//refs\/heads\//}"
+        VERSION="${VERSION//refs\/tags\//}"
+        [ -z "$VERSION" ] && VERSION="${GITHUB_SHA}"
+        VERSION="${VERSION//\//_}"
+    fi
+}
+
+function bundle_release {
+    ls "${TARGET_DIR}"
+
+    local file=
+    local CLRCODE="$( clr "${CLR_CODE[@]}" )"
+    local CLRRS="$( clrrs )"
+
+    msg "Bundling release"
+
+    [ -d "${TARGET_DIR}/release" ] || err "No release build found"
+
+    local binary_file="${TARGET_DIR}/release/${BINARY_FILENAME}"
+    [ -f "$binary_file" ] || binary_file="${binary_file}.exe"
+    [ -f "$binary_file" ] || err "No binary file found"
+
+    # shellcheck disable=SC2155
+    local bundle_dirname="$( get_bundle_name )"
+    local bundle_path="${RELEASE_DIR}/${bundle_dirname}"
+
+    [ -d "$bundle_path" ] && err "Bundle directory shouldn't exist yet ${CLRCODE}${bundle_path}${CLRRS}"
+
+    mkdir -p "$bundle_path"
+    pushd "$bundle_path" &> /dev/null
+
+    try_run_hidden cp "$binary_file" "./${TARGET_BINARY_FILENAME}"
+    try_run_hidden cp -r "$RESOURCES_DIR" ./resources
+    for file in "${INCLUDE_FILES[@]}"; do
+        if [ -f "$file" ]; then
+            try_run_hidden cp "$file" .
+        else
+            warn "File to include doesn't exist ${CLRCODE}${file}${CLRRS}"
+        fi
+    done
+
+    cd ..
+    try_run_hidden \
+        zip -r "${bundle_dirname}.zip" "${bundle_dirname}"
+    try_run_hidden \
+        rm -r "${bundle_dirname}"
+
+    popd &> /dev/null
+
+    msg "Created release bundle ${CLRCODE}${bundle_dirname}${CLRRS}"
+}
+
+function get_bundle_name {
+    echo "${GAME_NAME}-${VERSION}-${SUFFIX}"
+}
+
+main "$@"
