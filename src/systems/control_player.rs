@@ -5,14 +5,20 @@ pub struct ControlPlayerSystem;
 
 impl<'a> System<'a> for ControlPlayerSystem {
     type SystemData = (
-        ReadStorage<'a, Player>,
         Read<'a, InputManager<IngameBindings>>,
+        ReadStorage<'a, Player>,
+        WriteStorage<'a, Movable>,
     );
 
-    fn run(&mut self, (player_store, input_manager): Self::SystemData) {
-        for _ in player_store.join() {
+    fn run(
+        &mut self,
+        (input_manager, player_store, mut movable_store): Self::SystemData,
+    ) {
+        for (_, movable) in (&player_store, &mut movable_store).join() {
             if let Some(x) = input_manager.axis_value(IngameAxis::MoveX) {
-                dbg!(x);
+                if x != 0.0 {
+                    movable.add_action(MoveAction::Walk(x));
+                }
             }
         }
     }

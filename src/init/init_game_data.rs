@@ -104,8 +104,16 @@ pub(super) fn build_game_data<'a, 'b>(
             DispatcherId::Ingame,
             ControlPlayerSystem::default(),
             "control_player_system",
-            &[],
-        )?;
+            &["ingame_input_manager_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            HandleMovablesSystem::default(),
+            "handle_movables_system",
+            &["control_player_system"],
+        )?
+        // - comment for easier copy/pasting -
+        ;
 
     Ok(custom_game_data)
 }

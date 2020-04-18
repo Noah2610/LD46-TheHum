@@ -3,15 +3,21 @@ use super::component_prelude::*;
 #[derive(Clone, Deserialize)]
 pub enum MoveAction {
     Walk(f32),
-    Jump(f32),
+    Jump,
 }
 
 #[derive(Component, Clone, Deserialize)]
 pub struct Movable {
-    acceleration:  f32,
-    jump_strength: f32,
+    pub data: MovableData,
     #[serde(skip)]
-    actions:       Vec<MoveAction>,
+    actions:  Vec<MoveAction>,
+}
+
+#[derive(Clone, Deserialize)]
+pub struct MovableData {
+    pub acceleration:  f32,
+    pub max_velocity:  f32,
+    pub jump_strength: f32,
 }
 
 impl ActionQueue for Movable {

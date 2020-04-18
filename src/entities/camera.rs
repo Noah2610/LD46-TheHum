@@ -31,6 +31,5 @@ pub fn init_camera(world: &mut World, player: Entity) -> Entity {
         .with(transform)
         .with(size)
         .with(camera)
-        .with(Follow::new(player))
         .build()
 }
