@@ -1,9 +1,10 @@
 (
     title:          "LD46 The Flame's Light",
+    // fullscreen:     Some((0, "")),
     fullscreen:     None,
-    dimensions:     Some((720, 720)),
-    max_dimensions: Some((720, 720)),
-    min_dimensions: Some((720, 720)),
+    dimensions:     Some((1280, 720)),
+    max_dimensions: Some((1280, 720)),
+    min_dimensions: Some((1280, 720)),
     visibility:     true,
     decorations:    true,
     maximized:      false,
