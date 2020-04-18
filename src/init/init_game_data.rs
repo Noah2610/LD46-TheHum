@@ -112,6 +112,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_movables_system",
             &["control_player_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            HandleFlameVisibilitySystem::default(),
+            "handle_flame_visibility_system",
+            &["move_entities_system"],
+        )?
         // - comment for easier copy/pasting -
         ;
 

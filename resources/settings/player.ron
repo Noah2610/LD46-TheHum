@@ -27,4 +27,7 @@
     gravity: (
         y: -300.0,
     ),
+    flame: (
+        radius: 50.0,
+    ),
 )

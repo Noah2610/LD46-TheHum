@@ -9,4 +9,5 @@ pub struct PlayerSettings {
     pub movable:       Movable,
     pub base_friction: BaseFriction,
     pub gravity:       Gravity,
+    pub flame:         Flame,
 }

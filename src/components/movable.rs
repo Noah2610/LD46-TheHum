@@ -8,6 +8,7 @@ pub enum MoveAction {
 }
 
 #[derive(Component, Clone, Deserialize)]
+#[storage(DenseVecStorage)]
 #[serde(from = "MovableData")]
 pub struct Movable {
     pub data: MovableData,

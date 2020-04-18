@@ -30,7 +30,8 @@ pub(super) fn load_tiles(
             .with(tile_size.clone())
             .with(ScaleOnce::default())
             .with(sprite_render)
-            .with(Transparent);
+            .with(Transparent)
+            .with(VisibleInFlame::default());
 
         if let Some(tile_settings) = tiles_settings.get(&tile.tile_type) {
             if tile_settings.is_solid.unwrap_or(false) {
