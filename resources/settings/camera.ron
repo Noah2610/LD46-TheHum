@@ -2,8 +2,4 @@
 #![enable(implicit_some)]
 (
     z: 10.0,
-    size: (
-        w: 100.0,
-        h: 100.0,
-    ),
 )
