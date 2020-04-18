@@ -11,6 +11,10 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
         let _camera = entities::init_camera(data.world, player);
     }
 
+    fn on_stop(&mut self, data: StateData<GameData<'a, 'b>>) {
+        data.world.delete_all();
+    }
+
     fn update(
         &mut self,
         data: StateData<GameData<'a, 'b>>,
