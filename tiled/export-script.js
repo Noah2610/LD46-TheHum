@@ -62,49 +62,6 @@
         };
     }
 
-    // Converts the given type string into an appropriate type,
-    // that can be parsed as an enum with optional fields by serde.
-    // Examples:
-    //     "Player"
-    //         ...converts to...
-    //     "Player"
-    //
-    //     "Enemy(Normal)"
-    //         ...converts to...
-    //     { "Enemy": "Normal" }
-    //
-    //     "BigEnemy(Tank, Large)"
-    //         ...converts to...
-    //     { "Enemy": ["Tank", "Large"] }
-    function convertTypeString(typeString) {
-        let returnType = typeString;
-        const match = typeString.match(/^\s*(\w+)(\((.*)\))?\s*$/) || [];
-        const ident = match[1];
-        const fieldsString = match[3];
-        if (ident) {
-            if (fieldsString) {
-                const fields = fieldsString.split(/\s*,\s*/);
-                if (fields.length === 0) {
-                    returnType = {
-                        [ident]: null,
-                    };
-                } else if (fields.length === 1) {
-                    returnType = {
-                        [ident]: fields[0],
-                    };
-                } else if (fields.length > 1) {
-                    returnType = {
-                        [ident]: fields,
-                    };
-                }
-            } else {
-                returnType = ident;
-            }
-        }
-
-        return returnType;
-    }
-
     function getHitboxFrom(objectGroup, layer) {
         const hitboxRects = [];
         const tileSize = {
@@ -174,7 +131,7 @@
                     );
 
                     tileOutput.id = tile.id;
-                    tileOutput.type = convertTypeString(tile.type);
+                    tileOutput.type = tile.type;
                     tileOutput.ts = tilesetName;
                     tileOutput.pos = pos;
                     tileOutput.props = Object.assign({}, layerProps, tileProps);
@@ -207,7 +164,7 @@
                 mapSize,
             );
             const objectOutput = {
-                type: convertTypeString(object.type),
+                type: object.type,
                 pos: pos,
                 size: {
                     w: object.width,
