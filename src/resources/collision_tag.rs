@@ -4,12 +4,14 @@ use deathframe::physics::CollisionTag as CTag;
 pub enum CollisionTag {
     Player,
     Solid,
+    Bonfire,
 }
 
 impl CTag for CollisionTag {
     fn collides_with(&self, other: &Self) -> bool {
         match (self, other) {
             (CollisionTag::Player, CollisionTag::Solid) => true,
+            (CollisionTag::Player, CollisionTag::Bonfire) => true,
             _ => false,
         }
     }

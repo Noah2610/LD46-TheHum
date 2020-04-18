@@ -27,7 +27,7 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(bonfire_settings.flame)
         .with(animations)
         .with(sprite_render)
-        .with(Solid::new(SolidTag::Solid))
+        .with(Collidable::new(CollisionTag::Bonfire))
         .with(Transparent)
         .with(ScaleOnce::default())
         .build()
