@@ -9,4 +9,10 @@ pub struct BonfireSettings {
     pub hitbox:     Hitbox,
     pub flame:      Flame,
     pub animations: AnimationsContainer<AnimationKey>,
+    pub halo:       HaloSettings,
+}
+
+#[derive(Clone, Deserialize)]
+pub struct HaloSettings {
+    pub animation: Option<Animation>,
 }

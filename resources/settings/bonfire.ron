@@ -24,4 +24,12 @@
             (5, 100),
         ]),
     },
+
+    /// HALO SETTINGS
+    halo: (
+        /// optional animation
+        // animation: [
+        //     (0, 1000),
+        // ]
+    ),
 )

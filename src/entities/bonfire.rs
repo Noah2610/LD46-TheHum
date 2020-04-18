@@ -38,14 +38,19 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         (s, s)
     });
 
-    let _halo = world
+    let mut halo_builder = world
         .create_entity()
         .with(halo_transform)
         .with(halo_size)
         .with(halo_sprite_render)
         .with(ScaleOnce::default())
-        .with(Transparent)
-        .build();
+        .with(Transparent);
+
+    if let Some(animation) = bonfire_settings.halo.animation {
+        halo_builder = halo_builder.with(animation);
+    }
+
+    let _halo = halo_builder.build();
 
     world
         .create_entity()
