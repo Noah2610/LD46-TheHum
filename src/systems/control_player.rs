@@ -7,7 +7,7 @@ pub struct ControlPlayerSystem;
 impl<'a> System<'a> for ControlPlayerSystem {
     type SystemData = (
         Read<'a, InputManager<IngameBindings>>,
-        ReadStorage<'a, Player>,
+        WriteStorage<'a, Player>,
         WriteStorage<'a, Movable>,
         ReadStorage<'a, Collider<CollisionTag>>,
     );
@@ -16,14 +16,25 @@ impl<'a> System<'a> for ControlPlayerSystem {
         &mut self,
         (
             input_manager,
-            player_store,
+            mut player_store,
             mut movable_store,
             collider_store,
         ): Self::SystemData,
     ) {
-        for (_, movable, collider) in
-            (&player_store, &mut movable_store, &collider_store).join()
+        for (player, movable, collider) in
+            (&mut player_store, &mut movable_store, &collider_store).join()
         {
+            // UPDATE player.on_ground
+            // this shouldn't be here but whatever dude
+            player.on_ground = {
+                use deathframe::physics::query::exp::prelude_variants::*;
+                collider
+                    .query::<FindQuery<CollisionTag>>()
+                    .exp(&And(vec![IsSide(Bottom), IsTag(CollisionTag::Solid)]))
+                    .run()
+                    .is_some()
+            };
+
             // MOVE
             if let Some(x) = input_manager.axis_value(IngameAxis::MoveX) {
                 if x != 0.0 {
@@ -33,18 +44,7 @@ impl<'a> System<'a> for ControlPlayerSystem {
 
             // JUMP
             if input_manager.is_down(IngameAction::Jump) {
-                let on_ground = {
-                    use deathframe::physics::query::exp::prelude_variants::*;
-                    collider
-                        .query::<FindQuery<CollisionTag>>()
-                        .exp(&And(vec![
-                            IsSide(Bottom),
-                            IsTag(CollisionTag::Solid),
-                        ]))
-                        .run()
-                        .is_some()
-                };
-                if on_ground {
+                if player.on_ground {
                     movable.add_action(MoveAction::Jump);
                 }
             } else if input_manager.is_up(IngameAction::Jump) {

@@ -1,5 +1,7 @@
 use super::component_prelude::*;
 
 #[derive(Default, Component)]
-#[storage(NullStorage)]
-pub struct Player;
+#[storage(VecStorage)]
+pub struct Player {
+    pub on_ground: bool,
+}

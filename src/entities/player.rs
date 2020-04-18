@@ -31,5 +31,6 @@ pub fn init_player(world: &mut World, transform: Transform) -> Entity {
         .with(player_settings.base_friction)
         .with(player_settings.gravity)
         .with(player_settings.flame)
+        .with(player_settings.animations)
         .build()
 }

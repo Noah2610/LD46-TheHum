@@ -118,6 +118,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_flame_visibility_system",
             &["move_entities_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            UpdatePlayerAnimationSystem::default(),
+            "update_player_animation_system",
+            &["control_player_system"],
+        )?
         // - comment for easier copy/pasting -
         ;
 

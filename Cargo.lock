@@ -955,7 +955,7 @@ dependencies = [
 [[package]]
 name = "deathframe"
 version = "0.6.0"
-source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#70211dc8dbcccc5cb8a6f56a103a7bee53e26db7"
+source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#b5d23e596fa76106d4a4055ce9f0d0179df3eb06"
 dependencies = [
  "deathframe_animation",
  "deathframe_audio",
@@ -966,7 +966,7 @@ dependencies = [
 [[package]]
 name = "deathframe_animation"
 version = "0.1.0"
-source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#70211dc8dbcccc5cb8a6f56a103a7bee53e26db7"
+source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#b5d23e596fa76106d4a4055ce9f0d0179df3eb06"
 dependencies = [
  "climer",
  "deathframe_core",
@@ -977,7 +977,7 @@ dependencies = [
 [[package]]
 name = "deathframe_audio"
 version = "0.1.0"
-source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#70211dc8dbcccc5cb8a6f56a103a7bee53e26db7"
+source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#b5d23e596fa76106d4a4055ce9f0d0179df3eb06"
 dependencies = [
  "deathframe_core",
  "serde",
@@ -986,7 +986,7 @@ dependencies = [
 [[package]]
 name = "deathframe_core"
 version = "0.1.0"
-source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#70211dc8dbcccc5cb8a6f56a103a7bee53e26db7"
+source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#b5d23e596fa76106d4a4055ce9f0d0179df3eb06"
 dependencies = [
  "amethyst",
  "derive_builder",
@@ -996,7 +996,7 @@ dependencies = [
 [[package]]
 name = "deathframe_physics"
 version = "0.1.0"
-source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#70211dc8dbcccc5cb8a6f56a103a7bee53e26db7"
+source = "git+https://github.com/Noah2610/deathframe?branch=develop-ld46#b5d23e596fa76106d4a4055ce9f0d0179df3eb06"
 dependencies = [
  "deathframe_core",
  "derive_builder",
