@@ -3,6 +3,8 @@
 use super::menu_prelude::*;
 use super::state_prelude::*;
 
+const DEFAULT_LEVEL: &str = "dev.json";
+
 #[derive(Default)]
 pub struct MainMenu {
     ui_data: UiData,
@@ -46,7 +48,9 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for MainMenu {
         let input_manager =
             data.world.read_resource::<InputManager<MenuBindings>>();
         if input_manager.is_down(MenuAction::Enter) {
-            return Trans::Push(Box::new(Ingame::default()));
+            return Trans::Push(Box::new(Ingame::new(
+                DEFAULT_LEVEL.to_string(),
+            )));
         } else if input_manager.is_down(MenuAction::Back) {
             return Trans::Quit;
         }
@@ -75,7 +79,9 @@ impl<'a, 'b> Menu<GameData<'a, 'b>, StateEvent> for MainMenu {
     ) -> Option<Trans<GameData<'a, 'b>, StateEvent>> {
         if let UiEventType::ClickStop = event.event_type {
             match event_name.as_str() {
-                "btn_start" => Some(Trans::Push(Box::new(Ingame::default()))),
+                "btn_start" => Some(Trans::Push(Box::new(Ingame::new(
+                    DEFAULT_LEVEL.to_string(),
+                )))),
                 "btn_quit" => Some(Trans::Quit),
                 _ => None,
             }

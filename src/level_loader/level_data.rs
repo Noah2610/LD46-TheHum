@@ -1,5 +1,6 @@
 use super::ObjectType;
 use super::TileType;
+use crate::components::prelude::{Size, Transform};
 use serde_json::Value as JsonValue;
 use std::collections::HashMap;
 
@@ -9,10 +10,25 @@ pub struct PosData {
     pub y: f32,
 }
 
+impl Into<Transform> for &PosData {
+    fn into(self) -> Transform {
+        let mut transform = Transform::default();
+        transform.set_translation_x(self.x);
+        transform.set_translation_x(self.y);
+        transform
+    }
+}
+
 #[derive(Clone, Deserialize)]
 pub struct SizeData {
     pub w: f32,
     pub h: f32,
+}
+
+impl Into<Size> for &SizeData {
+    fn into(self) -> Size {
+        Size::new(self.w, self.h)
+    }
 }
 
 #[derive(Clone, Deserialize)]
@@ -37,7 +53,7 @@ pub struct LevelData {
 
 #[derive(Clone, Deserialize)]
 pub struct TileData {
-    pub id:        i64,
+    pub id:        usize,
     #[serde(rename = "type")]
     pub tile_type: TileType,
     pub ts:        String,
@@ -52,4 +68,24 @@ pub struct ObjectData {
     pub pos:         PosData,
     pub size:        SizeData,
     pub props:       Props,
+}
+
+impl Into<Transform> for &TileData {
+    fn into(self) -> Transform {
+        let mut transform: Transform = (&self.pos).into();
+        if let Some(z) = self.props.z {
+            transform.set_translation_z(z);
+        }
+        transform
+    }
+}
+
+impl Into<Transform> for &ObjectData {
+    fn into(self) -> Transform {
+        let mut transform: Transform = (&self.pos).into();
+        if let Some(z) = self.props.z {
+            transform.set_translation_z(z);
+        }
+        transform
+    }
 }
