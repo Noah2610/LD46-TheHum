@@ -1,5 +1,7 @@
 use super::ObjectType;
 use super::TileType;
+use serde_json::Value as JsonValue;
+use std::collections::HashMap;
 
 #[derive(Clone, Deserialize)]
 pub struct PosData {
@@ -15,7 +17,9 @@ pub struct SizeData {
 
 #[derive(Clone, Deserialize)]
 pub struct Props {
-    pub z: Option<f32>,
+    pub z:     Option<f32>,
+    #[serde(flatten)]
+    pub other: HashMap<String, JsonValue>,
 }
 
 #[derive(Clone, Deserialize)]
