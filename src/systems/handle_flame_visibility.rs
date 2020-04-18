@@ -26,8 +26,7 @@ impl<'a> System<'a> for HandleFlameVisibilitySystem {
         let mut visibility_loader = EntityComponentInserter::default()
             .with_priority(InsertionAction::Insert);
 
-        for (flame_entity, flame, flame_transform) in
-            (&entities, &flame_store, &transform_store).join()
+        for (flame, flame_transform) in (&flame_store, &transform_store).join()
         {
             let flame_pos = {
                 let trans = flame_transform.translation();
