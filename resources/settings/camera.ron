@@ -1,0 +1,9 @@
+// src/settings/camera_settings.rs
+#![enable(implicit_some)]
+(
+    z: 10.0,
+    size: (
+        w: 200.0,
+        h: 200.0,
+    ),
+)

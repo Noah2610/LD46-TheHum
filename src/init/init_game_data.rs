@@ -46,15 +46,14 @@ pub(super) fn build_game_data<'a, 'b>(
         .with_core(PrintFpsSystem::default(), "print_fps_system", &[])?
         .with_core(CameraOrthoSystem::default(), "camera_ortho_system", &[])?
         .with_core(ScaleSpritesSystem::default(), "scale_sprites_system", &[])?
+        .with_core(
+            InputManagerSystem::<MenuBindings>::default(),
+            "menu_input_manager_system",
+            &[],
+        )?
         .with_bundle(DispatcherId::Ingame, ingame_input_bundle)?
         .with_bundle(DispatcherId::Ingame, physics_bundle)?
         .with_bundle(DispatcherId::Ingame, animation_bundle)?
-        .with(
-            DispatcherId::MainMenu,
-            InputManagerSystem::<MenuBindings>::default(),
-            "main_menu_input_manager_system",
-            &[],
-        )?
         .with(
             DispatcherId::Ingame,
             InputManagerSystem::<IngameBindings>::default(),
@@ -100,7 +99,21 @@ pub(super) fn build_game_data<'a, 'b>(
             UpdateLifecycleSystem::default(),
             "update_lifecycle_system",
             &[],
-        )?;
+        )?
+        .with(
+            DispatcherId::Ingame,
+            ControlPlayerSystem::default(),
+            "control_player_system",
+            &["ingame_input_manager_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            HandleMovablesSystem::default(),
+            "handle_movables_system",
+            &["control_player_system"],
+        )?
+        // - comment for easier copy/pasting -
+        ;
 
     Ok(custom_game_data)
 }

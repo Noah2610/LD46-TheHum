@@ -5,8 +5,8 @@ use std::path::PathBuf;
 pub struct Startup;
 
 impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Startup {
-    fn on_start(&mut self, mut data: StateData<GameData<'a, 'b>>) {
-        insert_resources(&mut data.world);
+    fn on_start(&mut self, data: StateData<GameData<'a, 'b>>) {
+        insert_resources(data.world);
     }
 
     fn update(
@@ -19,7 +19,8 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Startup {
 }
 
 fn insert_resources(world: &mut World) {
-    use deathframe::core::resources::prelude::SpriteSheetHandles;
+    let settings = Settings::load().unwrap();
+    world.insert(settings);
 
     let sprite_sheet_handles = SpriteSheetHandles::<PathBuf>::default();
     world.insert(sprite_sheet_handles);

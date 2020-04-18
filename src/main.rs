@@ -3,13 +3,14 @@ extern crate ron;
 #[macro_use]
 extern crate serde;
 
-mod components;
-mod init;
-mod input;
-mod resources;
-mod settings;
-mod states;
-mod systems;
+pub mod components;
+pub mod entities;
+pub mod init;
+pub mod input;
+pub mod resources;
+pub mod settings;
+pub mod states;
+pub mod systems;
 
 pub use deathframe::core::resource_helper::resource;
 
