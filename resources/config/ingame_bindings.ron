@@ -1,4 +1,9 @@
+// src/input/ingame_bindings.rs
 (
-    axes: {},
-    actions: {},
+    axes: {
+        MoveX: Emulated(pos: Key(D), neg: Key(A)),
+    },
+    actions: {
+        Jump: [ [Key(Space)], [Key(K)], ],
+    },
 )
