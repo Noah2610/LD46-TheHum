@@ -21,7 +21,7 @@
     ),
     base_friction: (
         friction_x: 100.0,
-        friction_y: 100.0,
+        // friction_y: 100.0,
     ),
     gravity: (
         y: -100.0,
