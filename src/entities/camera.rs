@@ -1,6 +1,6 @@
 use super::init_prelude::*;
 
-pub fn init_camera(world: &mut World, player: Entity) -> Entity {
+pub fn init_camera(world: &mut World, mut transform: Transform) -> Entity {
     use deathframe::amethyst::renderer::Camera;
     use deathframe::amethyst::utils::ortho_camera::{
         CameraNormalizeMode,
@@ -10,7 +10,6 @@ pub fn init_camera(world: &mut World, player: Entity) -> Entity {
 
     let camera_settings = world.read_resource::<Settings>().camera.clone();
 
-    let mut transform = Transform::default();
     transform.set_translation_z(camera_settings.z);
 
     let size = Size::from(camera_settings.size);

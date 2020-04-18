@@ -1,7 +1,6 @@
 // src/settings/player_settings.rs
 #![enable(implicit_some)]
 (
-    z: 1.0,
     size: (
         w: 16.0,
         h: 16.0

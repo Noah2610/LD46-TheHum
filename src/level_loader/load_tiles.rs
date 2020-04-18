@@ -6,6 +6,8 @@ pub(super) fn load_tiles(
     tile_size: Size,
 ) -> amethyst::Result<()> {
     for tile in tiles {
+        dbg!(&tile.tile_type);
+
         let transform: Transform = (&tile).into();
 
         let sprite_render = {

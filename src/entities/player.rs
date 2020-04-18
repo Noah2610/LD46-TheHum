@@ -1,10 +1,7 @@
 use super::init_prelude::*;
 
-pub fn init_player(world: &mut World) -> Entity {
+pub fn init_player(world: &mut World, transform: Transform) -> Entity {
     let player_settings = world.read_resource::<Settings>().player.clone();
-
-    let mut transform = Transform::default();
-    transform.set_translation_z(player_settings.z);
 
     let sprite_render = {
         let sprite_sheet = world
