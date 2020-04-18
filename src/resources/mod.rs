@@ -1,5 +1,5 @@
 pub mod prelude {
-    pub use super::animation_key::AnimationKey;
+    pub use super::animation_key::{AnimationKey, ReactiveAnimationKey};
     pub use super::collision_tag::{CollisionTag, SolidTag};
     pub use super::dispatcher_id::DispatcherId;
     pub use super::song_key::SongKey;

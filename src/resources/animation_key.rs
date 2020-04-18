@@ -5,8 +5,22 @@ pub enum AnimationKey {
     Jump,
 }
 
+#[derive(PartialEq, Eq, Hash, Clone, Deserialize, Debug)]
+pub enum ReactiveAnimationKey {
+    Idle,
+    OnEnter,
+    OnSteady,
+    OnLeave,
+}
+
 // DOESN'T SEEM RIGHT STUPID
 impl Default for AnimationKey {
+    fn default() -> Self {
+        Self::Idle
+    }
+}
+
+impl Default for ReactiveAnimationKey {
     fn default() -> Self {
         Self::Idle
     }

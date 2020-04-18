@@ -31,6 +31,8 @@ pub(super) fn build_game_data<'a, 'b>(
     let physics_bundle =
         PhysicsBundle::<CollisionTag, SolidTag>::new().with_deps(&[]);
     let animation_bundle = AnimationBundle::<AnimationKey>::new();
+    let reactive_animation_bundle =
+        AnimationBundle::<ReactiveAnimationKey>::new();
 
     let custom_game_data = GameDataBuilder::default()
         .custom(CustomData::default())
@@ -54,6 +56,7 @@ pub(super) fn build_game_data<'a, 'b>(
         .with_bundle(DispatcherId::Ingame, ingame_input_bundle)?
         .with_bundle(DispatcherId::Ingame, physics_bundle)?
         .with_bundle(DispatcherId::Ingame, animation_bundle)?
+        .with_bundle(DispatcherId::Ingame, reactive_animation_bundle)?
         .with(
             DispatcherId::Ingame,
             InputManagerSystem::<IngameBindings>::default(),
