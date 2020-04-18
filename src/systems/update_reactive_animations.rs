@@ -72,6 +72,7 @@ impl<'a> System<'a> for UpdateReactiveAnimationsSystem {
             {
                 let animation_key: ReactiveAnimationKey =
                     animation_action.into();
+                animations.truncate_animation_stack(2);
                 let _ = animations.push(animation_key);
             }
         }
