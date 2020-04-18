@@ -8,6 +8,7 @@
     "Reactive": (
         is_solid: false,
         reactive_animations: {
+            Default: Cycle([(0, 1000)]),
             OnEnter: Once([
                 (0, 50),
                 (1, 50),

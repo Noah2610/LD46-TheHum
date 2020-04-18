@@ -50,8 +50,8 @@ pub(super) fn load_tiles(
                         "[WARNING]\n    A tile with `reactive_animations` \
                          should define the `Default` animation.\n    Without, \
                          once the player has triggered any animation,\n    it \
-                         will reset to sprite `0`, which is probably not what \
-                         you want."
+                         will stay at the final frame of the last played \
+                         animation,\n    which is probably not what you want."
                     );
                 }
                 entity_builder = entity_builder
