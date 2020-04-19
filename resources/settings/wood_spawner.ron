@@ -1,5 +1,7 @@
 // src/settings/wood_spawner_settings.rs
 #![enable(implicit_some)]
 (
-    spawn_interval_ms: 1000,
+    wood_spawner: (
+        spawn_interval_ms: 1000,
+    ),
 )
