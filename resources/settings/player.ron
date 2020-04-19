@@ -17,8 +17,8 @@
         jump_strength:          100.0,
         kill_jump_strength:     -50.0,
         kill_jump_min_velocity: 10.0,
-        climb_acceleration:     400.0,
-        max_climb_velocity:     25.0,
+        climb_acceleration:     800.0,
+        max_climb_velocity:     50.0,
     ),
     base_friction: (
         friction_x: 500.0,
