@@ -15,10 +15,16 @@ impl<'a> System<'a> for UpdateWoodInventorySystem {
             {
                 match action {
                     WoodInventoryAction::Add(amount) => {
-                        let _ = wood_inventory.woods.checked_add(amount);
+                        wood_inventory.woods = wood_inventory
+                            .woods
+                            .checked_add(amount)
+                            .unwrap_or(wood_inventory.woods);
                     }
                     WoodInventoryAction::Remove(amount) => {
-                        let _ = wood_inventory.woods.checked_sub(amount);
+                        wood_inventory.woods = wood_inventory
+                            .woods
+                            .checked_sub(amount)
+                            .unwrap_or(0);
                     }
                 }
             }
