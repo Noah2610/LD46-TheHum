@@ -194,6 +194,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "decrease_bonfire_flame_system",
             &[],
         )?
+        .with(
+            DispatcherId::Ingame,
+            SpawnBeartrapSystem::default(),
+            "spawn_beartrap_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 

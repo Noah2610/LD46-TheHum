@@ -7,6 +7,7 @@ pub mod prelude {
     pub use super::handle_player_feed_bonfire::HandlePlayerFeedBonfireSystem;
     pub use super::handle_player_wood_pickup::HandlePlayerWoodPickupSystem;
     pub use super::play_random_sounds::PlayRandomSoundsSystem;
+    pub use super::spawn_beartrap::SpawnBeartrapSystem;
     pub use super::spawn_wood::SpawnWoodSystem;
     pub use super::update_bonfire_halo_size::UpdateBonfireHaloSizeSystem;
     pub use super::update_flame_radius::UpdateFlameRadiusSystem;
@@ -34,6 +35,7 @@ mod handle_movables;
 mod handle_player_feed_bonfire;
 mod handle_player_wood_pickup;
 mod play_random_sounds;
+mod spawn_beartrap;
 mod spawn_wood;
 mod update_bonfire_halo_size;
 mod update_flame_radius;

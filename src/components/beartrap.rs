@@ -4,7 +4,9 @@ use super::component_prelude::*;
 #[storage(VecStorage)]
 pub struct Beartrap {
     #[serde(skip)]
-    spawn_at_woods_amount: usize,
+    pub is_active:             bool,
+    #[serde(skip)]
+    pub spawn_at_woods_amount: usize,
 }
 
 impl Beartrap {

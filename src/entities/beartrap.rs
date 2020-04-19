@@ -31,6 +31,7 @@ pub fn init_beartrap(
         .with(Transparent)
         .with(ScaleOnce::default())
         .with(Collidable::new(CollisionTag::Beartrap))
-        .with(VisibleInFlame::default())
+        // .with(VisibleInFlame::default())
+        .with(Hidden)
         .build()
 }
