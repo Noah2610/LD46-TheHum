@@ -5,7 +5,7 @@ pub enum MoveAction {
     Walk(f32),
     Jump,
     KillJump,
-    ClimbLadder(f32),
+    Climb(f32),
 }
 
 #[derive(Component, Clone, Deserialize)]

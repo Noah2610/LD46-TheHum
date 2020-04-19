@@ -10,6 +10,7 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
         WriteStorage<'a, LadderClimber>,
         Read<'a, InputManager<IngameBindings>>,
         ReadStorage<'a, Collider<CollisionTag>>,
+        WriteStorage<'a, Movable>,
         WriteStorage<'a, Gravity>,
         WriteStorage<'a, BaseFriction>,
     );
@@ -21,13 +22,15 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
             mut ladder_climber_store,
             input_manager,
             collider_store,
+            mut movable_store,
             mut gravity_store,
             mut base_friction_store,
         ): Self::SystemData,
     ) {
-        for (ladder_climber, collider, gravity, friction) in (
+        for (ladder_climber, collider, movable, gravity, friction) in (
             &mut ladder_climber_store,
             &collider_store,
+            &mut movable_store,
             &mut gravity_store,
             &mut base_friction_store,
         )
@@ -48,10 +51,11 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
                     if let Some(climb_y) =
                         input_manager.axis_value(IngameAxis::ClimbLadder)
                     {
-                        if climb_y != 0.0 {}
+                        if climb_y != 0.0 {
+                            movable.add_action(MoveAction::Climb(climb_y));
+                        }
                     }
                 } else {
-                    // NOT IN LADDER COLLISION
                     ladder_climber.is_climbing = false;
                     gravity.set_enabled(&Axis::Y, true);
                     friction.set_enabled(&Axis::Y, false);

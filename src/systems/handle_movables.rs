@@ -44,7 +44,7 @@ impl<'a> System<'a> for HandleMovablesSystem {
                         }
                     }
 
-                    MoveAction::ClimbLadder(mult) => {
+                    MoveAction::Climb(mult) => {
                         velocity.increase_with_max(
                             &Axis::Y,
                             data.climb_acceleration * mult * dt,
