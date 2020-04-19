@@ -4,6 +4,7 @@
         MoveX: Emulated(pos: Key(D), neg: Key(A)),
     },
     actions: {
-        Jump: [ [Key(Space)], [Key(K)], ],
+        Jump:     [ [Key(Space)], [Key(K)], ],
+        Interact: [ [Key(E)], [Key(J)], ],
     },
 )
