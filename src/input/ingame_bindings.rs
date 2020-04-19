@@ -9,6 +9,7 @@ pub struct IngameBindings;
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum IngameAxis {
     MoveX,
+    ClimbLadder,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]

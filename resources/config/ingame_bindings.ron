@@ -1,7 +1,8 @@
 // src/input/ingame_bindings.rs
 (
     axes: {
-        MoveX: Emulated(pos: Key(D), neg: Key(A)),
+        MoveX:       Emulated(pos: Key(D), neg: Key(A)),
+        ClimbLadder: Emulated(pos: Key(W), neg: Key(S)),
     },
     actions: {
         Jump:     [ [Key(Space)], [Key(K)], ],

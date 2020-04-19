@@ -10,6 +10,7 @@ pub enum ObjectType {
     Bonfire,
     Wood,
     WoodSpawner,
+    Ladder,
 }
 
 mod load_prelude {

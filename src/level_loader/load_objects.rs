@@ -24,6 +24,11 @@ pub(super) fn load_objects(
                 let _wood_spawner =
                     entities::init_wood_spawner(world, transform);
             }
+
+            ObjectType::Ladder => {
+                let size: Size = (&object.size).into();
+                let _ladder = entities::init_ladder(world, transform, size);
+            }
         }
     }
 

@@ -182,6 +182,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "play_random_sounds_system",
             &[],
         )?
+        .with(
+            DispatcherId::Ingame,
+            HandleLadderClimbingSystem::default(),
+            "handle_ladder_climbing_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 
