@@ -134,6 +134,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "update_reactive_animations_system",
             &["update_collisions_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            SpawnWoodSystem::default(),
+            "spawn_wood_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 
