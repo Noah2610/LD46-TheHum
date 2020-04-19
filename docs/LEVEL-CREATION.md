@@ -1,13 +1,19 @@
 # LD46 Level Creation Documentation
+## Properties
+- `z` (`float`)
+
+No other tiled properties are used.  
+Everything is configured within settings files.
+
 ## Tile types
 Can be any string.  
 Each type can have configuration specified in the  
-[`resources/settings/tiles.ron`] config file.  
-Available fields for a tile config ...
-- `is_solid` (`boolean`)
+[`resources/settings/tiles.ron`] config file.
 
 ## Object types
 - `Player`
 - `Bonfire`
+- `Wood`
+- `WoodSpawner`
 
 [`resources/settings/tiles.ron`]: https://github.com/Noah2610/LD46/blob/master/resources/settings/tiles.ron
