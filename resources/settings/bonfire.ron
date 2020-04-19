@@ -13,8 +13,13 @@
     )],
     bonfire: (
         flame_decrease: (
-            step: 1.0,
+            step: 10.0,
             interval_ms: 500,
+            // Pseudo formula for decreasing flame radius:
+            //     radius -= step * (woods * woods_mult)
+            // This has a convenient side-effect that the radius
+            // isn't decreased when the player has not fed a wood yet.
+            woods_mult: 0.1,
         ),
     ),
     flame: (

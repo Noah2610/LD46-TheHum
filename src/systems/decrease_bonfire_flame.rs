@@ -13,14 +13,25 @@ impl<'a> System<'a> for DecreaseBonfireFlameSystem {
         Entities<'a>,
         ReadStorage<'a, Bonfire>,
         WriteStorage<'a, Flame>,
+        ReadStorage<'a, WoodInventory>,
     );
 
     fn run(
         &mut self,
-        (entities, bonfire_store, mut flame_store): Self::SystemData,
+        (
+            entities,
+            bonfire_store,
+            mut flame_store,
+            wood_inventory_store,
+        ): Self::SystemData,
     ) {
-        for (entity, bonfire, flame) in
-            (&entities, &bonfire_store, &mut flame_store).join()
+        for (entity, bonfire, flame, inventory) in (
+            &entities,
+            &bonfire_store,
+            &mut flame_store,
+            &wood_inventory_store,
+        )
+            .join()
         {
             let timer = self.timers.entry(entity).or_insert_with(|| {
                 Timer::new(
@@ -40,7 +51,10 @@ impl<'a> System<'a> for DecreaseBonfireFlameSystem {
             timer.update().unwrap();
 
             if timer.state.is_finished() {
-                flame.radius = (flame.radius - bonfire.flame_decrease.step)
+                flame.radius = (flame.radius
+                    - (bonfire.flame_decrease.step
+                        * (inventory.woods as f32
+                            * bonfire.flame_decrease.woods_mult)))
                     .max(flame.min_radius);
             }
         }
