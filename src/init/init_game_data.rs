@@ -200,6 +200,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "spawn_beartrap_system",
             &[],
         )?
+        .with(
+            DispatcherId::Ingame,
+            HandleBeartrapHitSystem::default(),
+            "handle_beartrap_hit_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 

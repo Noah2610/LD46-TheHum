@@ -184,7 +184,7 @@
   <properties>
    <property name="z" type="float" value="1"/>
   </properties>
-  <object id="1" name="PLAYER" type="Player" x="4" y="248" width="4" height="4"/>
+  <object id="1" name="PLAYER" type="Player" x="12" y="216" width="4" height="4"/>
  </objectgroup>
  <objectgroup id="6" name="bonfire">
   <properties>

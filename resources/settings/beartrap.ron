@@ -11,5 +11,7 @@
         left:   -2.0,
         right:   2.0,
     )],
-    beartrap: (),
+    beartrap: (
+        crippled_duration_ms: 3000,
+    ),
 )
