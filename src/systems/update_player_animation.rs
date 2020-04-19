@@ -1,6 +1,6 @@
 use super::system_prelude::*;
 
-const IDLE_VEL_PADDING: f32 = 10.0;
+const VEL_PADDING: f32 = 10.0;
 
 #[derive(Default)]
 pub struct UpdatePlayerAnimationSystem;
@@ -30,16 +30,17 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         )
             .join()
         {
-            if velocity.x.is_sign_negative() {
-                let scale = transform.scale_mut();
-                scale.x = scale.x.abs() * -1.0;
-            } else {
+            let vel_x_sign = velocity.x.signum();
+            if vel_x_sign > VEL_PADDING {
                 let scale = transform.scale_mut();
                 scale.x = scale.x.abs();
+            } else if vel_x_sign < -VEL_PADDING {
+                let scale = transform.scale_mut();
+                scale.x = scale.x.abs() * -1.0;
             }
 
             if player.on_ground {
-                if velocity.x.abs() < IDLE_VEL_PADDING {
+                if velocity.x.abs() < VEL_PADDING {
                     let _ = animations.play(AnimationKey::Idle);
                 } else {
                     let _ = animations.play(AnimationKey::Walk);

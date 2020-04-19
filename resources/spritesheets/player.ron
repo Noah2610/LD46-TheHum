@@ -1,30 +1,118 @@
 List((
-    texture_width: 4,
-    texture_height: 4,
+    texture_width: 192,
+    texture_height: 320,
     sprites: [
+        // 0 - IDLE 0
         (
             x: 0,
             y: 0,
-            width: 2,
-            height: 2,
+            width: 32,
+            height: 48,
         ),
+        // 1 - IDLE 1
         (
-            x: 2,
+            x: 32,
             y: 0,
-            width: 2,
-            height: 2,
+            width: 32,
+            height: 48,
         ),
+        // 2 - WALK 0
         (
             x: 0,
-            y: 2,
-            width: 2,
-            height: 2,
+            y: 48,
+            width: 32,
+            height: 48,
         ),
+        // 3 - WALK 1
         (
-            x: 2,
-            y: 2,
-            width: 2,
-            height: 2,
+            x: 32,
+            y: 48,
+            width: 32,
+            height: 48,
+        ),
+        // 4 - WALK 2
+        (
+            x: 64,
+            y: 48,
+            width: 32,
+            height: 48,
+        ),
+        // 5 - WALK 3
+        (
+            x: 96,
+            y: 48,
+            width: 32,
+            height: 48,
+        ),
+        // 6 - WALK 4
+        (
+            x: 128,
+            y: 48,
+            width: 32,
+            height: 48,
+        ),
+        // 7 - WALK 5
+        (
+            x: 160,
+            y: 48,
+            width: 32,
+            height: 48,
+        ),
+        // 8 - CRIPPLE IDLE 0
+        (
+            x: 0,
+            y: 96,
+            width: 32,
+            height: 48,
+        ),
+        // 9 - CRIPPLE IDLE 1
+        (
+            x: 32,
+            y: 96,
+            width: 32,
+            height: 48,
+        ),
+        // 10 - CRIPPLE WALK 0
+        (
+            x: 0,
+            y: 144,
+            width: 32,
+            height: 48,
+        ),
+        // 11 - CRIPPLE WALK 1
+        (
+            x: 32,
+            y: 144,
+            width: 32,
+            height: 48,
+        ),
+        // 12 - CRIPPLE WALK 2
+        (
+            x: 64,
+            y: 144,
+            width: 32,
+            height: 48,
+        ),
+        // 13 - CRIPPLE WALK 3
+        (
+            x: 96,
+            y: 144,
+            width: 32,
+            height: 48,
+        ),
+        // 14 - CRIPPLE WALK 4
+        (
+            x: 128,
+            y: 144,
+            width: 32,
+            height: 48,
+        ),
+        // 15 - CRIPPLE WALK 5
+        (
+            x: 160,
+            y: 144,
+            width: 32,
+            height: 48,
         ),
     ],
 ))
