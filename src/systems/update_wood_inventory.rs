@@ -18,6 +18,9 @@ impl<'a> System<'a> for UpdateWoodInventorySystem {
                         wood_inventory.woods = wood_inventory
                             .woods
                             .checked_add(amount)
+                            .map(|new_amount| {
+                                new_amount.min(wood_inventory.max_woods)
+                            })
                             .unwrap_or(wood_inventory.woods);
                     }
                     WoodInventoryAction::Remove(amount) => {
