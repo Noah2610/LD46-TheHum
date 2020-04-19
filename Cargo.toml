@@ -5,6 +5,7 @@ authors = ["Noah Rosenzweig <rosenzweig.noah@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+rand = "0.7.3"
 ron = "0.5.1"
 serde_json = "1.0.51"
 
@@ -19,6 +20,11 @@ features = [
     "physics",
     "vulkan",
 ]
+
+[dependencies.climer]
+version =  "0.6.0"
+default-features = false
+features = ["serialize"]
 
 [dependencies.serde]
 version = "1.0.104"

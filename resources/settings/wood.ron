@@ -1,0 +1,14 @@
+// src/settings/wood_settings.rs
+#![enable(implicit_some)]
+(
+    size: (
+        w: 16.0,
+        h: 16.0,
+    ),
+    hitbox: [(
+        top:     8.0,
+        bottom: -8.0,
+        left:   -8.0,
+        right:   8.0,
+    )],
+)

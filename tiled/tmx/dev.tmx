@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="7" nextobjectid="4">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="8" nextobjectid="10">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="deathfloor-export"/>
  </editorsettings>
@@ -163,6 +163,16 @@
 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="7" name="wood">
+  <properties>
+   <property name="z" type="float" value="0.5"/>
+  </properties>
+  <object id="4" name="WOOD" type="Wood" x="24" y="276" width="4" height="4"/>
+  <object id="6" name="WOOD" type="Wood" x="44" y="272" width="4" height="4"/>
+  <object id="7" name="WOOD" type="Wood" x="64" y="276" width="4" height="4"/>
+  <object id="8" name="WOOD SPAWNER" type="WoodSpawner" x="36" y="264" width="4" height="4"/>
+  <object id="9" name="WOOD SPAWNER" type="WoodSpawner" x="56" y="264" width="4" height="4"/>
+ </objectgroup>
  <objectgroup id="3" name="player">
   <properties>
    <property name="z" type="float" value="1"/>

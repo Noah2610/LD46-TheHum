@@ -1,0 +1,14 @@
+// src/settings/wood_spawner_settings.rs
+#![enable(implicit_some)]
+(
+    wood_spawner: (
+        // spawn wood in this interval, if it is active
+        spawn_interval_ms: 1000,
+    ),
+    wood_spawner_manager: (
+        // randomly make all wood spawners active or inactive
+        update_interval_ms: 5000,
+        // percentage of wood spawners to make active (0.0 - 1.0)
+        active_percentage: 0.5,
+    ),
+)

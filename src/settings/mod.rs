@@ -6,6 +6,8 @@ pub mod prelude {
     pub use super::songs_settings::SongsSettings;
     pub use super::sounds_settings::SoundsSettings;
     pub use super::tiles_settings::{TileSettings, TilesSettings};
+    pub use super::wood_settings::WoodSettings;
+    pub use super::wood_spawner_settings::WoodSpawnerSettings;
     pub use super::Settings;
 }
 
@@ -16,6 +18,8 @@ mod player_settings;
 mod songs_settings;
 mod sounds_settings;
 mod tiles_settings;
+mod wood_settings;
+mod wood_spawner_settings;
 
 use crate::resource;
 use deathframe::amethyst;
@@ -25,25 +29,29 @@ use std::fs::File;
 
 #[derive(Clone, Deserialize)]
 pub struct Settings {
-    pub general: GeneralSettings,
-    pub player:  PlayerSettings,
-    pub camera:  CameraSettings,
-    pub tiles:   TilesSettings,
-    pub songs:   SongsSettings,
-    pub sounds:  SoundsSettings,
-    pub bonfire: BonfireSettings,
+    pub general:      GeneralSettings,
+    pub player:       PlayerSettings,
+    pub camera:       CameraSettings,
+    pub tiles:        TilesSettings,
+    pub songs:        SongsSettings,
+    pub sounds:       SoundsSettings,
+    pub bonfire:      BonfireSettings,
+    pub wood:         WoodSettings,
+    pub wood_spawner: WoodSpawnerSettings,
 }
 
 impl Settings {
     pub fn load() -> amethyst::Result<Self> {
         Ok(Self {
-            general: load_settings("general.ron")?,
-            player:  load_settings("player.ron")?,
-            camera:  load_settings("camera.ron")?,
-            tiles:   load_settings("tiles.ron")?,
-            songs:   load_settings("songs.ron")?,
-            sounds:  load_settings("sounds.ron")?,
-            bonfire: load_settings("bonfire.ron")?,
+            general:      load_settings("general.ron")?,
+            player:       load_settings("player.ron")?,
+            camera:       load_settings("camera.ron")?,
+            tiles:        load_settings("tiles.ron")?,
+            songs:        load_settings("songs.ron")?,
+            sounds:       load_settings("sounds.ron")?,
+            bonfire:      load_settings("bonfire.ron")?,
+            wood:         load_settings("wood.ron")?,
+            wood_spawner: load_settings("wood_spawner.ron")?,
         })
     }
 }

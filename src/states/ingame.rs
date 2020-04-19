@@ -25,6 +25,14 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
             .world
             .write_resource::<Songs<SongKey>>()
             .play(&SongKey::Ambience);
+
+        let wood_spawner_manager = data
+            .world
+            .read_resource::<Settings>()
+            .wood_spawner
+            .wood_spawner_manager
+            .clone();
+        data.world.insert(wood_spawner_manager);
     }
 
     fn on_stop(&mut self, data: StateData<GameData<'a, 'b>>) {
