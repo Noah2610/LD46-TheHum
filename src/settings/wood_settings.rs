@@ -1,3 +1,5 @@
+// resources/settings/wood.ron
+
 use crate::components::prelude::*;
 
 #[derive(Clone, Deserialize)]
