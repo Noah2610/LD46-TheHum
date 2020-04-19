@@ -5,6 +5,7 @@ pub mod prelude {
     pub use super::handle_player_feed_bonfire::HandlePlayerFeedBonfireSystem;
     pub use super::handle_player_wood_pickup::HandlePlayerWoodPickupSystem;
     pub use super::spawn_wood::SpawnWoodSystem;
+    pub use super::update_flame_radius::UpdateFlameRadiusSystem;
     pub use super::update_player_animation::UpdatePlayerAnimationSystem;
     pub use super::update_reactive_animations::UpdateReactiveAnimationsSystem;
     pub use super::update_wood_inventory::UpdateWoodInventorySystem;
@@ -27,6 +28,7 @@ mod handle_movables;
 mod handle_player_feed_bonfire;
 mod handle_player_wood_pickup;
 mod spawn_wood;
+mod update_flame_radius;
 mod update_player_animation;
 mod update_reactive_animations;
 mod update_wood_inventory;

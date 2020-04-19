@@ -164,6 +164,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_player_feed_bonfire_system",
             &[],
         )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateFlameRadiusSystem::default(),
+            "update_flame_radius_system",
+            &["update_wood_inventory_system"],
+        )?
         // - comment for easier copy/pasting -
         ;
 
