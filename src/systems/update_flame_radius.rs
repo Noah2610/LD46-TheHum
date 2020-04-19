@@ -20,7 +20,7 @@ impl<'a> System<'a> for UpdateFlameRadiusSystem {
         for (entity, flame, inventory) in
             (&entities, &mut flame_store, &wood_inventory_store).join()
         {
-            let cached = self.cache.entry(entity).or_default();
+            let cached = self.cache.entry(entity).or_insert(inventory.woods);
             if inventory.woods != *cached {
                 let difference = inventory.woods as isize - *cached as isize;
                 flame.increase_radius_by_steps(difference);
