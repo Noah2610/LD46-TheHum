@@ -1,15 +1,19 @@
 use super::component_prelude::*;
 
+#[derive(Clone)]
 pub enum WoodInventoryAction {
     Add(usize),
     Remove(usize),
 }
 
-#[derive(Default, Component)]
+#[derive(Component, Clone, Deserialize)]
 #[storage(VecStorage)]
 pub struct WoodInventory {
-    pub woods: usize,
-    actions:   Vec<WoodInventoryAction>,
+    #[serde(skip)]
+    pub woods:     usize,
+    pub max_woods: usize,
+    #[serde(skip)]
+    actions:       Vec<WoodInventoryAction>,
 }
 
 impl WoodInventory {

@@ -5,11 +5,12 @@ use crate::resources::prelude::AnimationKey;
 
 #[derive(Clone, Deserialize)]
 pub struct PlayerSettings {
-    pub size:          Size,
-    pub hitbox:        Hitbox,
-    pub movable:       Movable,
-    pub base_friction: BaseFriction,
-    pub gravity:       Gravity,
-    pub flame:         Flame,
-    pub animations:    AnimationsContainer<AnimationKey>,
+    pub size:           Size,
+    pub hitbox:         Hitbox,
+    pub movable:        Movable,
+    pub base_friction:  BaseFriction,
+    pub gravity:        Gravity,
+    pub flame:          Flame,
+    pub wood_inventory: WoodInventory,
+    pub animations:     AnimationsContainer<AnimationKey>,
 }

@@ -46,12 +46,12 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(bonfire_settings.hitbox)
         .with(bonfire_settings.bonfire)
         .with(bonfire_settings.flame)
+        .with(bonfire_settings.wood_inventory)
         .with(animations)
         .with(sprite_render)
         .with(Collidable::new(CollisionTag::Bonfire))
         .with(Transparent)
         .with(ScaleOnce::default())
-        .with(WoodInventory::default())
         .build();
 
     let mut halo_builder = world
