@@ -5,11 +5,18 @@ use crate::resources::prelude::AnimationKey;
 
 #[derive(Clone, Deserialize)]
 pub struct BonfireSettings {
-    pub size:       Size,
-    pub hitbox:     Hitbox,
-    pub flame:      Flame,
-    pub animations: AnimationsContainer<AnimationKey>,
-    pub halo:       HaloSettings,
+    pub size:           Size,
+    pub hitbox:         Hitbox,
+    pub flame:          Flame,
+    pub flame_decrease: FlameDecreaseSettings,
+    pub animations:     AnimationsContainer<AnimationKey>,
+    pub halo:           HaloSettings,
+}
+
+#[derive(Clone, Deserialize)]
+pub struct FlameDecreaseSettings {
+    pub step:        f32,
+    pub interval_ms: f32,
 }
 
 #[derive(Clone, Deserialize)]

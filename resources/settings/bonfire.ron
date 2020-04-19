@@ -15,6 +15,10 @@
         radius: 100.0,
         wood_radius_increase: 20.0,
     ),
+    flame_decrease: (
+        step: 1.0,
+        interval_ms: 500.0,
+    ),
     animations: {
         Idle: Cycle([
             (0, 100),
