@@ -38,7 +38,6 @@ impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
                     .exp(&query_exp)
                     .run()
                 {
-                    dbg!("PICKUP WOOD");
                     wood_inventory.add_action(WoodInventoryAction::Add(1));
                     let _ = entities.delete(entities.entity(wood_collision.id));
                 }
