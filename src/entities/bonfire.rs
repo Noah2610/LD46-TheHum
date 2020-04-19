@@ -39,22 +39,7 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         (s, s)
     });
 
-    let mut halo_builder = world
-        .create_entity()
-        .with(bonfire_settings.halo.bonfire_halo)
-        .with(halo_transform)
-        .with(halo_size)
-        .with(halo_sprite_render)
-        .with(ScaleOnce::default())
-        .with(Transparent);
-
-    if let Some(animation) = bonfire_settings.halo.animation {
-        halo_builder = halo_builder.with(animation);
-    }
-
-    let _halo = halo_builder.build();
-
-    world
+    let bonfire = world
         .create_entity()
         .with(transform)
         .with(bonfire_settings.size)
@@ -67,5 +52,27 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(ScaleOnce::default())
         .with(Bonfire::default())
         .with(WoodInventory::default())
-        .build()
+        .build();
+
+    let mut halo_builder = world
+        .create_entity()
+        .with(
+            bonfire_settings
+                .halo
+                .bonfire_halo
+                .with_bonfire_entity(bonfire),
+        )
+        .with(halo_transform)
+        .with(halo_size)
+        .with(halo_sprite_render)
+        .with(ScaleOnce::default())
+        .with(Transparent);
+
+    if let Some(animation) = bonfire_settings.halo.animation {
+        halo_builder = halo_builder.with(animation);
+    }
+
+    let _halo = halo_builder.build();
+
+    bonfire
 }
