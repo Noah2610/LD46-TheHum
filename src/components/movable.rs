@@ -27,13 +27,14 @@ impl From<MovableData> for Movable {
 
 #[derive(Clone, Deserialize)]
 pub struct MovableData {
-    pub acceleration:           f32,
-    pub max_velocity:           f32,
-    pub jump_strength:          f32,
-    pub kill_jump_strength:     f32,
-    pub kill_jump_min_velocity: f32,
-    pub climb_acceleration:     f32,
-    pub max_climb_velocity:     f32,
+    pub acceleration:               f32,
+    pub max_velocity:               f32,
+    pub jump_strength:              f32,
+    pub kill_jump_strength:         f32,
+    pub kill_jump_min_velocity:     f32,
+    pub climb_acceleration:         f32,
+    pub max_climb_velocity:         f32,
+    pub wood_speed_decrease_factor: f32,
 }
 
 impl ActionQueue for Movable {

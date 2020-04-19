@@ -12,13 +12,15 @@
         right:   8.0,
     )],
     movable: (
-        acceleration:           450.0,
-        max_velocity:           80.0,
-        jump_strength:          130.0,
-        kill_jump_strength:     -50.0,
-        kill_jump_min_velocity: 10.0,
-        climb_acceleration:     800.0,
-        max_climb_velocity:     50.0,
+        acceleration:               450.0,
+        max_velocity:               80.0,
+        jump_strength:              130.0,
+        kill_jump_strength:         -50.0,
+        kill_jump_min_velocity:     10.0,
+        climb_acceleration:         800.0,
+        max_climb_velocity:         50.0,
+        // percentage per wood to decrease acceleration and max_velocity by
+        wood_speed_decrease_factor: 10.0,
     ),
     base_friction: (
         friction_x: 500.0,
