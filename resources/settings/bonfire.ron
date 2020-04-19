@@ -28,7 +28,9 @@
 
     /// HALO SETTINGS
     halo: (
-        size_margin: 8.0,
+        bonfire_halo: (
+            size_margin: 8.0,
+        ),
 
         /// optional animation
         // animation: [

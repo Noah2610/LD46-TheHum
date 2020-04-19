@@ -1,5 +1,5 @@
 pub mod prelude {
-    pub use super::bonfire::Bonfire;
+    pub use super::bonfire::{Bonfire, BonfireHalo};
     pub use super::flame::{Flame, VisibleInFlame};
     pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;

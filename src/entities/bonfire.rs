@@ -35,12 +35,13 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
     };
     let halo_size = Size::from({
         let s = bonfire_settings.flame.radius * 2.0
-            + bonfire_settings.halo.size_margin;
+            + bonfire_settings.halo.bonfire_halo.size_margin;
         (s, s)
     });
 
     let mut halo_builder = world
         .create_entity()
+        .with(bonfire_settings.halo.bonfire_halo)
         .with(halo_transform)
         .with(halo_size)
         .with(halo_sprite_render)
