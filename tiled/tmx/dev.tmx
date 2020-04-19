@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="9" nextobjectid="28">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="9" nextobjectid="30">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="LD46-export"/>
  </editorsettings>
@@ -179,6 +179,8 @@
   <object id="21" name="WOOD SPAWNER" type="WoodSpawner" x="246.5" y="255" width="4" height="4"/>
   <object id="22" name="WOOD SPAWNER" type="WoodSpawner" x="266.5" y="255" width="4" height="4"/>
   <object id="23" name="WOOD SPAWNER" type="WoodSpawner" x="282.5" y="253.5" width="4" height="4"/>
+  <object id="28" name="WOOD" type="Wood" x="324" y="252" width="4" height="4"/>
+  <object id="29" name="WOOD" type="Wood" x="61.6667" y="250.667" width="4" height="4"/>
  </objectgroup>
  <objectgroup id="3" name="player">
   <properties>
