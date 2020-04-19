@@ -54,14 +54,13 @@ fn load_sounds(world: &mut World) {
 
     let mut sounds = Sounds::<SoundKey>::default();
 
-    for (sound_key, sound_settings) in sounds_settings.sounds {
-        sounds
-            .load_audio(
-                sound_key,
-                resource(format!("audio/sfx/{}", sound_settings.file)),
-                world,
-            )
-            .unwrap();
+    for sound_group in sounds_settings.sound_groups {
+        for sound in sound_group.sounds {
+            let sound_filepath = resource(format!("audio/sfx/{}", sound.file));
+            sounds
+                .load_audio(sound_filepath.clone(), sound_filepath, world)
+                .unwrap();
+        }
     }
 
     world.insert(sounds);

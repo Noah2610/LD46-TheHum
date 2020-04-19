@@ -3,8 +3,12 @@ pub mod prelude {
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
-    pub use super::songs_settings::SongsSettings;
-    pub use super::sounds_settings::SoundsSettings;
+    pub use super::songs_settings::{SongSettings, SongsSettings};
+    pub use super::sounds_settings::{
+        SoundGroup,
+        SoundSettings,
+        SoundsSettings,
+    };
     pub use super::tiles_settings::{TileSettings, TilesSettings};
     pub use super::wood_settings::WoodSettings;
     pub use super::wood_spawner_settings::WoodSpawnerSettings;

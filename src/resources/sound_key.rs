@@ -1,2 +1,3 @@
-#[derive(PartialEq, Eq, Hash, Clone, Deserialize, Debug)]
-pub enum SoundKey {}
+use std::path::PathBuf;
+
+pub type SoundKey = PathBuf;
