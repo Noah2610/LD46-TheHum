@@ -9,6 +9,7 @@ pub enum ObjectType {
     Player,
     Bonfire,
     Wood,
+    WoodSpawner,
 }
 
 mod load_prelude {

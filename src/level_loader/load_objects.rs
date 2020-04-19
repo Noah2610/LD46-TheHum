@@ -9,15 +9,20 @@ pub(super) fn load_objects(
 
         match &object.object_type {
             ObjectType::Player => {
-                let _player = entities::init_player(world, transform.clone());
+                let _player = entities::init_player(world, transform);
             }
 
             ObjectType::Bonfire => {
-                let _bonfire = entities::init_bonfire(world, transform.clone());
+                let _bonfire = entities::init_bonfire(world, transform);
             }
 
             ObjectType::Wood => {
-                let _wood = entities::init_wood(world, transform.clone());
+                let _wood = entities::init_wood(world, transform);
+            }
+
+            ObjectType::WoodSpawner => {
+                let _wood_spawner =
+                    entities::init_wood_spawner(world, transform);
             }
         }
     }
