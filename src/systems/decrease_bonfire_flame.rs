@@ -33,29 +33,31 @@ impl<'a> System<'a> for DecreaseBonfireFlameSystem {
         )
             .join()
         {
-            let timer = self.timers.entry(entity).or_insert_with(|| {
-                Timer::new(
-                    Some(
-                        Duration::from_millis(
-                            bonfire.flame_decrease.interval_ms,
-                        )
-                        .into(),
-                    ),
-                    None,
-                )
-            });
+            if !inventory.is_empty() {
+                let timer = self.timers.entry(entity).or_insert_with(|| {
+                    Timer::new(
+                        Some(
+                            Duration::from_millis(
+                                bonfire.flame_decrease.interval_ms,
+                            )
+                            .into(),
+                        ),
+                        None,
+                    )
+                });
 
-            if timer.state.is_stopped() || timer.state.is_finished() {
-                timer.start().unwrap();
-            }
-            timer.update().unwrap();
+                if timer.state.is_stopped() || timer.state.is_finished() {
+                    timer.start().unwrap();
+                }
+                timer.update().unwrap();
 
-            if timer.state.is_finished() {
-                flame.radius = (flame.radius
-                    - (bonfire.flame_decrease.step
-                        * (inventory.woods as f32
-                            * bonfire.flame_decrease.woods_mult)))
-                    .max(flame.min_radius);
+                if timer.state.is_finished() {
+                    flame.radius = (flame.radius
+                        - (bonfire.flame_decrease.step
+                            + inventory.woods as f32
+                                * bonfire.flame_decrease.wood_decrease))
+                        .max(flame.min_radius);
+                }
             }
         }
     }

@@ -8,9 +8,9 @@ pub struct Bonfire {
 
 #[derive(Clone, Deserialize)]
 pub struct FlameDecreaseConfig {
-    pub step:        f32,
-    pub interval_ms: u64,
-    pub woods_mult:  f32,
+    pub step:          f32,
+    pub interval_ms:   u64,
+    pub wood_decrease: f32,
 }
 
 #[derive(Component, Clone, Deserialize)]
