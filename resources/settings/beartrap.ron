@@ -1,0 +1,15 @@
+// src/settings/beartrap_settings.rs
+#![enable(implicit_some)]
+(
+    size: (
+        w: 8.0,
+        h: 4.0,
+    ),
+    hitbox: [(
+        top:     4.0,
+        bottom: -4.0,
+        left:   -2.0,
+        right:   2.0,
+    )],
+    beartrap: (),
+)
