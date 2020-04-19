@@ -6,5 +6,5 @@ pub struct Ladder;
 
 #[derive(Default, Component)]
 pub struct LadderClimber {
-    pub on_ladder: bool,
+    pub is_climbing: bool,
 }

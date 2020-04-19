@@ -17,10 +17,12 @@
         jump_strength:          100.0,
         kill_jump_strength:     -50.0,
         kill_jump_min_velocity: 10.0,
+        climb_acceleration:     400.0,
+        max_climb_velocity:     25.0,
     ),
     base_friction: (
         friction_x: 500.0,
-        // friction_y: 100.0,
+        friction_y: 500.0, // NOTE: only used when climbing ladders!
     ),
     gravity: (
         y: -300.0,

@@ -1,4 +1,5 @@
 use super::init_prelude::*;
+use deathframe::core::geo::prelude::Axis;
 
 pub fn init_player(world: &mut World, transform: Transform) -> Entity {
     let player_settings = world.read_resource::<Settings>().player.clone();
@@ -31,7 +32,11 @@ pub fn init_player(world: &mut World, transform: Transform) -> Entity {
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)
-        .with(player_settings.base_friction)
+        .with({
+            let mut fric = player_settings.base_friction;
+            fric.set_enabled(&Axis::Y, false);
+            fric
+        })
         .with(player_settings.gravity)
         .with(player_settings.flame)
         .with(player_settings.animations)

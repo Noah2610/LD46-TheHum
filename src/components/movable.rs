@@ -5,6 +5,7 @@ pub enum MoveAction {
     Walk(f32),
     Jump,
     KillJump,
+    ClimbLadder(f32),
 }
 
 #[derive(Component, Clone, Deserialize)]
@@ -31,6 +32,8 @@ pub struct MovableData {
     pub jump_strength:          f32,
     pub kill_jump_strength:     f32,
     pub kill_jump_min_velocity: f32,
+    pub climb_acceleration:     f32,
+    pub max_climb_velocity:     f32,
 }
 
 impl ActionQueue for Movable {

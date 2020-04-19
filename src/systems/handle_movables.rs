@@ -43,6 +43,14 @@ impl<'a> System<'a> for HandleMovablesSystem {
                             velocity.set(&Axis::Y, decreased);
                         }
                     }
+
+                    MoveAction::ClimbLadder(mult) => {
+                        velocity.increase_with_max(
+                            &Axis::Y,
+                            data.climb_acceleration * mult * dt,
+                            data.max_climb_velocity,
+                        );
+                    }
                 }
             }
         }
