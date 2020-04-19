@@ -34,6 +34,9 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
                         beartrap_entity_ids.push(entity_id);
                         Some((entity_id, BeartrapData {
                             crippled_duration_ms: beartrap.crippled_duration_ms,
+                            movement:             beartrap
+                                .crippled_movement
+                                .clone(),
                         }))
                     } else {
                         None
@@ -50,25 +53,30 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
         for (beartrap_affected, beartrap_affected_collider) in
             (&mut beartrap_affected_store, &collider_store).join()
         {
-            if let Some(beartrap_collision) = beartrap_affected_collider
-                .query::<FindQuery<CollisionTag>>()
-                .filter_ids(&beartrap_entity_ids)
-                .exp(&query_exp)
-                .run()
-            {
-                if let Some(beartrap_data) =
-                    beartraps_data.get(&beartrap_collision.id)
+            if beartrap_affected.crippled_data.is_none() {
+                if let Some(beartrap_collision) = beartrap_affected_collider
+                    .query::<FindQuery<CollisionTag>>()
+                    .filter_ids(&beartrap_entity_ids)
+                    .exp(&query_exp)
+                    .run()
                 {
-                    beartrap_affected.is_crippled = true;
-                    beartrap_affected.timer = Some(Timer::new(
-                        Some(
-                            Duration::from_millis(
-                                beartrap_data.crippled_duration_ms,
-                            )
-                            .into(),
-                        ),
-                        None,
-                    ));
+                    if let Some(beartrap_data) =
+                        beartraps_data.get(&beartrap_collision.id)
+                    {
+                        beartrap_affected.crippled_data =
+                            Some(BeartrapAffectedCrippledData {
+                                timer:    Timer::new(
+                                    Some(
+                                        Duration::from_millis(
+                                            beartrap_data.crippled_duration_ms,
+                                        )
+                                        .into(),
+                                    ),
+                                    None,
+                                ),
+                                movement: beartrap_data.movement.clone(),
+                            });
+                    }
                 }
             }
         }
@@ -77,4 +85,5 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
 
 struct BeartrapData {
     crippled_duration_ms: u64,
+    movement:             BeartrapAffectedMovementData,
 }

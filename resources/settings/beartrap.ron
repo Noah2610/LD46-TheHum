@@ -13,5 +13,9 @@
     )],
     beartrap: (
         crippled_duration_ms: 3000,
+        crippled_movement: (
+            acceleration: 100.0,
+            max_velocity: 100.0,
+        ),
     ),
 )

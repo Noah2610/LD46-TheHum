@@ -1,5 +1,10 @@
 pub mod prelude {
-    pub use super::beartrap::{Beartrap, BeartrapAffected};
+    pub use super::beartrap::{
+        Beartrap,
+        BeartrapAffected,
+        BeartrapAffectedCrippledData,
+        BeartrapAffectedMovementData,
+    };
     pub use super::bonfire::{Bonfire, BonfireHalo};
     pub use super::flame::{Flame, VisibleInFlame};
     pub use super::ladder::{Ladder, LadderClimber};

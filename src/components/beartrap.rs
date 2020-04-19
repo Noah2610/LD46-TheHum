@@ -5,6 +5,7 @@ use climer::Timer;
 #[storage(VecStorage)]
 pub struct Beartrap {
     pub crippled_duration_ms:  u64,
+    pub crippled_movement:     BeartrapAffectedMovementData,
     #[serde(skip)]
     pub is_active:             bool,
     #[serde(skip)]
@@ -24,6 +25,16 @@ impl Beartrap {
 #[derive(Component, Default)]
 #[storage(VecStorage)]
 pub struct BeartrapAffected {
-    pub is_crippled: bool,
-    pub timer:       Option<Timer>,
+    pub crippled_data: Option<BeartrapAffectedCrippledData>,
+}
+
+pub struct BeartrapAffectedCrippledData {
+    pub timer:    Timer,
+    pub movement: BeartrapAffectedMovementData,
+}
+
+#[derive(Clone, Deserialize)]
+pub struct BeartrapAffectedMovementData {
+    pub acceleration: f32,
+    pub max_velocity: f32,
 }
