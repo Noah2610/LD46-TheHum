@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="16" nextobjectid="16">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="16" nextobjectid="100">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="LD46-export"/>
  </editorsettings>
@@ -654,6 +654,90 @@
   <object id="10" name="Wood Spawner" type="WoodSpawner" x="324" y="252" width="8" height="8"/>
   <object id="11" name="Wood Spawner" type="WoodSpawner" x="452" y="252" width="8" height="8"/>
   <object id="12" name="Wood Spawner" type="WoodSpawner" x="340" y="208" width="8" height="8"/>
+  <object id="16" name="WOOD" type="Wood" x="420" y="188" width="6" height="5.5"/>
+  <object id="17" name="WOOD" type="Wood" x="422.25" y="187.75" width="6" height="5.5"/>
+  <object id="18" name="WOOD" type="Wood" x="422.25" y="187.75" width="6" height="5.5"/>
+  <object id="19" name="WOOD" type="Wood" x="421.5" y="187.25" width="6" height="5.5"/>
+  <object id="20" name="WOOD" type="Wood" x="421.25" y="187.25" width="6" height="5.5"/>
+  <object id="21" name="WOOD" type="Wood" x="421.75" y="188" width="6" height="5.5"/>
+  <object id="22" name="WOOD" type="Wood" x="421.75" y="189" width="6" height="5.5"/>
+  <object id="23" name="WOOD" type="Wood" x="421" y="187.5" width="6" height="5.5"/>
+  <object id="24" name="WOOD" type="Wood" x="421.25" y="182.25" width="6" height="5.5"/>
+  <object id="25" name="WOOD" type="Wood" x="426" y="185" width="6" height="5.5"/>
+  <object id="26" name="WOOD" type="Wood" x="422.5" y="188.25" width="6" height="5.5"/>
+  <object id="27" name="WOOD" type="Wood" x="420.25" y="185.25" width="6" height="5.5"/>
+  <object id="28" name="WOOD" type="Wood" x="424.25" y="185.25" width="6" height="5.5"/>
+  <object id="29" name="WOOD" type="Wood" x="421.75" y="187" width="6" height="5.5"/>
+  <object id="30" name="WOOD" type="Wood" x="422.75" y="183.5" width="6" height="5.5"/>
+  <object id="31" name="WOOD" type="Wood" x="423" y="189" width="6" height="5.5"/>
+  <object id="32" name="WOOD" type="Wood" x="420" y="184" width="6" height="5.5"/>
+  <object id="33" name="WOOD" type="Wood" x="422.25" y="187.75" width="6" height="5.5"/>
+  <object id="34" name="WOOD" type="Wood" x="419.25" y="185.25" width="6" height="5.5"/>
+  <object id="35" name="WOOD" type="Wood" x="421.25" y="188.5" width="6" height="5.5"/>
+  <object id="36" name="WOOD" type="Wood" x="424" y="184.5" width="6" height="5.5"/>
+  <object id="37" name="WOOD" type="Wood" x="420.25" y="183.5" width="6" height="5.5"/>
+  <object id="38" name="WOOD" type="Wood" x="420" y="187.5" width="6" height="5.5"/>
+  <object id="39" name="WOOD" type="Wood" x="423" y="186.75" width="6" height="5.5"/>
+  <object id="40" name="WOOD" type="Wood" x="422" y="184.5" width="6" height="5.5"/>
+  <object id="41" name="WOOD" type="Wood" x="420.5" y="185.75" width="6" height="5.5"/>
+  <object id="42" name="WOOD" type="Wood" x="421.5" y="191.25" width="6" height="5.5"/>
+  <object id="43" name="WOOD" type="Wood" x="425" y="188.5" width="6" height="5.5"/>
+  <object id="44" name="WOOD" type="Wood" x="424" y="188.5" width="6" height="5.5"/>
+  <object id="45" name="WOOD" type="Wood" x="424.25" y="185.75" width="6" height="5.5"/>
+  <object id="46" name="WOOD" type="Wood" x="419.25" y="189" width="6" height="5.5"/>
+  <object id="47" name="WOOD" type="Wood" x="423.75" y="191.25" width="6" height="5.5"/>
+  <object id="48" name="WOOD" type="Wood" x="422.25" y="190" width="6" height="5.5"/>
+  <object id="49" name="WOOD" type="Wood" x="423" y="186.75" width="6" height="5.5"/>
+  <object id="50" name="WOOD" type="Wood" x="423.5" y="186.75" width="6" height="5.5"/>
+  <object id="51" name="WOOD" type="Wood" x="419.75" y="183.75" width="6" height="5.5"/>
+  <object id="52" name="WOOD" type="Wood" x="421.25" y="190.25" width="6" height="5.5"/>
+  <object id="53" name="WOOD" type="Wood" x="426.25" y="188" width="6" height="5.5"/>
+  <object id="54" name="WOOD" type="Wood" x="422.25" y="183.75" width="6" height="5.5"/>
+  <object id="55" name="WOOD" type="Wood" x="421" y="185.25" width="6" height="5.5"/>
+  <object id="56" name="WOOD" type="Wood" x="425.25" y="185" width="6" height="5.5"/>
+  <object id="57" name="WOOD" type="Wood" x="425.25" y="185" width="6" height="5.5"/>
+  <object id="58" name="WOOD" type="Wood" x="425.25" y="185" width="6" height="5.5"/>
+  <object id="59" name="WOOD" type="Wood" x="425.25" y="185" width="6" height="5.5"/>
+  <object id="60" name="WOOD" type="Wood" x="425" y="185.75" width="6" height="5.5"/>
+  <object id="61" name="WOOD" type="Wood" x="423.75" y="187.25" width="6" height="5.5"/>
+  <object id="62" name="WOOD" type="Wood" x="422" y="188.75" width="6" height="5.5"/>
+  <object id="63" name="WOOD" type="Wood" x="419.5" y="189.5" width="6" height="5.5"/>
+  <object id="64" name="WOOD" type="Wood" x="418.25" y="189.75" width="6" height="5.5"/>
+  <object id="65" name="WOOD" type="Wood" x="417.75" y="189.5" width="6" height="5.5"/>
+  <object id="66" name="WOOD" type="Wood" x="416" y="188.25" width="6" height="5.5"/>
+  <object id="67" name="WOOD" type="Wood" x="415.25" y="186.5" width="6" height="5.5"/>
+  <object id="68" name="WOOD" type="Wood" x="415.75" y="184.5" width="6" height="5.5"/>
+  <object id="69" name="WOOD" type="Wood" x="417.5" y="182.5" width="6" height="5.5"/>
+  <object id="70" name="WOOD" type="Wood" x="420" y="181.5" width="6" height="5.5"/>
+  <object id="71" name="WOOD" type="Wood" x="421" y="181.25" width="6" height="5.5"/>
+  <object id="72" name="WOOD" type="Wood" x="423" y="181.75" width="6" height="5.5"/>
+  <object id="73" name="WOOD" type="Wood" x="425" y="183" width="6" height="5.5"/>
+  <object id="74" name="WOOD" type="Wood" x="425.75" y="184" width="6" height="5.5"/>
+  <object id="75" name="WOOD" type="Wood" x="426.25" y="186.5" width="6" height="5.5"/>
+  <object id="76" name="WOOD" type="Wood" x="426.25" y="187.75" width="6" height="5.5"/>
+  <object id="77" name="WOOD" type="Wood" x="425.25" y="189" width="6" height="5.5"/>
+  <object id="78" name="WOOD" type="Wood" x="424.25" y="190" width="6" height="5.5"/>
+  <object id="79" name="WOOD" type="Wood" x="422.25" y="190.75" width="6" height="5.5"/>
+  <object id="80" name="WOOD" type="Wood" x="420.5" y="190.75" width="6" height="5.5"/>
+  <object id="81" name="WOOD" type="Wood" x="418.75" y="189" width="6" height="5.5"/>
+  <object id="82" name="WOOD" type="Wood" x="417" y="186.5" width="6" height="5.5"/>
+  <object id="83" name="WOOD" type="Wood" x="417" y="185.5" width="6" height="5.5"/>
+  <object id="84" name="WOOD" type="Wood" x="418.5" y="183.75" width="6" height="5.5"/>
+  <object id="85" name="WOOD" type="Wood" x="420.25" y="182.25" width="6" height="5.5"/>
+  <object id="86" name="WOOD" type="Wood" x="422.75" y="183.5" width="6" height="5.5"/>
+  <object id="87" name="WOOD" type="Wood" x="424.25" y="184.25" width="6" height="5.5"/>
+  <object id="88" name="WOOD" type="Wood" x="425" y="185.5" width="6" height="5.5"/>
+  <object id="89" name="WOOD" type="Wood" x="425.25" y="187.5" width="6" height="5.5"/>
+  <object id="90" name="WOOD" type="Wood" x="423.75" y="189.25" width="6" height="5.5"/>
+  <object id="91" name="WOOD" type="Wood" x="421.75" y="189.75" width="6" height="5.5"/>
+  <object id="92" name="WOOD" type="Wood" x="419.5" y="188" width="6" height="5.5"/>
+  <object id="93" name="WOOD" type="Wood" x="418.25" y="187.25" width="6" height="5.5"/>
+  <object id="94" name="WOOD" type="Wood" x="418.5" y="185.25" width="6" height="5.5"/>
+  <object id="95" name="WOOD" type="Wood" x="420" y="183.25" width="6" height="5.5"/>
+  <object id="96" name="WOOD" type="Wood" x="422" y="182.75" width="6" height="5.5"/>
+  <object id="97" name="WOOD" type="Wood" x="424.25" y="184" width="6" height="5.5"/>
+  <object id="98" name="WOOD" type="Wood" x="425.5" y="186.25" width="6" height="5.5"/>
+  <object id="99" name="WOOD" type="Wood" x="425.5" y="187" width="6" height="5.5"/>
  </objectgroup>
  <objectgroup id="4" name="Player">
   <properties>

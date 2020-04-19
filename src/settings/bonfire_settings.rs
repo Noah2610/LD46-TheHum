@@ -7,6 +7,7 @@ use crate::resources::prelude::AnimationKey;
 pub struct BonfireSettings {
     pub size:       Size,
     pub hitbox:     Hitbox,
+    pub bonfire:    Bonfire,
     pub flame:      Flame,
     pub animations: AnimationsContainer<AnimationKey>,
     pub halo:       HaloSettings,

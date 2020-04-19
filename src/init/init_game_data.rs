@@ -188,6 +188,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_ladder_climbing_system",
             &[],
         )?
+        .with(
+            DispatcherId::Ingame,
+            DecreaseBonfireFlameSystem::default(),
+            "decrease_bonfire_flame_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 
