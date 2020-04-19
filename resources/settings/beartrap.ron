@@ -2,14 +2,14 @@
 #![enable(implicit_some)]
 (
     size: (
-        w: 8.0,
-        h: 4.0,
+        w: 16.0,
+        h: 8.0,
     ),
     hitbox: [(
         top:     4.0,
         bottom: -4.0,
-        left:   -2.0,
-        right:   2.0,
+        left:   -8.0,
+        right:   8.0,
     )],
     beartrap: (
         crippled_duration_ms: 3000,
