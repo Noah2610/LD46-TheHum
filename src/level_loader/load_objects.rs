@@ -29,6 +29,14 @@ pub(super) fn load_objects(
                 let size: Size = (&object.size).into();
                 let _ladder = entities::init_ladder(world, transform, size);
             }
+
+            ObjectType::Beartrap(spawn_at_woods_amount) => {
+                let _beartrap = entities::init_beartrap(
+                    world,
+                    transform,
+                    *spawn_at_woods_amount,
+                );
+            }
         }
     }
 

@@ -1,4 +1,5 @@
 pub mod prelude {
+    pub use super::beartrap_settings::BeartrapSettings;
     pub use super::bonfire_settings::{BonfireSettings, HaloSettings};
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
@@ -15,6 +16,7 @@ pub mod prelude {
     pub use super::Settings;
 }
 
+mod beartrap_settings;
 mod bonfire_settings;
 mod camera_settings;
 mod general_settings;
@@ -42,6 +44,7 @@ pub struct Settings {
     pub bonfire:      BonfireSettings,
     pub wood:         WoodSettings,
     pub wood_spawner: WoodSpawnerSettings,
+    pub beartrap:     BeartrapSettings,
 }
 
 impl Settings {
@@ -56,6 +59,7 @@ impl Settings {
             bonfire:      load_settings("bonfire.ron")?,
             wood:         load_settings("wood.ron")?,
             wood_spawner: load_settings("wood_spawner.ron")?,
+            beartrap:     load_settings("beartrap.ron")?,
         })
     }
 }

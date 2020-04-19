@@ -1,4 +1,5 @@
 pub mod prelude {
+    pub use super::beartrap::Beartrap;
     pub use super::bonfire::{Bonfire, BonfireHalo};
     pub use super::flame::{Flame, VisibleInFlame};
     pub use super::ladder::{Ladder, LadderClimber};
@@ -15,6 +16,7 @@ mod component_prelude {
     pub use deathframe::components::component_prelude::*;
 }
 
+mod beartrap;
 mod bonfire;
 mod flame;
 mod ladder;

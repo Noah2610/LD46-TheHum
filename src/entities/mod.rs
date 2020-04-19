@@ -1,3 +1,4 @@
+mod beartrap;
 mod bonfire;
 mod camera;
 mod ladder;
@@ -16,6 +17,7 @@ mod init_prelude {
     pub use std::path::PathBuf;
 }
 
+pub use beartrap::init_beartrap;
 pub use bonfire::init_bonfire;
 pub use camera::init_camera;
 pub use ladder::init_ladder;

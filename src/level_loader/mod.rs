@@ -11,6 +11,7 @@ pub enum ObjectType {
     Wood,
     WoodSpawner,
     Ladder,
+    Beartrap(usize),
 }
 
 mod load_prelude {
