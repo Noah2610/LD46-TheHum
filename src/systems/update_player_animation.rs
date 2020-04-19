@@ -32,10 +32,10 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         {
             if velocity.x.is_sign_negative() {
                 let scale = transform.scale_mut();
-                scale.x = scale.x.abs() * -1.0;
+                scale.x = scale.x.abs();
             } else {
                 let scale = transform.scale_mut();
-                scale.x = scale.x.abs();
+                scale.x = scale.x.abs() * -1.0;
             }
 
             if player.on_ground {
