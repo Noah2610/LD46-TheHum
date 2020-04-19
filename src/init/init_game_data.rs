@@ -158,6 +158,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "update_wood_inventory_system",
             &["handle_player_wood_pickup_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            HandlePlayerFeedBonfireSystem::default(),
+            "handle_player_feed_bonfire_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 

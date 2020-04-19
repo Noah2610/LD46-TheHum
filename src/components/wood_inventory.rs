@@ -12,6 +12,12 @@ pub struct WoodInventory {
     actions:   Vec<WoodInventoryAction>,
 }
 
+impl WoodInventory {
+    pub fn is_empty(&self) -> bool {
+        self.woods == 0
+    }
+}
+
 impl ActionQueue for WoodInventory {
     type Action = WoodInventoryAction;
     fn mut_actions(&mut self) -> &mut Vec<Self::Action> {

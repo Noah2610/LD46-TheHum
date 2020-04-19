@@ -1,4 +1,5 @@
 pub mod prelude {
+    pub use super::bonfire::Bonfire;
     pub use super::flame::{Flame, VisibleInFlame};
     pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;
@@ -13,6 +14,7 @@ mod component_prelude {
     pub use deathframe::components::component_prelude::*;
 }
 
+mod bonfire;
 mod flame;
 mod movable;
 mod player;

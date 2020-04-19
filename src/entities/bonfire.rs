@@ -64,5 +64,7 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(Collidable::new(CollisionTag::Bonfire))
         .with(Transparent)
         .with(ScaleOnce::default())
+        .with(Bonfire::default())
+        .with(WoodInventory::default())
         .build()
 }
