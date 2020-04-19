@@ -2,8 +2,8 @@
 #![enable(implicit_some)]
 (
     size: (
-        w: 16.0,
-        h: 40.0,
+        w: 32.0,
+        h: 80.0,
     ),
     hitbox: [(
         top:    -12.0,
