@@ -30,13 +30,12 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         )
             .join()
         {
-            let vel_x_sign = velocity.x.signum();
-            if vel_x_sign > VEL_PADDING {
-                let scale = transform.scale_mut();
-                scale.x = scale.x.abs();
-            } else if vel_x_sign < -VEL_PADDING {
+            if velocity.x > VEL_PADDING {
                 let scale = transform.scale_mut();
                 scale.x = scale.x.abs() * -1.0;
+            } else if velocity.x < -VEL_PADDING {
+                let scale = transform.scale_mut();
+                scale.x = scale.x.abs();
             }
 
             if player.on_ground {
