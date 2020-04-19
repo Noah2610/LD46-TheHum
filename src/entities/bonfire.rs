@@ -35,12 +35,33 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
     };
     let halo_size = Size::from({
         let s = bonfire_settings.flame.radius * 2.0
-            + bonfire_settings.halo.size_margin;
+            + bonfire_settings.halo.bonfire_halo.size_margin;
         (s, s)
     });
 
+    let bonfire = world
+        .create_entity()
+        .with(transform)
+        .with(bonfire_settings.size)
+        .with(bonfire_settings.hitbox)
+        .with(bonfire_settings.flame)
+        .with(animations)
+        .with(sprite_render)
+        .with(Collidable::new(CollisionTag::Bonfire))
+        .with(Transparent)
+        .with(ScaleOnce::default())
+        .with(Bonfire::default())
+        .with(WoodInventory::default())
+        .build();
+
     let mut halo_builder = world
         .create_entity()
+        .with(
+            bonfire_settings
+                .halo
+                .bonfire_halo
+                .with_bonfire_entity(bonfire),
+        )
         .with(halo_transform)
         .with(halo_size)
         .with(halo_sprite_render)
@@ -53,16 +74,5 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
 
     let _halo = halo_builder.build();
 
-    world
-        .create_entity()
-        .with(transform)
-        .with(bonfire_settings.size)
-        .with(bonfire_settings.hitbox)
-        .with(bonfire_settings.flame)
-        .with(animations)
-        .with(sprite_render)
-        .with(Collidable::new(CollisionTag::Bonfire))
-        .with(Transparent)
-        .with(ScaleOnce::default())
-        .build()
+    bonfire
 }

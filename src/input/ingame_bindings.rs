@@ -14,6 +14,7 @@ pub enum IngameAxis {
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum IngameAction {
     Jump,
+    Interact,
 }
 
 impl BindingTypes for IngameBindings {

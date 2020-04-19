@@ -146,6 +146,36 @@ pub(super) fn build_game_data<'a, 'b>(
             "spawn_wood_system",
             &["update_wood_spawner_manager_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            HandlePlayerWoodPickupSystem::default(),
+            "handle_player_wood_pickup_system",
+            &[],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateWoodInventorySystem::default(),
+            "update_wood_inventory_system",
+            &["handle_player_wood_pickup_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            HandlePlayerFeedBonfireSystem::default(),
+            "handle_player_feed_bonfire_system",
+            &[],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateFlameRadiusSystem::default(),
+            "update_flame_radius_system",
+            &["update_wood_inventory_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateBonfireHaloSizeSystem::default(),
+            "update_bonfire_halo_size_system",
+            &["update_flame_radius_system"],
+        )?
         // - comment for easier copy/pasting -
         ;
 
