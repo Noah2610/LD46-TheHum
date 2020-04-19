@@ -644,7 +644,7 @@
   <properties>
    <property name="z" type="float" value="1"/>
   </properties>
-  <object id="4" name="PLAYER" type="Player" x="428" y="144" width="4" height="4">
+  <object id="4" name="PLAYER" type="Player" x="208" y="124" width="4" height="4">
    <properties>
     <property name="z" type="float" value="1.1"/>
    </properties>
