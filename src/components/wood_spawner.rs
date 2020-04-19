@@ -35,4 +35,9 @@ impl WoodSpawner {
 
         timer.state.is_finished()
     }
+
+    pub fn set_active(&mut self, is_active: bool) {
+        let _ = self.timer.as_mut().map(Timer::stop);
+        self.is_active = is_active;
+    }
 }
