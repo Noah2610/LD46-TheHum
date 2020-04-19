@@ -27,6 +27,7 @@
     ),
     flame: (
         radius: 50.0,
+        wood_radius_increase: 10.0,
     ),
     animations: {
         Idle: Cycle([
