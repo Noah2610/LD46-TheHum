@@ -27,6 +27,7 @@ pub fn init_player(world: &mut World, transform: Transform) -> Entity {
         .with(Solid::new(SolidTag::Player))
         .with(TriggerReactiveAnimation::default())
         .with(WoodInventory::default())
+        .with(LadderClimber::default())
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)

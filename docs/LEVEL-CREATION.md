@@ -15,5 +15,7 @@ Each type can have configuration specified in the
 - `Bonfire`
 - `Wood`
 - `WoodSpawner`
+- `Ladder`  
+  The ladder object's size is used as the ladder's hitbox.
 
 [`resources/settings/tiles.ron`]: https://github.com/Noah2610/LD46/blob/master/resources/settings/tiles.ron

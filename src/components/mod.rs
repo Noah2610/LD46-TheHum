@@ -1,6 +1,7 @@
 pub mod prelude {
     pub use super::bonfire::{Bonfire, BonfireHalo};
     pub use super::flame::{Flame, VisibleInFlame};
+    pub use super::ladder::{Ladder, LadderClimber};
     pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;
     pub use super::trigger_reactive_animation::TriggerReactiveAnimation;
@@ -16,6 +17,7 @@ mod component_prelude {
 
 mod bonfire;
 mod flame;
+mod ladder;
 mod movable;
 mod player;
 mod trigger_reactive_animation;
