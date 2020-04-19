@@ -54,7 +54,10 @@ impl<'a> System<'a> for HandleMovablesSystem {
                     }
 
                     MoveAction::Jump => {
-                        velocity.increase(&Axis::Y, data.jump_strength);
+                        velocity.increase(
+                            &Axis::Y,
+                            value_with_wood_decrease(data.jump_strength),
+                        );
                     }
 
                     MoveAction::KillJump => {
