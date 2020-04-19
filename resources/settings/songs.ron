@@ -6,7 +6,7 @@
         should_loop: true,
     ),
     Ambience: (
-        file: "cntrlgun.ogg",
+        file: "title.wav",
         should_loop: true,
     ),
 }
