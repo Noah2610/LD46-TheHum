@@ -242,20 +242,20 @@
 161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168,169,170,161,162,163,164,165,166,167,168
 </data>
  </layer>
- <objectgroup id="5" name="Bonfire">
+ <objectgroup id="4" name="Player">
   <properties>
    <property name="z" type="float" value="1"/>
   </properties>
-  <object id="2" name="BONFIRE" type="Bonfire" x="116" y="28" width="16" height="40"/>
- </objectgroup>
- <objectgroup id="4" name="Player">
-  <properties>
-   <property name="z" type="float" value="1.1"/>
-  </properties>
-  <object id="4" name="PLAYER" type="Player" x="324" y="8" width="4" height="4">
+  <object id="4" name="PLAYER" type="Player" x="220" y="112" width="4" height="4">
    <properties>
     <property name="z" type="float" value="1.1"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup id="5" name="Bonfire">
+  <properties>
+   <property name="z" type="float" value="1.1"/>
+  </properties>
+  <object id="2" name="BONFIRE" type="Bonfire" x="140" y="76" width="32" height="80"/>
  </objectgroup>
 </map>
