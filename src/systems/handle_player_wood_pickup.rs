@@ -26,7 +26,7 @@ impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
         for (_, wood_inventory, collider) in
             (&player_store, &mut wood_inventory_store, &collider_store).join()
         {
-            if wood_inventory.is_at_max() {
+            if !wood_inventory.is_at_max() {
                 let query_exp = {
                     use deathframe::physics::query::exp::prelude_variants::*;
 
