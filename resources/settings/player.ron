@@ -33,7 +33,7 @@
         wood_radius_increase: 10.0,
     ),
     wood_inventory: (
-        max_woods: 10,
+        max_woods: 3,
     ),
     animations: {
         Idle: Cycle([

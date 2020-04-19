@@ -20,6 +20,10 @@ impl WoodInventory {
     pub fn is_empty(&self) -> bool {
         self.woods == 0
     }
+
+    pub fn is_at_max(&self) -> bool {
+        self.woods == self.max_woods
+    }
 }
 
 impl ActionQueue for WoodInventory {

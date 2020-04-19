@@ -26,20 +26,23 @@ impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
         for (_, wood_inventory, collider) in
             (&player_store, &mut wood_inventory_store, &collider_store).join()
         {
-            let query_exp = {
-                use deathframe::physics::query::exp::prelude_variants::*;
+            if wood_inventory.is_at_max() {
+                let query_exp = {
+                    use deathframe::physics::query::exp::prelude_variants::*;
 
-                And(vec![IsTag(CollisionTag::Wood), IsSide(Inner)])
-            };
+                    And(vec![IsTag(CollisionTag::Wood), IsSide(Inner)])
+                };
 
-            if input_manager.is_down(IngameAction::Interact) {
-                if let Some(wood_collision) = collider
-                    .query::<FindQuery<CollisionTag>>()
-                    .exp(&query_exp)
-                    .run()
-                {
-                    wood_inventory.add_action(WoodInventoryAction::Add(1));
-                    let _ = entities.delete(entities.entity(wood_collision.id));
+                if input_manager.is_down(IngameAction::Interact) {
+                    if let Some(wood_collision) = collider
+                        .query::<FindQuery<CollisionTag>>()
+                        .exp(&query_exp)
+                        .run()
+                    {
+                        wood_inventory.add_action(WoodInventoryAction::Add(1));
+                        let _ =
+                            entities.delete(entities.entity(wood_collision.id));
+                    }
                 }
             }
         }
