@@ -77,6 +77,12 @@
     //         ...converts to...
     //     { "Enemy": ["Tank", "Large"] }
     function convertTypeString(typeString) {
+        const convertToProperType = value => {
+            const maybeFloat = parseFloat(value);
+            if (maybeFloat !== NaN) return maybeFloat;
+            return value;
+        };
+
         let returnType = typeString;
         const match = typeString.match(/^\s*(\w+)(\((.*)\))?\s*$/) || [];
         const ident = match[1];
@@ -90,11 +96,11 @@
                     };
                 } else if (fields.length === 1) {
                     returnType = {
-                        [ident]: fields[0],
+                        [ident]: convertToProperType(fields[0]),
                     };
                 } else if (fields.length > 1) {
                     returnType = {
-                        [ident]: fields,
+                        [ident]: fields.map(convertToProperType),
                     };
                 }
             } else {
