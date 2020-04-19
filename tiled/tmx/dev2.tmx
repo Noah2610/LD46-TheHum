@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="12" nextobjectid="5">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="13" nextobjectid="9">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="LD46-export"/>
  </editorsettings>
@@ -403,6 +403,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="12" name="Ladder-Hitboxes">
+  <object id="5" name="LADDER" type="Ladder" x="112" y="152" width="8" height="68"/>
+  <object id="7" name="LADDER" type="Ladder" x="20" y="216" width="8" height="48"/>
+  <object id="8" name="LADDER" type="Ladder" x="484" y="200" width="8" height="64"/>
+ </objectgroup>
  <layer id="3" name="Ladders" width="128" height="72">
   <properties>
    <property name="z" type="float" value="0.8"/>
