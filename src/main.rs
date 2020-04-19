@@ -1,3 +1,4 @@
+extern crate climer;
 extern crate deathframe;
 extern crate ron;
 #[macro_use]

@@ -5,19 +5,19 @@ pub(super) fn load_objects(
     objects: Vec<ObjectData>,
 ) -> amethyst::Result<()> {
     for object in objects {
-        match object.object_type.as_str() {
-            "Player" => {
-                let transform: Transform = (&object).into();
+        let transform: Transform = (&object).into();
+
+        match &object.object_type {
+            ObjectType::Player => {
                 let _player = entities::init_player(world, transform.clone());
             }
 
-            "Bonfire" => {
-                let transform: Transform = (&object).into();
+            ObjectType::Bonfire => {
                 let _bonfire = entities::init_bonfire(world, transform.clone());
             }
 
-            unknown => {
-                eprintln!("[WARNING]\n    Unknown object type: {}", unknown)
+            ObjectType::Wood => {
+                let _wood = entities::init_wood(world, transform.clone());
             }
         }
     }

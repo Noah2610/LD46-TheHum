@@ -6,6 +6,7 @@ pub mod prelude {
     pub use super::songs_settings::SongsSettings;
     pub use super::sounds_settings::SoundsSettings;
     pub use super::tiles_settings::{TileSettings, TilesSettings};
+    pub use super::wood_settings::WoodSettings;
     pub use super::Settings;
 }
 
@@ -16,6 +17,7 @@ mod player_settings;
 mod songs_settings;
 mod sounds_settings;
 mod tiles_settings;
+mod wood_settings;
 
 use crate::resource;
 use deathframe::amethyst;
@@ -32,6 +34,7 @@ pub struct Settings {
     pub songs:   SongsSettings,
     pub sounds:  SoundsSettings,
     pub bonfire: BonfireSettings,
+    pub wood:    WoodSettings,
 }
 
 impl Settings {
@@ -44,6 +47,7 @@ impl Settings {
             songs:   load_settings("songs.ron")?,
             sounds:  load_settings("sounds.ron")?,
             bonfire: load_settings("bonfire.ron")?,
+            wood:    load_settings("wood.ron")?,
         })
     }
 }

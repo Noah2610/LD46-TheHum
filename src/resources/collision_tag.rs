@@ -6,6 +6,7 @@ pub enum CollisionTag {
     Solid,
     Bonfire,
     ReactiveTile,
+    Wood,
 }
 
 impl CTag for CollisionTag {
@@ -14,6 +15,7 @@ impl CTag for CollisionTag {
             (CollisionTag::Player, CollisionTag::Solid) => true,
             (CollisionTag::Player, CollisionTag::Bonfire) => true,
             (CollisionTag::Player, CollisionTag::ReactiveTile) => true,
+            (CollisionTag::Player, CollisionTag::Wood) => true,
             _ => false,
         }
     }

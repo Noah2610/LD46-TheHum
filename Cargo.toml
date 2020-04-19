@@ -20,6 +20,11 @@ features = [
     "vulkan",
 ]
 
+[dependencies.climer]
+version =  "0.6.0"
+default-features = false
+features = ["serialize"]
+
 [dependencies.serde]
 version = "1.0.104"
 features = ["derive"]

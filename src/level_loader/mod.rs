@@ -1,12 +1,20 @@
-pub type ObjectType = String;
-pub type TileType = String;
-
 mod level_data;
 mod load_objects;
 mod load_tiles;
 
+pub type TileType = String;
+
+#[derive(Clone, Deserialize)]
+pub enum ObjectType {
+    Player,
+    Bonfire,
+    Wood,
+}
+
 mod load_prelude {
     pub(super) use super::level_data::*;
+    pub(super) use super::ObjectType;
+    pub(super) use super::TileType;
     pub(super) use crate::components::prelude::*;
     pub(super) use crate::entities;
     pub(super) use crate::resource;

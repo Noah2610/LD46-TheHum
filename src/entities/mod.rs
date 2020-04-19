@@ -1,6 +1,7 @@
 mod bonfire;
 mod camera;
 mod player;
+mod wood;
 
 mod init_prelude {
     pub use crate::components::prelude::*;
@@ -16,3 +17,4 @@ mod init_prelude {
 pub use bonfire::init_bonfire;
 pub use camera::init_camera;
 pub use player::init_player;
+pub use wood::init_wood;
