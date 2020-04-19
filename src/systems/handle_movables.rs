@@ -9,6 +9,7 @@ impl<'a> System<'a> for HandleMovablesSystem {
         WriteStorage<'a, Movable>,
         WriteStorage<'a, Velocity>,
         ReadStorage<'a, WoodInventory>,
+        ReadStorage<'a, BeartrapAffected>,
     );
 
     fn run(
@@ -18,14 +19,16 @@ impl<'a> System<'a> for HandleMovablesSystem {
             mut movable_store,
             mut velocity_store,
             wood_inventory_store,
+            beartrap_affected_store,
         ): Self::SystemData,
     ) {
         let dt = time.delta_seconds();
 
-        for (movable, velocity, inventory_opt) in (
+        for (movable, velocity, inventory_opt, beartrap_affected_opt) in (
             &mut movable_store,
             &mut velocity_store,
             wood_inventory_store.maybe(),
+            beartrap_affected_store.maybe(),
         )
             .join()
         {
@@ -54,10 +57,17 @@ impl<'a> System<'a> for HandleMovablesSystem {
                     }
 
                     MoveAction::Jump => {
-                        velocity.increase(
-                            &Axis::Y,
-                            value_with_wood_decrease(data.jump_strength),
-                        );
+                        if beartrap_affected_opt
+                            .map(|beartrap_affected| {
+                                beartrap_affected.crippled_data.is_none()
+                            })
+                            .unwrap_or(true)
+                        {
+                            velocity.increase(
+                                &Axis::Y,
+                                value_with_wood_decrease(data.jump_strength),
+                            );
+                        }
                     }
 
                     MoveAction::KillJump => {
