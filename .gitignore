@@ -9,3 +9,4 @@
 _ignore/
 /releases
 /bin/util.sh
+*.exe
