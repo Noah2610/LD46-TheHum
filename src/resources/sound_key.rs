@@ -1,3 +1,3 @@
 use std::path::PathBuf;
 
-pub type SoundKey = PathBuf;
+pub type SoundKey = String;

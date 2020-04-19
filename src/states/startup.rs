@@ -60,10 +60,8 @@ fn load_sounds(world: &mut World) {
 
     for sound_group in sounds_settings.sound_groups {
         for sound in sound_group.sounds {
-            let sound_filepath = resource(format!("audio/sfx/{}", sound.file));
-            sounds
-                .load_audio(sound_filepath.clone(), sound_filepath, world)
-                .unwrap();
+            let sound_filepath = resource(format!("audio/sfx/{}", sound.key));
+            sounds.load_audio(sound.key, sound_filepath, world).unwrap();
         }
     }
 

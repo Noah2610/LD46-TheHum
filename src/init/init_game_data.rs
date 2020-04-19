@@ -176,6 +176,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "update_bonfire_halo_size_system",
             &["update_flame_radius_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            PlayRandomSoundsSystem::default(),
+            "play_random_sounds_system",
+            &[],
+        )?
         // - comment for easier copy/pasting -
         ;
 
