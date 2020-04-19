@@ -50,6 +50,10 @@ fn load_songs(world: &mut World) {
 }
 
 fn load_sounds(world: &mut World) {
+    use crate::components::prelude::SoundPlayer;
+
+    world.insert(SoundPlayer::<SoundKey>::default());
+
     let sounds_settings = world.read_resource::<Settings>().sounds.clone();
 
     let mut sounds = Sounds::<SoundKey>::default();
