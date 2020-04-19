@@ -2,7 +2,7 @@
 #![enable(implicit_some)]
 {
     MainMenu: (
-        file: "deathfloor_floor1_wip.ogg",
+        file: "title.wav",
         should_loop: true,
     ),
     Ambience: (
