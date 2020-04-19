@@ -1,8 +1,16 @@
 use super::component_prelude::*;
 
-#[derive(Default, Component)]
-#[storage(NullStorage)]
-pub struct Bonfire;
+#[derive(Component, Clone, Deserialize)]
+#[storage(VecStorage)]
+pub struct Bonfire {
+    pub flame_decrease: FlameDecreaseConfig,
+}
+
+#[derive(Clone, Deserialize)]
+pub struct FlameDecreaseConfig {
+    pub step:        f32,
+    pub interval_ms: u64,
+}
 
 #[derive(Component, Clone, Deserialize)]
 #[storage(VecStorage)]

@@ -1,9 +1,5 @@
 pub mod prelude {
-    pub use super::bonfire_settings::{
-        BonfireSettings,
-        FlameDecreaseSettings,
-        HaloSettings,
-    };
+    pub use super::bonfire_settings::{BonfireSettings, HaloSettings};
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;

@@ -44,13 +44,13 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(transform)
         .with(bonfire_settings.size)
         .with(bonfire_settings.hitbox)
+        .with(bonfire_settings.bonfire)
         .with(bonfire_settings.flame)
         .with(animations)
         .with(sprite_render)
         .with(Collidable::new(CollisionTag::Bonfire))
         .with(Transparent)
         .with(ScaleOnce::default())
-        .with(Bonfire::default())
         .with(WoodInventory::default())
         .build();
 

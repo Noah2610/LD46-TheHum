@@ -11,13 +11,16 @@
         left:   -20.0,
         right:   20.0,
     )],
+    bonfire: (
+        flame_decrease: (
+            step: 1.0,
+            interval_ms: 500,
+        ),
+    ),
     flame: (
         radius: 100.0,
+        min_radius: 30.0,
         wood_radius_increase: 20.0,
-    ),
-    flame_decrease: (
-        step: 1.0,
-        interval_ms: 500.0,
     ),
     animations: {
         Idle: Cycle([

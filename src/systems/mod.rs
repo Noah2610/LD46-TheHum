@@ -1,5 +1,6 @@
 pub mod prelude {
     pub use super::control_player::ControlPlayerSystem;
+    pub use super::decrease_bonfire_flame::DecreaseBonfireFlameSystem;
     pub use super::handle_flame_visibility::HandleFlameVisibilitySystem;
     pub use super::handle_ladder_climbing::HandleLadderClimbingSystem;
     pub use super::handle_movables::HandleMovablesSystem;
@@ -26,6 +27,7 @@ mod system_prelude {
 }
 
 mod control_player;
+mod decrease_bonfire_flame;
 mod handle_flame_visibility;
 mod handle_ladder_climbing;
 mod handle_movables;
