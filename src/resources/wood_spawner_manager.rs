@@ -6,6 +6,7 @@ pub struct WoodSpawnerManager {
     update_interval_ms:                  u64,
     pub active_percentage:               f32,
     pub decrease_active_percentage_step: f32,
+    pub min_active_percentage:           f32,
     #[serde(skip)]
     timer:                               Option<Timer>,
 }
