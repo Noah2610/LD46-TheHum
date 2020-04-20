@@ -14,7 +14,7 @@
     movable: (
         acceleration:               450.0,
         max_velocity:               100.0,
-        jump_strength:              150.0,
+        jump_strength:              145.0,
         kill_jump_strength:         -50.0,
         kill_jump_min_velocity:     10.0,
         climb_acceleration:         800.0,
