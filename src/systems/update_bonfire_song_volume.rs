@@ -53,11 +53,10 @@ impl<'a> System<'a> for UpdateBonfireSongVolumeSystem {
             let new_volume = (1.0 - dist * factor_invert).max(0.0);
             let prev_volume = self.prev_volume.get_or_insert(1.0);
 
-            dbg!(dist);
-            dbg!(factor_invert);
-            dbg!(new_volume);
-
             if *prev_volume != new_volume {
+                #[cfg(feature = "debug")]
+                eprintln!("[DBG] bonfire volume: {}", new_volume);
+
                 songs
                     .get_mut(&SongKey::Bonfire)
                     .map(|song| song.set_volume(new_volume));
