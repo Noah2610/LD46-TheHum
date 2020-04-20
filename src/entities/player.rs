@@ -26,7 +26,6 @@ pub fn init_player(
         .with(sprite_render)
         .with(Velocity::default())
         .with(ScaleOnce::default())
-        .with(Lifecycle::default())
         .with(Transparent)
         .with(Collider::new(CollisionTag::Player))
         .with(Collidable::new(CollisionTag::Player))
