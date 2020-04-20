@@ -34,6 +34,17 @@
         min_radius: 30.0,
         wood_radius_increase: 10.0,
     ),
+    halo: (
+        halo: (
+            size_margin: 8.0,
+        ),
+        animation: [
+            (0, 100),
+            (1, 100),
+            (2, 100),
+            (3, 100),
+        ]
+    ),
     wood_inventory: (
         max_woods: 3,
     ),
@@ -52,6 +63,18 @@
         ]),
         Jump: Cycle([
             (0, 200),
+        ]),
+        CrippledIdle: Cycle([
+            (8, 600),
+            (9, 600),
+        ]),
+        CrippledWalk: Cycle([
+            (10, 200),
+            (11, 200),
+            (12, 200),
+            (13, 200),
+            (14, 200),
+            (15, 200),
         ]),
     },
 )

@@ -16,6 +16,6 @@ pub struct BonfireSettings {
 
 #[derive(Clone, Deserialize)]
 pub struct HaloSettings {
-    pub bonfire_halo: BonfireHalo,
-    pub animation:    Option<Animation>,
+    pub halo:      Halo,
+    pub animation: Option<Animation>,
 }

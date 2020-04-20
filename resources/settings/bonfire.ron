@@ -27,9 +27,7 @@
         min_radius: 30.0,
         wood_radius_increase: 20.0,
     ),
-    wood_inventory: (
-        max_woods: 1000,
-    ),
+    wood_inventory: (),
     animations: {
         Idle: Cycle([
             (0, 100),
@@ -43,7 +41,7 @@
 
     /// HALO SETTINGS
     halo: (
-        bonfire_halo: (
+        halo: (
             size_margin: 8.0,
         ),
 

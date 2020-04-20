@@ -21,3 +21,18 @@ impl Flame {
 #[derive(Component, Default)]
 #[storage(NullStorage)]
 pub struct VisibleInFlame;
+
+#[derive(Component, Clone, Deserialize)]
+#[storage(VecStorage)]
+pub struct Halo {
+    #[serde(skip)]
+    pub bonfire_entity: Option<Entity>,
+    pub size_margin:    f32,
+}
+
+impl Halo {
+    pub fn with_entity(mut self, bonfire_entity: Entity) -> Self {
+        self.bonfire_entity = Some(bonfire_entity);
+        self
+    }
+}

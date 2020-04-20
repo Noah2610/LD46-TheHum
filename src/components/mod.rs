@@ -5,8 +5,8 @@ pub mod prelude {
         BeartrapAffectedCrippledData,
         BeartrapAffectedMovementData,
     };
-    pub use super::bonfire::{Bonfire, BonfireHalo};
-    pub use super::flame::{Flame, VisibleInFlame};
+    pub use super::bonfire::Bonfire;
+    pub use super::flame::{Flame, Halo, VisibleInFlame};
     pub use super::ladder::{Ladder, LadderClimber};
     pub use super::movable::{Movable, MovableData, MoveAction};
     pub use super::player::Player;
