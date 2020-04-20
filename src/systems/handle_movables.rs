@@ -57,16 +57,23 @@ impl<'a> System<'a> for HandleMovablesSystem {
                     }
 
                     MoveAction::Jump => {
-                        if beartrap_affected_opt
-                            .map(|beartrap_affected| {
-                                beartrap_affected.crippled_data.is_none()
-                            })
+                        if inventory_opt
+                            .map(|inventory| !inventory.is_at_max())
                             .unwrap_or(true)
                         {
-                            velocity.increase(
-                                &Axis::Y,
-                                value_with_wood_decrease(data.jump_strength),
-                            );
+                            if beartrap_affected_opt
+                                .map(|beartrap_affected| {
+                                    beartrap_affected.crippled_data.is_none()
+                                })
+                                .unwrap_or(true)
+                            {
+                                velocity.increase(
+                                    &Axis::Y,
+                                    value_with_wood_decrease(
+                                        data.jump_strength,
+                                    ),
+                                );
+                            }
                         }
                     }
 
