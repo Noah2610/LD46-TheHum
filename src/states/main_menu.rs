@@ -30,6 +30,10 @@ impl MainMenu {
 
 impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for MainMenu {
     fn on_start(&mut self, mut data: StateData<GameData<'a, 'b>>) {
+        if let Err(e) = enter_fullscreen(data.world) {
+            eprintln!("[WARNING]\n    Couldn't enter fullscreen:\n    {}", e);
+        }
+
         self.start(&mut data);
     }
 
@@ -105,4 +109,23 @@ impl<'a, 'b> Menu<GameData<'a, 'b>, StateEvent> for MainMenu {
     fn ui_data_mut(&mut self) -> &mut UiData {
         &mut self.ui_data
     }
+}
+
+fn enter_fullscreen(world: &mut World) -> Result<(), String> {
+    use amethyst::ecs::{Read, ReadExpect, SystemData};
+    use amethyst::renderer::rendy::wsi::winit::Window;
+    use amethyst::window::{MonitorIdent, MonitorsAccess};
+    use deathframe::amethyst;
+
+    // let window = world.read_resource::<Window>();
+    let window = <ReadExpect<'_, Window>>::fetch(world);
+    let monitor_ident = MonitorIdent::from_primary(&*window);
+    let monitor_id = monitor_ident.monitor_id(&*window);
+
+    dbg!(&monitor_ident);
+    dbg!(&monitor_id);
+
+    window.set_fullscreen(Some(monitor_id));
+
+    Ok(())
 }
