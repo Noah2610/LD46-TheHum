@@ -39,5 +39,12 @@
                 "growl/growl_10_right.wav",
             ],
         ),
+        (
+            name: "footsteps",
+            sounds: [
+                "footsteps/footsteps_1_left.wav",
+                "footsteps/footsteps_1_right.wav",
+            ],
+        ),
     ],
 )
