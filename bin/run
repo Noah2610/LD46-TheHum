@@ -7,7 +7,7 @@ unset _dir
 
 function main {
     cargo_cmd \
-        run --features debug "$@"
+        run "$@"
 }
 
 main "$@"
