@@ -5,7 +5,7 @@ use deathframe::core::geo::prelude::{Axis, Rect};
 pub fn init_player(
     world: &mut World,
     transform: Transform,
-    level_rect: Rect,
+    mut confined_rect: Rect,
 ) -> Entity {
     let player_settings = world.read_resource::<Settings>().player.clone();
 
@@ -18,6 +18,8 @@ pub fn init_player(
             sprite_number: 0,
         }
     };
+
+    confined_rect.top += 128.0;
 
     let player = world
         .create_entity()
@@ -33,7 +35,7 @@ pub fn init_player(
         .with(TriggerReactiveAnimation::default())
         .with(LadderClimber::default())
         .with(BeartrapAffected::default())
-        .with(Confined::from(level_rect))
+        .with(Confined::from(confined_rect))
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)
