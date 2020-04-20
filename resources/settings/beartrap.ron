@@ -6,15 +6,15 @@
         h: 8.0,
     ),
     hitbox: [(
-        top:     4.0,
+        top:     0.0,
         bottom: -4.0,
-        left:   -8.0,
-        right:   8.0,
+        left:   -5.0,
+        right:   5.0,
     )],
     beartrap: (
-        crippled_duration_ms: 3000,
+        crippled_duration_ms: 8000,
         crippled_movement: (
-            acceleration: 100.0,
+            acceleration: 60.0,
             max_velocity: 100.0,
         ),
     ),
