@@ -74,7 +74,13 @@ pub(super) fn build_game_data<'a, 'b>(
         .with_bundle(DispatcherId::Ingame, physics_bundle)?
         .with_bundle(DispatcherId::Ingame, animation_bundle)?
         .with_bundle(DispatcherId::Ingame, reactive_animation_bundle)?
+        .with_bundle(DispatcherId::MainMenu, PhysicsBundle::<CollisionTag, SolidTag>::new())?
         .with_bundle(DispatcherId::MainMenu, AnimationBundle::<AnimationKey>::new())?
+        .with_bundle(
+            DispatcherId::MainMenu,
+            AnimationBundle::<ReactiveAnimationKey>::new()
+                .with_name_suffix("_reactive"),
+        )?
         .with_bundle(DispatcherId::GameOver, AnimationBundle::<AnimationKey>::new())?
         .with(
             DispatcherId::MainMenu,
@@ -90,15 +96,15 @@ pub(super) fn build_game_data<'a, 'b>(
         )?
         .with(
             DispatcherId::MainMenu,
-            MoveEntitiesSystem::<SolidTag>::default(),
-            "move_entities_system",
-            &[],
-        )?
-        .with(
-            DispatcherId::MainMenu,
             HandleFlameVisibilitySystem::default(),
             "handle_flame_visibility_system",
             &["move_entities_system"],
+        )?
+        .with(
+            DispatcherId::MainMenu,
+            UpdateReactiveAnimationsSystem::default(),
+            "update_reactive_animations_system",
+            &["update_collisions_system"],
         )?
         .with(
             DispatcherId::Ingame,
