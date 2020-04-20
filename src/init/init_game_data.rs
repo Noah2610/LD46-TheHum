@@ -49,7 +49,7 @@ pub(super) fn build_game_data<'a, 'b>(
         AnimationBundle::<ReactiveAnimationKey>::new()
             .with_name_suffix("_reactive");
 
-    let custom_game_data = GameDataBuilder::default()
+    let mut custom_game_data = GameDataBuilder::default()
         .custom(CustomData::default())
         .dispatcher(DispatcherId::MainMenu)?
         .dispatcher(DispatcherId::Ingame)?
@@ -216,17 +216,36 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_beartrap_affected_system",
             &["handle_beartrap_hit_system"],
         )?
-        .with(
+        // - comment for easier copy/pasting -
+        ;
+
+    if let Some(proximity_settings) =
+        settings.songs.songs_proximity.get(&SongKey::Bonfire)
+    {
+        custom_game_data = custom_game_data.with(
             DispatcherId::Ingame,
             SongVolumeProximitySystem::<components::prelude::Bonfire>::new(
                 SongKey::Bonfire,
-                settings.general.bonfire_song_volume_factor,
+                proximity_settings.factor,
             ),
             "song_volume_proximity_system_bonfire",
             &[],
-        )?
-        // - comment for easier copy/pasting -
-        ;
+        )?;
+    }
+
+    // if let Some(proximity_settings) =
+    //     settings.songs.songs_proximity.get(&SongKey::Radio)
+    // {
+    //     custom_game_data = custom_game_data.with(
+    //         DispatcherId::Ingame,
+    //         SongVolumeProximitySystem::<components::prelude::Radio>::new(
+    //             SongKey::Radio,
+    //             proximity_settings.factor,
+    //         ),
+    //         "song_volume_proximity_system_bonfire",
+    //         &[],
+    //     )?;
+    // }
 
     Ok(custom_game_data)
 }
