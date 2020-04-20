@@ -2,4 +2,6 @@
 pub enum SongKey {
     MainMenu,
     Ambience,
+    Bonfire,
+    Radio,
 }

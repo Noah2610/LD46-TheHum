@@ -5,7 +5,7 @@ use crate::states::aliases::{CustomData, GameDataBuilder};
 use deathframe::amethyst;
 
 pub(super) fn build_game_data<'a, 'b>(
-    _settings: &Settings,
+    settings: &Settings,
 ) -> amethyst::Result<GameDataBuilder<'a, 'b>> {
     use crate::input::prelude::*;
     use crate::systems::prelude::*;
@@ -211,6 +211,14 @@ pub(super) fn build_game_data<'a, 'b>(
             HandleBeartrapAffectedSystem::default(),
             "handle_beartrap_affected_system",
             &["handle_beartrap_hit_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            UpdateBonfireSongVolumeSystem::new(
+                settings.general.bonfire_song_volume_factor,
+            ),
+            "update_bonfire_song_volume",
+            &[],
         )?
         // - comment for easier copy/pasting -
         ;
