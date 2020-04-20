@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="256" height="144" tilewidth="4" tileheight="4" infinite="0" nextlayerid="12" nextobjectid="56">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="256" height="144" tilewidth="4" tileheight="4" infinite="0" nextlayerid="12" nextobjectid="57">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="LD46-export"/>
  </editorsettings>
@@ -814,6 +814,7 @@
   <object id="53" name="BEARTRAP" type="Beartrap(12)" x="112" y="532" width="8" height="4"/>
   <object id="54" name="BEARTRAP" type="Beartrap(12)" x="744" y="532" width="8" height="4"/>
   <object id="55" name="BEARTRAP" type="Beartrap(3)" x="168" y="332" width="8" height="4"/>
+  <object id="56" name="BEARTRAP" type="Beartrap(5)" x="684" y="148" width="8" height="4"/>
  </objectgroup>
  <objectgroup id="2" name="Player">
   <properties>

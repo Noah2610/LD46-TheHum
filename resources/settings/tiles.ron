@@ -27,4 +27,26 @@
             ]),
         },
     ),
+    "Grass FG": (
+        is_solid: false,
+        reactive_animations: {
+            Default: Cycle([(0, 0)]),
+            OnEnter: Once([
+                (0, 50),
+                (1, 50),
+            ]),
+,
+        },
+    ),
+    "Grass BG": (
+        is_solid: false,
+        reactive_animations: {
+            Default: Cycle([(0, 0)]),
+            OnEnter: Once([
+                (0, 50),
+                (1, 50),
+            ]),
+
+        },
+    ),
 }
