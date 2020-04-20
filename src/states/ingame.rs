@@ -50,12 +50,36 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
         &mut self,
         data: StateData<GameData<'a, 'b>>,
     ) -> Trans<GameData<'a, 'b>, StateEvent> {
+        use crate::components::prelude::{Bonfire, Flame};
+        use amethyst::ecs::{Join, ReadStorage};
+        use deathframe::amethyst;
+
         data.data.update(data.world, DispatcherId::Ingame).unwrap();
 
-        let input_manager =
-            data.world.read_resource::<InputManager<MenuBindings>>();
-        if input_manager.is_down(MenuAction::Back) {
-            return Trans::Pop;
+        {
+            let input_manager =
+                data.world.read_resource::<InputManager<MenuBindings>>();
+            if input_manager.is_down(MenuAction::Back) {
+                return Trans::Pop;
+            }
+        }
+
+        let game_over = data
+            .world
+            .exec(
+                |(bonfire_store, flame_store): (
+                    ReadStorage<Bonfire>,
+                    ReadStorage<Flame>,
+                )| {
+                    (&bonfire_store, &flame_store)
+                        .join()
+                        .next()
+                        .map(|(_, flame)| flame.is_at_min_radius())
+                },
+            )
+            .unwrap_or(false);
+        if game_over {
+            return Trans::Push(Box::new(GameOver::default()));
         }
 
         Trans::None

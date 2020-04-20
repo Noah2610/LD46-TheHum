@@ -1,12 +1,4 @@
 use super::init_prelude::*;
-
-pub fn init_wood(world: &mut World, transform: Transform) -> Entity {
-    world.exec(|(entities, mut storages): (Entities, InitWoodStorages)| {
-        init_wood_with_storages(entities.create(), transform, &mut storages)
-            .unwrap()
-    })
-}
-
 use deathframe::amethyst::ecs::shred::ResourceId;
 use deathframe::amethyst::ecs::{
     Entities,
@@ -16,6 +8,13 @@ use deathframe::amethyst::ecs::{
     World,
     WriteStorage,
 };
+
+pub fn init_wood(world: &mut World, transform: Transform) -> Entity {
+    world.exec(|(entities, mut storages): (Entities, InitWoodStorages)| {
+        init_wood_with_storages(entities.create(), transform, &mut storages)
+            .unwrap()
+    })
+}
 
 pub fn init_wood_with_storages(
     entity: Entity,
