@@ -3,4 +3,5 @@ pub enum DispatcherId {
     MainMenu,
     Ingame,
     Paused,
+    GameOver,
 }

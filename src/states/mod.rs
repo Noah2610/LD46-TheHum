@@ -1,4 +1,5 @@
 pub mod prelude {
+    pub use super::game_over::GameOver;
     pub use super::ingame::Ingame;
     pub use super::main_menu::MainMenu;
     pub use super::startup::Startup;
@@ -33,6 +34,7 @@ mod menu_prelude {
     pub use deathframe::core::menu::prelude::*;
 }
 
+mod game_over;
 mod ingame;
 mod main_menu;
 mod startup;
