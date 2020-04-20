@@ -17,5 +17,7 @@ Each type can have configuration specified in the
 - `WoodSpawner`
 - `Ladder`  
   The ladder object's size is used as the ladder's hitbox.
+- `Beartrap(NUMBER)`  
+  Beartrap spawns when bonfire has reached `NUMBER` amount of woods.
 
 [`resources/settings/tiles.ron`]: https://github.com/Noah2610/LD46/blob/master/resources/settings/tiles.ron
