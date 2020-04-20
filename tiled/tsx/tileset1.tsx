@@ -17,80 +17,26 @@
  <tile id="29" type="Ground"/>
  <tile id="30" type="Ground"/>
  <tile id="31" type="Ground"/>
- <tile id="32" type="Ground"/>
- <tile id="33" type="Ground"/>
- <tile id="34" type="Ground"/>
- <tile id="35" type="Ground"/>
- <tile id="36" type="Ground"/>
- <tile id="37" type="Ground"/>
- <tile id="38" type="Ground"/>
- <tile id="39" type="Ground"/>
- <tile id="40" type="Ground"/>
- <tile id="41" type="Ground"/>
  <tile id="58" type="Ground"/>
- <tile id="59" type="Ground"/>
- <tile id="60" type="Ground"/>
- <tile id="61" type="Ground"/>
- <tile id="62" type="Ground"/>
  <tile id="63" type="Ground"/>
- <tile id="64" type="Ground"/>
- <tile id="65" type="Ground"/>
- <tile id="66" type="Ground"/>
- <tile id="67" type="Ground"/>
- <tile id="68" type="Ground"/>
- <tile id="69" type="Ground"/>
- <tile id="70" type="Ground"/>
- <tile id="71" type="Ground"/>
- <tile id="72" type="Ground"/>
- <tile id="73" type="Ground"/>
  <tile id="90" type="Ground"/>
  <tile id="91" type="Ground"/>
  <tile id="92" type="Ground"/>
  <tile id="93" type="Ground"/>
  <tile id="94" type="Ground"/>
  <tile id="95" type="Ground"/>
- <tile id="96" type="Ground"/>
- <tile id="97" type="Ground"/>
- <tile id="98" type="Ground"/>
- <tile id="99" type="Ground"/>
- <tile id="100" type="Ground"/>
- <tile id="101" type="Ground"/>
- <tile id="102" type="Ground"/>
- <tile id="103" type="Ground"/>
- <tile id="104" type="Ground"/>
- <tile id="105" type="Ground"/>
  <tile id="122" type="Ground"/>
  <tile id="123" type="Ground"/>
  <tile id="124" type="Ground"/>
  <tile id="125" type="Ground"/>
  <tile id="126" type="Ground"/>
  <tile id="127" type="Ground"/>
- <tile id="128" type="Ground"/>
- <tile id="129" type="Ground"/>
- <tile id="130" type="Ground"/>
- <tile id="131" type="Ground"/>
- <tile id="132" type="Ground"/>
- <tile id="133" type="Ground"/>
- <tile id="134" type="Ground"/>
- <tile id="135" type="Ground"/>
- <tile id="136" type="Ground"/>
- <tile id="137" type="Ground"/>
  <tile id="154" type="Ground"/>
  <tile id="155" type="Ground"/>
  <tile id="156" type="Ground"/>
  <tile id="157" type="Ground"/>
  <tile id="158" type="Ground"/>
  <tile id="159" type="Ground"/>
- <tile id="160" type="Ground"/>
- <tile id="161" type="Ground"/>
- <tile id="162" type="Ground"/>
- <tile id="163" type="Ground"/>
- <tile id="164" type="Ground"/>
- <tile id="165" type="Ground"/>
- <tile id="166" type="Ground"/>
- <tile id="167" type="Ground"/>
- <tile id="168" type="Ground"/>
- <tile id="169" type="Ground"/>
  <tile id="896" type="Ground"/>
  <tile id="897" type="Ground"/>
  <tile id="898" type="Ground"/>
@@ -104,28 +50,8 @@
  <tile id="906" type="Ground"/>
  <tile id="907" type="Ground"/>
  <tile id="928" type="Ground"/>
- <tile id="929" type="Ground"/>
- <tile id="930" type="Ground"/>
- <tile id="931" type="Ground"/>
- <tile id="932" type="Ground"/>
- <tile id="933" type="Ground"/>
- <tile id="934" type="Ground"/>
- <tile id="935" type="Ground"/>
- <tile id="936" type="Ground"/>
- <tile id="937" type="Ground"/>
- <tile id="938" type="Ground"/>
  <tile id="939" type="Ground"/>
  <tile id="960" type="Ground"/>
- <tile id="961" type="Ground"/>
- <tile id="962" type="Ground"/>
- <tile id="963" type="Ground"/>
- <tile id="964" type="Ground"/>
- <tile id="965" type="Ground"/>
- <tile id="966" type="Ground"/>
- <tile id="967" type="Ground"/>
- <tile id="968" type="Ground"/>
- <tile id="969" type="Ground"/>
- <tile id="970" type="Ground"/>
  <tile id="971" type="Ground"/>
  <tile id="992" type="Ground"/>
  <tile id="993" type="Ground"/>
