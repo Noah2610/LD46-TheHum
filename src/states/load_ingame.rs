@@ -1,19 +1,35 @@
-// resources/ui/game_over.ron
+// resources/ui/load_ingame.ron
 
 use super::menu_prelude::*;
 use super::state_prelude::*;
+use crate::level_loader;
 
-#[derive(Default)]
-pub struct GameOver {
-    ui_data: UiData,
+pub struct LoadIngame {
+    level_name: String,
+    ui_data:    UiData,
 }
 
-impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for GameOver {
+impl LoadIngame {
+    pub fn new(level_name: String) -> Self {
+        Self {
+            level_name,
+            ui_data: Default::default(),
+        }
+    }
+}
+
+impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
     fn on_start(&mut self, mut data: StateData<GameData<'a, 'b>>) {
+        data.world.delete_all();
         self.create_ui(
             &mut data,
-            resource("ui/game_over.ron").to_str().unwrap(),
+            resource("ui/load_ingame.ron").to_str().unwrap(),
         );
+        level_loader::load_level(
+            resource(format!("levels/{}", &self.level_name)),
+            data.world,
+        )
+        .unwrap();
     }
 
     fn on_stop(&mut self, mut data: StateData<GameData<'a, 'b>>) {
@@ -25,18 +41,10 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for GameOver {
         data: StateData<GameData<'a, 'b>>,
     ) -> Trans<GameData<'a, 'b>, StateEvent> {
         data.data
-            .update(data.world, DispatcherId::GameOver)
+            .update(data.world, DispatcherId::LoadIngame)
             .unwrap();
 
-        let input_manager =
-            data.world.read_resource::<InputManager<MenuBindings>>();
-        if input_manager.is_down(MenuAction::Enter)
-            || input_manager.is_down(MenuAction::Back)
-        {
-            return Trans::Replace(Box::new(MainMenu::default()));
-        }
-
-        Trans::None
+        Trans::Switch(Box::new(Ingame::default()))
     }
 
     fn fixed_update(
@@ -51,7 +59,7 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for GameOver {
     }
 }
 
-impl<'a, 'b> Menu<GameData<'a, 'b>, StateEvent> for GameOver {
+impl<'a, 'b> Menu<GameData<'a, 'b>, StateEvent> for LoadIngame {
     fn event_triggered(
         &mut self,
         _data: &mut StateData<GameData<'a, 'b>>,

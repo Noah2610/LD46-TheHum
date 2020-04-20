@@ -52,6 +52,7 @@ pub(super) fn build_game_data<'a, 'b>(
     let mut custom_game_data = GameDataBuilder::default()
         .custom(CustomData::default())
         .dispatcher(DispatcherId::MainMenu)?
+        .dispatcher(DispatcherId::LoadIngame)?
         .dispatcher(DispatcherId::Ingame)?
         .dispatcher(DispatcherId::Paused)?
         .dispatcher(DispatcherId::GameOver)?
