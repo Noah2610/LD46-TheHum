@@ -60,7 +60,7 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
             let input_manager =
                 data.world.read_resource::<InputManager<MenuBindings>>();
             if input_manager.is_down(MenuAction::Back) {
-                return Trans::Pop;
+                return Trans::Replace(Box::new(MainMenu::default()));
             }
         }
 
