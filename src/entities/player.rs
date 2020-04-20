@@ -1,7 +1,11 @@
 use super::init_prelude::*;
-use deathframe::core::geo::prelude::Axis;
+use deathframe::core::geo::prelude::{Axis, Rect};
 
-pub fn init_player(world: &mut World, transform: Transform) -> Entity {
+pub fn init_player(
+    world: &mut World,
+    transform: Transform,
+    level_rect: Rect,
+) -> Entity {
     let player_settings = world.read_resource::<Settings>().player.clone();
 
     let sprite_render = {
@@ -29,6 +33,7 @@ pub fn init_player(world: &mut World, transform: Transform) -> Entity {
         .with(TriggerReactiveAnimation::default())
         .with(LadderClimber::default())
         .with(BeartrapAffected::default())
+        .with(Confined::from(level_rect))
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)

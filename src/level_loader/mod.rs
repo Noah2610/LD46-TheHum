@@ -33,6 +33,7 @@ use crate::components::prelude::*;
 use crate::entities;
 use amethyst::ecs::World;
 use deathframe::amethyst;
+use deathframe::core::geo::prelude::{Point, Rect};
 use level_data::*;
 use std::fs::File;
 use std::path::PathBuf;
@@ -44,11 +45,19 @@ pub fn load_level(
     let level_file = File::open(level_path)?;
     let level = serde_json::de::from_reader::<_, Level>(level_file)?;
 
+    let level_rect = {
+        let size: Size = (&level.level.size).into();
+        let center = {
+            let half = size.half();
+            Point::new(half.w, half.h)
+        };
+        Rect::from(&size).with_offset(&center)
+    };
     let tile_size: Size = (&level.level.tile_size).into();
 
     let _camera = entities::init_camera(world, (&level.level.size).into());
     load_tiles::load_tiles(world, level.tiles, tile_size)?;
-    load_objects::load_objects(world, level.objects)?;
+    load_objects::load_objects(world, level.objects, level_rect)?;
 
     Ok(())
 }
