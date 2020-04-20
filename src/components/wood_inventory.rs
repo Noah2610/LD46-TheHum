@@ -11,7 +11,7 @@ pub enum WoodInventoryAction {
 pub struct WoodInventory {
     #[serde(skip)]
     pub woods:     usize,
-    pub max_woods: usize,
+    pub max_woods: Option<usize>,
     #[serde(skip)]
     actions:       Vec<WoodInventoryAction>,
 }
@@ -22,7 +22,7 @@ impl WoodInventory {
     }
 
     pub fn is_at_max(&self) -> bool {
-        self.woods == self.max_woods
+        self.max_woods.map(|max| self.woods == max).unwrap_or(false)
     }
 }
 

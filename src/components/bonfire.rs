@@ -12,18 +12,3 @@ pub struct FlameDecreaseConfig {
     pub interval_ms:   u64,
     pub wood_decrease: f32,
 }
-
-#[derive(Component, Clone, Deserialize)]
-#[storage(VecStorage)]
-pub struct BonfireHalo {
-    #[serde(skip)]
-    pub bonfire_entity: Option<Entity>,
-    pub size_margin:    f32,
-}
-
-impl BonfireHalo {
-    pub fn with_bonfire_entity(mut self, bonfire_entity: Entity) -> Self {
-        self.bonfire_entity = Some(bonfire_entity);
-        self
-    }
-}

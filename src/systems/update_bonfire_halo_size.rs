@@ -9,7 +9,7 @@ pub struct UpdateBonfireHaloSizeSystem {
 impl<'a> System<'a> for UpdateBonfireHaloSizeSystem {
     type SystemData = (
         Entities<'a>,
-        ReadStorage<'a, BonfireHalo>,
+        ReadStorage<'a, Halo>,
         ReadStorage<'a, Flame>,
         WriteStorage<'a, Size>,
         WriteStorage<'a, ScaleOnce>,
@@ -19,14 +19,14 @@ impl<'a> System<'a> for UpdateBonfireHaloSizeSystem {
         &mut self,
         (
             entities,
-            bonfire_halo_store,
+            halo_store,
             flame_store,
             mut size_store,
             mut scale_once_store,
         ): Self::SystemData,
     ) {
         for (halo_entity, halo, halo_size) in
-            (&entities, &bonfire_halo_store, &mut size_store).join()
+            (&entities, &halo_store, &mut size_store).join()
         {
             if let Some(bonfire_entity) = halo.bonfire_entity {
                 if let Some(bonfire_flame) = flame_store.get(bonfire_entity) {

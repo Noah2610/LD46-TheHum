@@ -1,6 +1,7 @@
 mod beartrap;
 mod bonfire;
 mod camera;
+mod halo;
 mod ladder;
 mod player;
 mod wood;
@@ -20,6 +21,7 @@ mod init_prelude {
 pub use beartrap::init_beartrap;
 pub use bonfire::init_bonfire;
 pub use camera::init_camera;
+pub use halo::init_halo_for;
 pub use ladder::init_ladder;
 pub use player::init_player;
 pub use wood::{init_wood, init_wood_with_storages, InitWoodStorages};

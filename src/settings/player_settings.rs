@@ -1,5 +1,6 @@
 // resources/settings/player.ron
 
+use super::prelude::HaloSettings;
 use crate::components::prelude::*;
 use crate::resources::prelude::AnimationKey;
 
@@ -11,6 +12,7 @@ pub struct PlayerSettings {
     pub base_friction:  BaseFriction,
     pub gravity:        Gravity,
     pub flame:          Flame,
+    pub halo:           HaloSettings,
     pub wood_inventory: WoodInventory,
     pub animations:     AnimationsContainer<AnimationKey>,
 }
