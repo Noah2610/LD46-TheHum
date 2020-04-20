@@ -216,6 +216,12 @@ pub(super) fn build_game_data<'a, 'b>(
             "handle_beartrap_affected_system",
             &["handle_beartrap_hit_system"],
         )?
+        .with(
+            DispatcherId::Ingame,
+            DeleteWoodIndicatorSystem::default(),
+            "delete_wood_indicator_system",
+            &["spawn_wood_system"],
+        )?
         // - comment for easier copy/pasting -
         ;
 
