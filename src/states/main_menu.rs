@@ -39,6 +39,13 @@ impl MainMenu {
         )
         .ok()
         .map(|level| level.size);
+
+        data.world.exec(|mut player_store: WriteStorage<Player>| {
+            (&mut player_store)
+                .join()
+                .next()
+                .map(|player| player.on_ground = true)
+        });
     }
 
     fn stop<'a, 'b>(&mut self, data: &mut StateData<GameData<'a, 'b>>) {
@@ -103,9 +110,6 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for MainMenu {
                             .join()
                             .next()
                         {
-                            // TODO: Hacky workaround for getting ground animations running.
-                            player.on_ground = true;
-
                             let pos = transform.translation();
                             if pos.x > level_size.w || pos.x < 0.0 {
                                 should_start = true;
