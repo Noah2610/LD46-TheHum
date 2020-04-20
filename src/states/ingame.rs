@@ -25,6 +25,7 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
             let mut songs = data.world.write_resource::<Songs<SongKey>>();
             songs.play(&SongKey::Ambience);
             songs.play(&SongKey::Bonfire);
+            songs.play(&SongKey::Radio);
         }
 
         let wood_spawner_manager = data
@@ -42,6 +43,7 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
         let mut songs = data.world.write_resource::<Songs<SongKey>>();
         songs.stop(&SongKey::Ambience);
         songs.stop(&SongKey::Bonfire);
+        songs.stop(&SongKey::Radio);
     }
 
     fn update(

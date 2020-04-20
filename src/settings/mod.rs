@@ -4,6 +4,7 @@ pub mod prelude {
     pub use super::camera_settings::CameraSettings;
     pub use super::general_settings::GeneralSettings;
     pub use super::player_settings::PlayerSettings;
+    pub use super::radio_settings::RadioSettings;
     pub use super::songs_settings::{SongSettings, SongsSettings};
     pub use super::sounds_settings::{
         SoundGroup,
@@ -21,6 +22,7 @@ mod bonfire_settings;
 mod camera_settings;
 mod general_settings;
 mod player_settings;
+mod radio_settings;
 mod songs_settings;
 mod sounds_settings;
 mod tiles_settings;
@@ -45,6 +47,7 @@ pub struct Settings {
     pub wood:         WoodSettings,
     pub wood_spawner: WoodSpawnerSettings,
     pub beartrap:     BeartrapSettings,
+    pub radio:        RadioSettings,
 }
 
 impl Settings {
@@ -60,6 +63,7 @@ impl Settings {
             wood:         load_settings("wood.ron")?,
             wood_spawner: load_settings("wood_spawner.ron")?,
             beartrap:     load_settings("beartrap.ron")?,
+            radio:        load_settings("radio.ron")?,
         })
     }
 }

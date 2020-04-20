@@ -15,7 +15,7 @@
             should_loop: true,
         ),
         Radio: (
-            file: "title.wav",
+            file: "mainbgm.wav",
             should_loop: true,
         ),
     },
@@ -24,6 +24,9 @@
             // LARGER  -> volume reaches further
             // SMALLER -> volume reaches less far
             factor: 0.995,
+        ),
+        Radio: (
+            factor: 0.997,
         ),
     },
 )

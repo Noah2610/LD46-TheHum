@@ -233,19 +233,19 @@ pub(super) fn build_game_data<'a, 'b>(
         )?;
     }
 
-    // if let Some(proximity_settings) =
-    //     settings.songs.songs_proximity.get(&SongKey::Radio)
-    // {
-    //     custom_game_data = custom_game_data.with(
-    //         DispatcherId::Ingame,
-    //         SongVolumeProximitySystem::<components::prelude::Radio>::new(
-    //             SongKey::Radio,
-    //             proximity_settings.factor,
-    //         ),
-    //         "song_volume_proximity_system_bonfire",
-    //         &[],
-    //     )?;
-    // }
+    if let Some(proximity_settings) =
+        settings.songs.songs_proximity.get(&SongKey::Radio)
+    {
+        custom_game_data = custom_game_data.with(
+            DispatcherId::Ingame,
+            SongVolumeProximitySystem::<components::prelude::Radio>::new(
+                SongKey::Radio,
+                proximity_settings.factor,
+            ),
+            "song_volume_proximity_system_radio",
+            &[],
+        )?;
+    }
 
     Ok(custom_game_data)
 }

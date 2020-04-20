@@ -12,6 +12,7 @@ pub enum ObjectType {
     WoodSpawner,
     Ladder,
     Beartrap(usize),
+    Radio,
 }
 
 mod load_prelude {
