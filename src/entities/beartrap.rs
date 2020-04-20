@@ -17,6 +17,18 @@ pub fn init_beartrap(
         }
     };
 
+    let animations = {
+        let mut anims = beartrap_settings.animations;
+        if let Err(e) = anims.play(AnimationKey::Idle) {
+            eprintln!(
+                "[WARNING]\n[entities::init_beartrap]\n    Beartrap has no \
+                 `Idle` animation configured.\n    {}",
+                e
+            );
+        }
+        anims
+    };
+
     world
         .create_entity()
         .with(transform)
@@ -27,6 +39,7 @@ pub fn init_beartrap(
         )
         .with(beartrap_settings.size)
         .with(beartrap_settings.hitbox)
+        .with(animations)
         .with(sprite_render)
         .with(Transparent)
         .with(ScaleOnce::default())

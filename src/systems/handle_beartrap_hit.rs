@@ -13,6 +13,7 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
         ReadStorage<'a, Beartrap>,
         WriteStorage<'a, BeartrapAffected>,
         ReadStorage<'a, Collider<CollisionTag>>,
+        WriteStorage<'a, AnimationsContainer<AnimationKey>>,
     );
 
     fn run(
@@ -22,6 +23,7 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
             beartrap_store,
             mut beartrap_affected_store,
             collider_store,
+            mut animations_store,
         ): Self::SystemData,
     ) {
         let mut beartrap_entity_ids = Vec::new();
@@ -63,6 +65,7 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
                     if let Some(beartrap_data) =
                         beartraps_data.get(&beartrap_collision.id)
                     {
+                        // MAKE PLAYER CRIPPLED
                         beartrap_affected.crippled_data =
                             Some(BeartrapAffectedCrippledData {
                                 timer:    Timer::new(
@@ -76,6 +79,24 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
                                 ),
                                 movement: beartrap_data.movement.clone(),
                             });
+
+                        // PLAY BEARTRAP HIT ANIMATION (on beartrap)
+                        let beartrap_entity =
+                            entities.entity(beartrap_collision.id);
+                        if let Some(beartrap_animations) =
+                            animations_store.get_mut(beartrap_entity)
+                        {
+                            if let Err(e) = beartrap_animations
+                                .push(AnimationKey::BeartrapHit)
+                            {
+                                eprintln!(
+                                    "[WARNING]\n[HandleBeartrapHitSystem]\n    \
+                                    Beartrap has no `BeartrapHit` animation \
+                                    configured.\n    {}",
+                                    e
+                                );
+                            }
+                        }
                     }
                 }
             }
