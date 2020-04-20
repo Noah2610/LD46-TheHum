@@ -1,15 +1,18 @@
 use super::load_prelude::*;
+use deathframe::core::geo::prelude::Rect;
 
 pub(super) fn load_objects(
     world: &mut World,
     objects: Vec<ObjectData>,
+    level_rect: Rect,
 ) -> amethyst::Result<()> {
     for object in objects {
         let transform: Transform = (&object).into();
 
         match &object.object_type {
             ObjectType::Player => {
-                let _player = entities::init_player(world, transform);
+                let _player =
+                    entities::init_player(world, transform, level_rect.clone());
             }
 
             ObjectType::Bonfire => {
