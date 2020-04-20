@@ -1,12 +1,11 @@
 use super::system_prelude::*;
 
-const VEL_PADDING: f32 = 10.0;
-
 #[derive(Default)]
 pub struct UpdatePlayerAnimationSystem;
 
 impl<'a> System<'a> for UpdatePlayerAnimationSystem {
     type SystemData = (
+        ReadExpect<'a, Settings>,
         ReadStorage<'a, Player>,
         ReadStorage<'a, Velocity>,
         WriteStorage<'a, Transform>,
@@ -18,6 +17,7 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
     fn run(
         &mut self,
         (
+            settings,
             player_store,
             velocity_store,
             mut transform_store,
@@ -43,10 +43,13 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         )
             .join()
         {
-            if velocity.x > VEL_PADDING {
+            let vel_padding =
+                settings.general.player_animation_update_velocity_padding;
+
+            if velocity.x > vel_padding {
                 let scale = transform.scale_mut();
                 scale.x = scale.x.abs() * -1.0;
-            } else if velocity.x < -VEL_PADDING {
+            } else if velocity.x < -vel_padding {
                 let scale = transform.scale_mut();
                 scale.x = scale.x.abs();
             }
@@ -54,7 +57,11 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
             if !ladder_climber.is_climbing {
                 // NOT CLIMBING
                 if player.on_ground {
-                    if velocity.x.abs() < VEL_PADDING {
+                    if velocity.x.abs()
+                        < settings
+                            .general
+                            .player_animation_update_velocity_padding
+                    {
                         let _ = if beartrap_affected.is_crippled() {
                             animations.play(AnimationKey::CrippledIdle)
                         } else {
@@ -72,8 +79,11 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
                 }
             } else {
                 // IS CLIMBING
-                if velocity.x.abs() < VEL_PADDING
-                    && velocity.y.abs() < VEL_PADDING
+                if velocity.x.abs() < vel_padding
+                    && velocity.y.abs()
+                        < settings
+                            .general
+                            .player_animation_update_velocity_padding
                 {
                     let _ = animations.play(AnimationKey::ClimbingIdle);
                 } else {
