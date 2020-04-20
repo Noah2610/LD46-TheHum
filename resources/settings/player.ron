@@ -23,7 +23,7 @@
         wood_speed_decrease_factor: 10.0,
     ),
     base_friction: (
-        friction_x: 500.0,
+        friction_x: 800.0,
         friction_y: 500.0, // NOTE: only used when climbing ladders!
     ),
     gravity: (
