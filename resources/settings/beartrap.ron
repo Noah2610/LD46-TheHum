@@ -18,4 +18,12 @@
             max_velocity: 100.0,
         ),
     ),
+    animations: {
+        Idle: Cycle([
+            (0, 1000),
+        ]),
+        BeartrapHit: Once([
+            (0, 200),
+        ]),
+    },
 )
