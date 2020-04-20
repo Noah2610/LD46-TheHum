@@ -20,6 +20,7 @@ fn load_display_config() -> amethyst::Result<DisplayConfig> {
 pub(super) fn build_game_data<'a, 'b>(
     settings: &Settings,
 ) -> amethyst::Result<GameDataBuilder<'a, 'b>> {
+    use crate::components;
     use crate::input::prelude::*;
     use crate::systems::prelude::*;
     use amethyst::core::transform::TransformBundle;
@@ -217,7 +218,8 @@ pub(super) fn build_game_data<'a, 'b>(
         )?
         .with(
             DispatcherId::Ingame,
-            SongVolumeProximitySystem::new(
+            SongVolumeProximitySystem::<components::prelude::Bonfire>::new(
+                SongKey::Bonfire,
                 settings.general.bonfire_song_volume_factor,
             ),
             "song_volume_proximity_system_bonfire",
