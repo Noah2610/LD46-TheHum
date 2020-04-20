@@ -10,6 +10,7 @@ pub struct HandleBeartrapHitSystem;
 impl<'a> System<'a> for HandleBeartrapHitSystem {
     type SystemData = (
         Entities<'a>,
+        Write<'a, SoundPlayer<SoundKey>>,
         ReadStorage<'a, Beartrap>,
         WriteStorage<'a, BeartrapAffected>,
         ReadStorage<'a, Collider<CollisionTag>>,
@@ -20,6 +21,7 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
         &mut self,
         (
             entities,
+            mut sound_player,
             beartrap_store,
             mut beartrap_affected_store,
             collider_store,
@@ -65,6 +67,9 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
                     if let Some(beartrap_data) =
                         beartraps_data.get(&beartrap_collision.id)
                     {
+                        sound_player.add_action(SoundAction::Play(
+                            "beartrap".to_string(),
+                        ));
                         // MAKE PLAYER CRIPPLED
                         beartrap_affected.crippled_data =
                             Some(BeartrapAffectedCrippledData {

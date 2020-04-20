@@ -65,6 +65,13 @@ fn load_sounds(world: &mut World) {
     let sounds_settings = world.read_resource::<Settings>().sounds.clone();
 
     let mut sounds = Sounds::<SoundKey>::default();
+    sounds
+        .load_audio(
+            "beartrap".to_string(),
+            resource("audio/sfx/beartrap.wav"),
+            world,
+        )
+        .unwrap();
 
     for sound_group in sounds_settings.sound_groups {
         for sound in sound_group.sounds {
