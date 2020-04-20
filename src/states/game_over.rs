@@ -8,31 +8,16 @@ pub struct GameOver {
     ui_data: UiData,
 }
 
-impl GameOver {
-    fn start<'a, 'b>(&mut self, data: &mut StateData<GameData<'a, 'b>>) {
-        self.create_ui(data, resource("ui/game_over.ron").to_str().unwrap());
-    }
-
-    fn stop<'a, 'b>(&mut self, data: &mut StateData<GameData<'a, 'b>>) {
-        self.delete_ui(data);
-    }
-}
-
 impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for GameOver {
     fn on_start(&mut self, mut data: StateData<GameData<'a, 'b>>) {
-        self.start(&mut data);
-    }
-
-    fn on_resume(&mut self, mut data: StateData<GameData<'a, 'b>>) {
-        self.start(&mut data);
+        self.create_ui(
+            &mut data,
+            resource("ui/game_over.ron").to_str().unwrap(),
+        );
     }
 
     fn on_stop(&mut self, mut data: StateData<GameData<'a, 'b>>) {
-        self.stop(&mut data);
-    }
-
-    fn on_pause(&mut self, mut data: StateData<GameData<'a, 'b>>) {
-        self.stop(&mut data);
+        self.delete_ui(&mut data);
     }
 
     fn update(

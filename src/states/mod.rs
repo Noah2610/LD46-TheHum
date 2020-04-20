@@ -1,6 +1,7 @@
 pub mod prelude {
     pub use super::game_over::GameOver;
     pub use super::ingame::Ingame;
+    pub use super::load_ingame::LoadIngame;
     pub use super::main_menu::MainMenu;
     pub use super::startup::Startup;
 }
@@ -36,5 +37,6 @@ mod menu_prelude {
 
 mod game_over;
 mod ingame;
+mod load_ingame;
 mod main_menu;
 mod startup;
