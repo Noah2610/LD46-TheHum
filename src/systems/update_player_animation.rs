@@ -46,15 +46,15 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
             let vel_padding =
                 settings.general.player_animation_update_velocity_padding;
 
-            if velocity.x > vel_padding {
-                let scale = transform.scale_mut();
-                scale.x = scale.x.abs() * -1.0;
-            } else if velocity.x < -vel_padding {
-                let scale = transform.scale_mut();
-                scale.x = scale.x.abs();
-            }
-
             if !ladder_climber.is_climbing {
+                if velocity.x > vel_padding {
+                    let scale = transform.scale_mut();
+                    scale.x = scale.x.abs() * -1.0;
+                } else if velocity.x < -vel_padding {
+                    let scale = transform.scale_mut();
+                    scale.x = scale.x.abs();
+                }
+
                 // NOT CLIMBING
                 if player.on_ground {
                     if velocity.x.abs()
