@@ -53,12 +53,21 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
             .update(data.world, DispatcherId::LoadIngame)
             .unwrap();
 
+        let finish_timer = data
+            .world
+            .read_resource::<InputManager<MenuBindings>>()
+            .is_down(MenuAction::Enter);
+
         let timer = self
             .timer
             .as_mut()
             .expect("Timer for `LoadIngame` state should exist");
 
-        timer.update().unwrap();
+        if finish_timer {
+            let _ = timer.finish();
+        } else {
+            timer.update().unwrap();
+        }
 
         if timer.state.is_finished() {
             level_loader::load_level(
