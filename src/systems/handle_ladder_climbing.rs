@@ -13,6 +13,7 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
         WriteStorage<'a, Movable>,
         WriteStorage<'a, Gravity>,
         WriteStorage<'a, BaseFriction>,
+        ReadStorage<'a, BeartrapAffected>,
     );
 
     fn run(
@@ -25,14 +26,23 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
             mut movable_store,
             mut gravity_store,
             mut base_friction_store,
+            beartrap_affected_store,
         ): Self::SystemData,
     ) {
-        for (ladder_climber, collider, movable, gravity, friction) in (
+        for (
+            ladder_climber,
+            collider,
+            movable,
+            gravity,
+            friction,
+            beartrap_affected,
+        ) in (
             &mut ladder_climber_store,
             &collider_store,
             &mut movable_store,
             &mut gravity_store,
             &mut base_friction_store,
+            &beartrap_affected_store,
         )
             .join()
         {
@@ -61,14 +71,16 @@ impl<'a> System<'a> for HandleLadderClimbingSystem {
                     friction.set_enabled(&Axis::Y, false);
                 }
             } else {
-                if let Some(climb_y) =
-                    input_manager.axis_value(IngameAxis::ClimbLadder)
-                {
-                    if climb_y != 0.0 {
-                        if in_ladder_collision {
-                            ladder_climber.is_climbing = true;
-                            gravity.set_enabled(&Axis::Y, false);
-                            friction.set_enabled(&Axis::Y, true);
+                if !beartrap_affected.is_crippled() {
+                    if let Some(climb_y) =
+                        input_manager.axis_value(IngameAxis::ClimbLadder)
+                    {
+                        if climb_y != 0.0 {
+                            if in_ladder_collision {
+                                ladder_climber.is_climbing = true;
+                                gravity.set_enabled(&Axis::Y, false);
+                                friction.set_enabled(&Axis::Y, true);
+                            }
                         }
                     }
                 }
