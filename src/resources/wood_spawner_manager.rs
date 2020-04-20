@@ -3,10 +3,11 @@ use std::time::Duration;
 
 #[derive(Clone, Deserialize)]
 pub struct WoodSpawnerManager {
-    update_interval_ms:    u64,
-    pub active_percentage: f32,
+    update_interval_ms:                  u64,
+    pub active_percentage:               f32,
+    pub decrease_active_percentage_step: f32,
     #[serde(skip)]
-    timer:                 Option<Timer>,
+    timer:                               Option<Timer>,
 }
 
 impl WoodSpawnerManager {

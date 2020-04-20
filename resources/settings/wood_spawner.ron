@@ -10,5 +10,7 @@
         update_interval_ms: 5000,
         // percentage of wood spawners to make active (0.0 - 1.0)
         active_percentage: 0.5,
+        // decrease `active_percentage` this step for each wood the bonfire has
+        decrease_active_percentage_step: 0.05,
     ),
 )

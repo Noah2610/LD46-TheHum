@@ -8,18 +8,34 @@ impl<'a> System<'a> for UpdateWoodSpawnerManagerSystem {
     type SystemData = (
         WriteExpect<'a, WoodSpawnerManager>,
         WriteStorage<'a, WoodSpawner>,
+        ReadStorage<'a, Bonfire>,
+        ReadStorage<'a, WoodInventory>,
     );
 
     fn run(
         &mut self,
-        (mut wood_spawner_manager, mut wood_spawner_store): Self::SystemData,
+        (
+            mut wood_spawner_manager,
+            mut wood_spawner_store,
+            bonfire_store,
+            wood_inventory_store,
+        ): Self::SystemData,
     ) {
-        let mut rng = rand::thread_rng();
-
         if wood_spawner_manager.should_update_wood_spawners() {
+            let mut rng = rand::thread_rng();
+
+            let bonfire_woods = (&bonfire_store, &wood_inventory_store)
+                .join()
+                .next()
+                .map(|(_, inventory)| inventory.woods)
+                .unwrap_or(0);
+
             let wood_spawners_amount_to_activate = (wood_spawner_store.count()
                 as f32
-                * wood_spawner_manager.active_percentage)
+                * (wood_spawner_manager.active_percentage
+                    - (bonfire_woods as f32
+                        * wood_spawner_manager
+                            .decrease_active_percentage_step)))
                 as usize;
             let mut shuffled_wood_spawners = (&mut wood_spawner_store)
                 .join()
