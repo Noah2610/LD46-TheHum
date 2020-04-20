@@ -1,14 +1,6 @@
 use super::init_prelude::*;
 
 pub fn init_wood(world: &mut World, transform: Transform) -> Entity {
-    {
-        let mut sprite_sheet_handles =
-            world.write_resource::<SpriteSheetHandles<PathBuf>>();
-        sprite_sheet_handles.load(resource("spritesheets/wood.png"), world);
-        sprite_sheet_handles
-            .load(resource("spritesheets/wood_indicator.png"), world);
-    }
-
     world.exec(|(entities, mut storages): (Entities, InitWoodStorages)| {
         init_wood_with_storages(entities.create(), transform, &mut storages)
             .unwrap()

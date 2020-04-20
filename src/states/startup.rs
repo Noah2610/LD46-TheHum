@@ -25,7 +25,10 @@ fn insert_resources(world: &mut World) {
     let settings = Settings::load().unwrap();
     world.insert(settings);
 
-    let sprite_sheet_handles = SpriteSheetHandles::<PathBuf>::default();
+    let mut sprite_sheet_handles = SpriteSheetHandles::<PathBuf>::default();
+    sprite_sheet_handles.load(resource("spritesheets/wood.png"), world);
+    sprite_sheet_handles
+        .load(resource("spritesheets/wood_indicator.png"), world);
     world.insert(sprite_sheet_handles);
 
     load_songs(world);
