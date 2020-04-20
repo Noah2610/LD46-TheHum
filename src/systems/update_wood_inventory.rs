@@ -19,7 +19,10 @@ impl<'a> System<'a> for UpdateWoodInventorySystem {
                             .woods
                             .checked_add(amount)
                             .map(|new_amount| {
-                                new_amount.min(wood_inventory.max_woods)
+                                wood_inventory
+                                    .max_woods
+                                    .map(|max| new_amount.min(max))
+                                    .unwrap_or(new_amount)
                             })
                             .unwrap_or(wood_inventory.woods);
                     }
