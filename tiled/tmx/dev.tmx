@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="31">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="128" height="72" tilewidth="4" tileheight="4" infinite="0" nextlayerid="11" nextobjectid="32">
  <editorsettings>
   <export target="../../resources/levels/dev.json" format="LD46-export"/>
  </editorsettings>
+ <properties>
+  <property name="z" type="float" value="0.9"/>
+ </properties>
  <tileset firstgid="1" source="../tsx/dev.tsx"/>
  <tileset firstgid="5" source="../tsx/placeholderbg1.tsx"/>
  <tileset firstgid="885" source="../tsx/bg2.tsx"/>
@@ -184,6 +187,9 @@
   <object id="23" name="WOOD SPAWNER" type="WoodSpawner" x="282.5" y="253.5" width="4" height="4"/>
   <object id="28" name="WOOD" type="Wood" x="324" y="252" width="4" height="4"/>
   <object id="29" name="WOOD" type="Wood" x="61.6667" y="250.667" width="4" height="4"/>
+ </objectgroup>
+ <objectgroup id="10" name="radio">
+  <object id="31" name="RADIO" type="Radio" x="100" y="256" width="8" height="8"/>
  </objectgroup>
  <objectgroup id="3" name="player">
   <properties>

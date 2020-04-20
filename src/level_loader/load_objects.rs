@@ -40,6 +40,10 @@ pub(super) fn load_objects(
                     *spawn_at_woods_amount,
                 );
             }
+
+            ObjectType::Radio => {
+                let _radio = entities::init_radio(world, transform);
+            }
         }
     }
 
