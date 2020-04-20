@@ -74,7 +74,32 @@ pub(super) fn build_game_data<'a, 'b>(
         .with_bundle(DispatcherId::Ingame, physics_bundle)?
         .with_bundle(DispatcherId::Ingame, animation_bundle)?
         .with_bundle(DispatcherId::Ingame, reactive_animation_bundle)?
+        .with_bundle(DispatcherId::MainMenu, AnimationBundle::<AnimationKey>::new())?
         .with_bundle(DispatcherId::GameOver, AnimationBundle::<AnimationKey>::new())?
+        .with(
+            DispatcherId::MainMenu,
+            UpdatePlayerAnimationSystem::default(),
+            "update_player_animation_system",
+            &[],
+        )?
+        .with(
+            DispatcherId::MainMenu,
+            HandleMovablesSystem::default(),
+            "handle_movables_system",
+            &[],
+        )?
+        .with(
+            DispatcherId::MainMenu,
+            MoveEntitiesSystem::<SolidTag>::default(),
+            "move_entities_system",
+            &[],
+        )?
+        .with(
+            DispatcherId::MainMenu,
+            HandleFlameVisibilitySystem::default(),
+            "handle_flame_visibility_system",
+            &["move_entities_system"],
+        )?
         .with(
             DispatcherId::Ingame,
             InputManagerSystem::<IngameBindings>::default(),
