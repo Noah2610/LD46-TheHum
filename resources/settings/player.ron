@@ -32,7 +32,7 @@
     flame: (
         radius: 50.0,
         min_radius: 30.0,
-        wood_radius_increase: 10.0,
+        wood_radius_increase: 20.0,
     ),
     halo: (
         halo: (
