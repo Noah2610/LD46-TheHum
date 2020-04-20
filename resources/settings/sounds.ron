@@ -5,6 +5,28 @@
     play_chance:        0.5,
     sound_groups: [
         (
+            name: "craw",
+            sounds: [
+                "craw/craw_1.wav",
+                "craw/craw_2.wav",
+                "craw/craw_3.wav",
+                "craw/craw_4.wav",
+                "craw/craw_5.wav",
+                "craw/craw_6.wav",
+                "craw/craw_7.wav",
+                "craw/craw_8_left.wav",
+                "craw/craw_8_right.wav",
+                "craw/craw_9.wav",
+            ],
+        ),
+        (
+            name: "footsteps",
+            sounds: [
+                "footsteps/footsteps_1_left.wav",
+                "footsteps/footsteps_1_right.wav",
+            ],
+        ),
+        (
             name: "growl",
             sounds: [
                 "growl/growl_1.wav",
@@ -40,10 +62,15 @@
             ],
         ),
         (
-            name: "footsteps",
+            name: "whisper",
             sounds: [
-                "footsteps/footsteps_1_left.wav",
-                "footsteps/footsteps_1_right.wav",
+                "whisper/whisper_1.wav",
+                "whisper/whisper_2.wav",
+                "whisper/whisper_3.wav",
+                "whisper/whisper_4.wav",
+                "whisper/whisper_5.wav",
+                "whisper/whisper_6.wav",
+                "whisper/whisper_7.wav",
             ],
         ),
     ],
