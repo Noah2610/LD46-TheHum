@@ -30,13 +30,13 @@ impl<'a> System<'a> for UpdateWoodSpawnerManagerSystem {
                 .map(|(_, inventory)| inventory.woods)
                 .unwrap_or(0);
 
-            let wood_spawners_amount_to_activate = (wood_spawner_store.count()
-                as f32
-                * (wood_spawner_manager.active_percentage
-                    - (bonfire_woods as f32
-                        * wood_spawner_manager
-                            .decrease_active_percentage_step)))
-                as usize;
+            let active_percentage = (wood_spawner_manager.active_percentage
+                - (bonfire_woods as f32
+                    * wood_spawner_manager.decrease_active_percentage_step))
+                .max(wood_spawner_manager.min_active_percentage);
+            let wood_spawners_amount_to_activate =
+                (wood_spawner_store.count() as f32 * active_percentage)
+                    as usize;
             let mut shuffled_wood_spawners = (&mut wood_spawner_store)
                 .join()
                 .collect::<Vec<&mut WoodSpawner>>(
