@@ -1,4 +1,4 @@
-mod level_data;
+pub mod level_data;
 mod load_objects;
 mod load_tiles;
 
@@ -42,7 +42,7 @@ use std::path::PathBuf;
 pub fn load_level(
     level_path: PathBuf,
     world: &mut World,
-) -> amethyst::Result<()> {
+) -> amethyst::Result<LevelData> {
     let level_file = File::open(level_path)?;
     let level = serde_json::de::from_reader::<_, Level>(level_file)?;
 
@@ -60,5 +60,5 @@ pub fn load_level(
     load_tiles::load_tiles(world, level.tiles, tile_size)?;
     load_objects::load_objects(world, level.objects, level_rect)?;
 
-    Ok(())
+    Ok(level.level)
 }

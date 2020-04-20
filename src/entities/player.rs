@@ -19,6 +19,9 @@ pub fn init_player(
         }
     };
 
+    let mut animations = player_settings.animations;
+    animations.play(AnimationKey::Idle).unwrap();
+
     confined_rect.top += 128.0;
 
     let player = world
@@ -47,7 +50,7 @@ pub fn init_player(
         .with(player_settings.gravity)
         .with(player_settings.flame)
         .with(player_settings.wood_inventory)
-        .with(player_settings.animations)
+        .with(animations)
         .build();
 
     let _halo = init_halo_for(world, player, player_settings.halo, transform);

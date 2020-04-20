@@ -2,12 +2,27 @@
 
 use super::menu_prelude::*;
 use super::state_prelude::*;
+use crate::components::prelude::{
+    ActionQueue,
+    Movable,
+    MoveAction,
+    Player,
+    Transform,
+};
+use crate::level_loader::level_data::SizeData;
+use crate::level_loader::load_level;
+use amethyst::ecs::{Join, ReadStorage, WriteStorage};
+use deathframe::amethyst;
 
 const DEFAULT_LEVEL: &str = "dev.json";
+const MAIN_MENU_LEVEL: &str = "main_menu.json";
+const CUTSCENE_PLAYER_WALK_DIR: f32 = 1.0;
 
 #[derive(Default)]
 pub struct MainMenu {
-    ui_data: UiData,
+    ui_data:       UiData,
+    level_size:    Option<SizeData>,
+    init_cutscene: bool,
 }
 
 impl MainMenu {
@@ -17,10 +32,17 @@ impl MainMenu {
             .world
             .write_resource::<Songs<SongKey>>()
             .play(&SongKey::MainMenu);
+
+        self.level_size = load_level(
+            resource(format!("levels/{}", MAIN_MENU_LEVEL)),
+            data.world,
+        )
+        .ok()
+        .map(|level| level.size);
     }
 
     fn stop<'a, 'b>(&mut self, data: &mut StateData<GameData<'a, 'b>>) {
-        self.delete_ui(data);
+        data.world.delete_all();
         let _ = data
             .world
             .write_resource::<Songs<SongKey>>()
@@ -47,23 +69,67 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for MainMenu {
 
     fn update(
         &mut self,
-        data: StateData<GameData<'a, 'b>>,
+        mut data: StateData<GameData<'a, 'b>>,
     ) -> Trans<GameData<'a, 'b>, StateEvent> {
         data.data
             .update(data.world, DispatcherId::MainMenu)
             .unwrap();
 
-        let input_manager =
-            data.world.read_resource::<InputManager<MenuBindings>>();
-        if input_manager.is_down(MenuAction::Enter) {
-            return Trans::Push(Box::new(LoadIngame::new(
-                DEFAULT_LEVEL.to_string(),
-            )));
-        } else if input_manager.is_down(MenuAction::Back) {
-            return Trans::Quit;
+        {
+            let input_manager =
+                data.world.read_resource::<InputManager<MenuBindings>>();
+            if input_manager.is_down(MenuAction::Enter) {
+                self.init_cutscene = true;
+            } else if input_manager.is_down(MenuAction::Back) {
+                return Trans::Quit;
+            }
         }
 
-        Trans::None
+        let mut should_start = false;
+
+        if let Some(level_size) = self.level_size.as_ref() {
+            if self.init_cutscene {
+                data.world.exec(
+                    |(mut player_store, mut movable_store, transform_store): (
+                        WriteStorage<Player>,
+                        WriteStorage<Movable>,
+                        ReadStorage<Transform>,
+                    )| {
+                        if let Some((player, movable, transform)) = (
+                            &mut player_store,
+                            &mut movable_store,
+                            &transform_store,
+                        )
+                            .join()
+                            .next()
+                        {
+                            // TODO: Hacky workaround for getting ground animations running.
+                            player.on_ground = true;
+
+                            let pos = transform.translation();
+                            if pos.x > level_size.w || pos.x < 0.0 {
+                                should_start = true;
+                            } else {
+                                movable.add_action(MoveAction::Walk(
+                                    CUTSCENE_PLAYER_WALK_DIR,
+                                ));
+                            }
+                        } else {
+                            should_start = true;
+                        }
+                    },
+                )
+            }
+        } else {
+            should_start = self.init_cutscene;
+        }
+
+        if should_start {
+            self.delete_ui(&mut data);
+            Trans::Push(Box::new(LoadIngame::new(DEFAULT_LEVEL.to_string())))
+        } else {
+            Trans::None
+        }
     }
 
     fn fixed_update(
