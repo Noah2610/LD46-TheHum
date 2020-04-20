@@ -21,11 +21,6 @@ pub fn init_halo_for(
         transform.translation_mut().z += 0.01;
         transform
     };
-    // let halo_size = Size::from({
-    //     let s = bonfire_settings.flame.radius * 2.0
-    //         + bonfire_settings.halo.bonfire_halo.size_margin;
-    //     (s, s)
-    // });
 
     let mut halo_builder = world
         .create_entity()
