@@ -12,6 +12,7 @@ pub mod prelude {
     pub use super::spawn_beartrap::SpawnBeartrapSystem;
     pub use super::spawn_wood::SpawnWoodSystem;
     pub use super::update_bonfire_halo_size::UpdateBonfireHaloSizeSystem;
+    pub use super::update_bonfire_song_volume::UpdateBonfireSongVolumeSystem;
     pub use super::update_flame_radius::UpdateFlameRadiusSystem;
     pub use super::update_player_animation::UpdatePlayerAnimationSystem;
     pub use super::update_reactive_animations::UpdateReactiveAnimationsSystem;
@@ -42,6 +43,7 @@ mod play_random_sounds;
 mod spawn_beartrap;
 mod spawn_wood;
 mod update_bonfire_halo_size;
+mod update_bonfire_song_volume;
 mod update_flame_radius;
 mod update_player_animation;
 mod update_reactive_animations;

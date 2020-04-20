@@ -9,4 +9,12 @@
         file: "title.wav",
         should_loop: true,
     ),
+    Bonfire: (
+        file: "bonfire.wav",
+        should_loop: true,
+    ),
+    Radio: (
+        file: "title.wav",
+        should_loop: true,
+    ),
 }

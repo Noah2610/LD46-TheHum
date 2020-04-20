@@ -21,10 +21,11 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
         )
         .unwrap();
 
-        let _ = data
-            .world
-            .write_resource::<Songs<SongKey>>()
-            .play(&SongKey::Ambience);
+        {
+            let mut songs = data.world.write_resource::<Songs<SongKey>>();
+            songs.play(&SongKey::Ambience);
+            songs.play(&SongKey::Bonfire);
+        }
 
         let wood_spawner_manager = data
             .world
@@ -38,10 +39,9 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Ingame {
     fn on_stop(&mut self, data: StateData<GameData<'a, 'b>>) {
         data.world.delete_all();
 
-        let _ = data
-            .world
-            .write_resource::<Songs<SongKey>>()
-            .stop(&SongKey::Ambience);
+        let mut songs = data.world.write_resource::<Songs<SongKey>>();
+        songs.stop(&SongKey::Ambience);
+        songs.stop(&SongKey::Bonfire);
     }
 
     fn update(
