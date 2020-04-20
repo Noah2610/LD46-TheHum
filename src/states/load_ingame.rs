@@ -30,12 +30,6 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
             resource("ui/load_ingame.ron").to_str().unwrap(),
         );
 
-        level_loader::load_level(
-            resource(format!("levels/{}", &self.level_name)),
-            data.world,
-        )
-        .unwrap();
-
         let timer_duration = Duration::from_millis(
             data.world
                 .read_resource::<Settings>()
@@ -67,6 +61,12 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
         timer.update().unwrap();
 
         if timer.state.is_finished() {
+            level_loader::load_level(
+                resource(format!("levels/{}", &self.level_name)),
+                data.world,
+            )
+            .unwrap();
+
             Trans::Switch(Box::new(Ingame::default()))
         } else {
             Trans::None
