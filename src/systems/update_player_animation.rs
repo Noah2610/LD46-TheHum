@@ -11,6 +11,7 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         ReadStorage<'a, Velocity>,
         WriteStorage<'a, Transform>,
         WriteStorage<'a, AnimationsContainer<AnimationKey>>,
+        ReadStorage<'a, BeartrapAffected>,
     );
 
     fn run(
@@ -20,13 +21,15 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
             velocity_store,
             mut transform_store,
             mut animations_container_store,
+            beartrap_affected_store,
         ): Self::SystemData,
     ) {
-        for (player, velocity, transform, animations) in (
+        for (player, velocity, transform, animations, beartrap_affected) in (
             &player_store,
             &velocity_store,
             &mut transform_store,
             &mut animations_container_store,
+            &beartrap_affected_store,
         )
             .join()
         {
@@ -40,9 +43,17 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
 
             if player.on_ground {
                 if velocity.x.abs() < VEL_PADDING {
-                    let _ = animations.play(AnimationKey::Idle);
+                    let _ = if beartrap_affected.is_crippled() {
+                        animations.play(AnimationKey::CrippledIdle)
+                    } else {
+                        animations.play(AnimationKey::Idle)
+                    };
                 } else {
-                    let _ = animations.play(AnimationKey::Walk);
+                    let _ = if beartrap_affected.is_crippled() {
+                        animations.play(AnimationKey::CrippledWalk)
+                    } else {
+                        animations.play(AnimationKey::Walk)
+                    };
                 }
             } else {
                 let _ = animations.play(AnimationKey::Jump);

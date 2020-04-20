@@ -53,7 +53,7 @@ impl<'a> System<'a> for HandleBeartrapHitSystem {
         for (beartrap_affected, beartrap_affected_collider) in
             (&mut beartrap_affected_store, &collider_store).join()
         {
-            if beartrap_affected.crippled_data.is_none() {
+            if !beartrap_affected.is_crippled() {
                 if let Some(beartrap_collision) = beartrap_affected_collider
                     .query::<FindQuery<CollisionTag>>()
                     .filter_ids(&beartrap_entity_ids)

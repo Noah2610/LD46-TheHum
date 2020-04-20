@@ -28,6 +28,12 @@ pub struct BeartrapAffected {
     pub crippled_data: Option<BeartrapAffectedCrippledData>,
 }
 
+impl BeartrapAffected {
+    pub fn is_crippled(&self) -> bool {
+        self.crippled_data.is_some()
+    }
+}
+
 pub struct BeartrapAffectedCrippledData {
     pub timer:    Timer,
     pub movement: BeartrapAffectedMovementData,
