@@ -49,8 +49,13 @@ impl<'a> System<'a> for UpdateBonfireSongVolumeSystem {
                 (x * x + y * y).sqrt()
             };
 
-            let new_volume = (1.0 - dist * self.factor).max(0.0);
+            let factor_invert = 1.0 - self.factor;
+            let new_volume = (1.0 - dist * factor_invert).max(0.0);
             let prev_volume = self.prev_volume.get_or_insert(1.0);
+
+            dbg!(dist);
+            dbg!(factor_invert);
+            dbg!(new_volume);
 
             if *prev_volume != new_volume {
                 songs
