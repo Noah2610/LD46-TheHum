@@ -12,7 +12,7 @@ pub mod prelude {
         SoundsSettings,
     };
     pub use super::tiles_settings::{TileSettings, TilesSettings};
-    pub use super::wood_settings::WoodSettings;
+    pub use super::wood_settings::{WoodIndicatorSettings, WoodSettings};
     pub use super::wood_spawner_settings::WoodSpawnerSettings;
     pub use super::Settings;
 }

@@ -12,6 +12,7 @@ pub mod prelude {
     pub use super::player::Player;
     pub use super::radio::Radio;
     pub use super::trigger_reactive_animation::TriggerReactiveAnimation;
+    pub use super::wood_indicator::WoodIndicator;
     pub use super::wood_inventory::{WoodInventory, WoodInventoryAction};
     pub use super::wood_spawner::WoodSpawner;
     pub use deathframe::components::prelude::*;
@@ -30,5 +31,6 @@ mod movable;
 mod player;
 mod radio;
 mod trigger_reactive_animation;
+mod wood_indicator;
 mod wood_inventory;
 mod wood_spawner;
