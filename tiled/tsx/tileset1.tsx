@@ -11,6 +11,12 @@
  <tile id="7" type="Ground"/>
  <tile id="8" type="Ground"/>
  <tile id="9" type="Ground"/>
+ <tile id="26" type="Ground"/>
+ <tile id="27" type="Ground"/>
+ <tile id="28" type="Ground"/>
+ <tile id="29" type="Ground"/>
+ <tile id="30" type="Ground"/>
+ <tile id="31" type="Ground"/>
  <tile id="32" type="Ground"/>
  <tile id="33" type="Ground"/>
  <tile id="34" type="Ground"/>
@@ -21,6 +27,12 @@
  <tile id="39" type="Ground"/>
  <tile id="40" type="Ground"/>
  <tile id="41" type="Ground"/>
+ <tile id="58" type="Ground"/>
+ <tile id="59" type="Ground"/>
+ <tile id="60" type="Ground"/>
+ <tile id="61" type="Ground"/>
+ <tile id="62" type="Ground"/>
+ <tile id="63" type="Ground"/>
  <tile id="64" type="Ground"/>
  <tile id="65" type="Ground"/>
  <tile id="66" type="Ground"/>
@@ -31,6 +43,12 @@
  <tile id="71" type="Ground"/>
  <tile id="72" type="Ground"/>
  <tile id="73" type="Ground"/>
+ <tile id="90" type="Ground"/>
+ <tile id="91" type="Ground"/>
+ <tile id="92" type="Ground"/>
+ <tile id="93" type="Ground"/>
+ <tile id="94" type="Ground"/>
+ <tile id="95" type="Ground"/>
  <tile id="96" type="Ground"/>
  <tile id="97" type="Ground"/>
  <tile id="98" type="Ground"/>
@@ -41,6 +59,12 @@
  <tile id="103" type="Ground"/>
  <tile id="104" type="Ground"/>
  <tile id="105" type="Ground"/>
+ <tile id="122" type="Ground"/>
+ <tile id="123" type="Ground"/>
+ <tile id="124" type="Ground"/>
+ <tile id="125" type="Ground"/>
+ <tile id="126" type="Ground"/>
+ <tile id="127" type="Ground"/>
  <tile id="128" type="Ground"/>
  <tile id="129" type="Ground"/>
  <tile id="130" type="Ground"/>
@@ -51,6 +75,12 @@
  <tile id="135" type="Ground"/>
  <tile id="136" type="Ground"/>
  <tile id="137" type="Ground"/>
+ <tile id="154" type="Ground"/>
+ <tile id="155" type="Ground"/>
+ <tile id="156" type="Ground"/>
+ <tile id="157" type="Ground"/>
+ <tile id="158" type="Ground"/>
+ <tile id="159" type="Ground"/>
  <tile id="160" type="Ground"/>
  <tile id="161" type="Ground"/>
  <tile id="162" type="Ground"/>

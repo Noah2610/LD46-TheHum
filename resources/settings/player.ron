@@ -6,7 +6,7 @@
         h: 48.0, // = w * 1.5
     ),
     hitbox: [(
-        top:     22.0,
+        top:     16.0,
         bottom: -24.0,
         left:   -8.0,
         right:   8.0,
