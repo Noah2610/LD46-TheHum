@@ -217,10 +217,10 @@ pub(super) fn build_game_data<'a, 'b>(
         )?
         .with(
             DispatcherId::Ingame,
-            UpdateBonfireSongVolumeSystem::new(
+            SongVolumeProximitySystem::new(
                 settings.general.bonfire_song_volume_factor,
             ),
-            "update_bonfire_song_volume",
+            "song_volume_proximity_system_bonfire",
             &[],
         )?
         // - comment for easier copy/pasting -

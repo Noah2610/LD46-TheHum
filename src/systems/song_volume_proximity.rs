@@ -1,11 +1,11 @@
 use super::system_prelude::*;
 
-pub struct UpdateBonfireSongVolumeSystem {
+pub struct SongVolumeProximitySystem {
     factor:      f32,
     prev_volume: Option<f32>,
 }
 
-impl UpdateBonfireSongVolumeSystem {
+impl SongVolumeProximitySystem {
     pub fn new(factor: f32) -> Self {
         Self {
             factor,
@@ -14,7 +14,7 @@ impl UpdateBonfireSongVolumeSystem {
     }
 }
 
-impl<'a> System<'a> for UpdateBonfireSongVolumeSystem {
+impl<'a> System<'a> for SongVolumeProximitySystem {
     type SystemData = (
         Write<'a, Songs<SongKey>>,
         ReadStorage<'a, Transform>,
