@@ -68,7 +68,8 @@ pub fn init_bonfire(world: &mut World, transform: Transform) -> Entity {
         .with(ScaleOnce::default())
         .with(Transparent);
 
-    if let Some(animation) = bonfire_settings.halo.animation {
+    if let Some(mut animation) = bonfire_settings.halo.animation {
+        animation.play_cycle();
         halo_builder = halo_builder.with(animation);
     }
 
