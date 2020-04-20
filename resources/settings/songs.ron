@@ -1,20 +1,32 @@
 // src/settings/songs_settings.rs
 #![enable(implicit_some)]
-{
-    MainMenu: (
-        file: "title.wav",
-        should_loop: true,
-    ),
-    Ambience: (
-        file: "title.wav",
-        should_loop: true,
-    ),
-    Bonfire: (
-        file: "bonfire.wav",
-        should_loop: true,
-    ),
-    Radio: (
-        file: "title.wav",
-        should_loop: true,
-    ),
-}
+(
+    songs: {
+        MainMenu: (
+            file: "title.wav",
+            should_loop: true,
+        ),
+        Ambience: (
+            file: "title.wav",
+            should_loop: true,
+        ),
+        Bonfire: (
+            file: "bonfire.wav",
+            should_loop: true,
+        ),
+        Radio: (
+            file: "mainbgm.wav",
+            should_loop: true,
+        ),
+    },
+    songs_proximity: {
+        Bonfire: (
+            // LARGER  -> volume reaches further
+            // SMALLER -> volume reaches less far
+            factor: 0.995,
+        ),
+        Radio: (
+            factor: 0.997,
+        ),
+    },
+)

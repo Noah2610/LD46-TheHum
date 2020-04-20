@@ -4,9 +4,9 @@ use crate::resources::prelude::SongKey;
 use std::collections::HashMap;
 
 #[derive(Clone, Deserialize)]
-#[serde(from = "HashMap<SongKey, SongSettings>")]
 pub struct SongsSettings {
-    pub songs: HashMap<SongKey, SongSettings>,
+    pub songs:           HashMap<SongKey, SongSettings>,
+    pub songs_proximity: HashMap<SongKey, SongProximitySettings>,
 }
 
 #[derive(Clone, Deserialize)]
@@ -15,8 +15,7 @@ pub struct SongSettings {
     pub should_loop: bool,
 }
 
-impl From<HashMap<SongKey, SongSettings>> for SongsSettings {
-    fn from(songs: HashMap<SongKey, SongSettings>) -> Self {
-        Self { songs }
-    }
+#[derive(Clone, Deserialize)]
+pub struct SongProximitySettings {
+    pub factor: f32,
 }

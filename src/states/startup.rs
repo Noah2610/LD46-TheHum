@@ -7,6 +7,8 @@ pub struct Startup;
 
 impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for Startup {
     fn on_start(&mut self, data: StateData<GameData<'a, 'b>>) {
+        data.world.register::<crate::components::prelude::Radio>();
+
         insert_resources(data.world);
     }
 

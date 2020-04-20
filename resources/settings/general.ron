@@ -1,7 +1,3 @@
 // src/settings/general_settings.rs
 #![enable(implicit_some)]
-(
-    // LARGER  -> SMALLER DISTANCE
-    // SMALLER -> LARGER DISTANCE
-    bonfire_song_volume_factor: 0.01,
-)
+()

@@ -4,6 +4,7 @@ mod camera;
 mod halo;
 mod ladder;
 mod player;
+mod radio;
 mod wood;
 mod wood_spawner;
 
@@ -24,5 +25,6 @@ pub use camera::init_camera;
 pub use halo::init_halo_for;
 pub use ladder::init_ladder;
 pub use player::init_player;
+pub use radio::init_radio;
 pub use wood::{init_wood, init_wood_with_storages, InitWoodStorages};
 pub use wood_spawner::init_wood_spawner;
