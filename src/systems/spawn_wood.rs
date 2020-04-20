@@ -99,7 +99,7 @@ impl<'a> System<'a> for SpawnWoodSystem {
                                 .indicator
                                 .animation
                                 .clone();
-                            anim.play_cycle();
+                            anim.play_once();
                             anim
                         },
                         &mut animation_store,

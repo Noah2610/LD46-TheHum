@@ -1,6 +1,7 @@
 pub mod prelude {
     pub use super::control_player::ControlPlayerSystem;
     pub use super::decrease_bonfire_flame::DecreaseBonfireFlameSystem;
+    pub use super::delete_wood_indicator::DeleteWoodIndicatorSystem;
     pub use super::handle_beartrap_affected::HandleBeartrapAffectedSystem;
     pub use super::handle_beartrap_hit::HandleBeartrapHitSystem;
     pub use super::handle_flame_visibility::HandleFlameVisibilitySystem;
@@ -32,6 +33,7 @@ mod system_prelude {
 
 mod control_player;
 mod decrease_bonfire_flame;
+mod delete_wood_indicator;
 mod handle_beartrap_affected;
 mod handle_beartrap_hit;
 mod handle_flame_visibility;
