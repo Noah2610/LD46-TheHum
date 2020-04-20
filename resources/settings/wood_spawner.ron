@@ -9,10 +9,10 @@
         // Randomly make all wood spawners active or inactive
         update_interval_ms: 40_000,
         // Percentage of wood spawners to make active (0.0 - 1.0)
-        active_percentage: 0.5,
+        active_percentage: 0.3,
         // Decrease `active_percentage` this step for each wood the bonfire has
-        decrease_active_percentage_step: 0.07,
+        decrease_active_percentage_step: 0.03,
         // The minimum `active_percentage`
-        min_active_percentage: 0.1,
+        min_active_percentage: 0.05,
     ),
 )
