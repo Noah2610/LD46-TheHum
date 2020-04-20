@@ -43,7 +43,7 @@
 
     /// HALO SETTINGS
     halo: (
-        bonfire_halo: (
+        halo: (
             size_margin: 8.0,
         ),
 

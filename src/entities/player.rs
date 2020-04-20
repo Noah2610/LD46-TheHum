@@ -1,3 +1,4 @@
+use super::init_halo_for;
 use super::init_prelude::*;
 use deathframe::core::geo::prelude::{Axis, Rect};
 
@@ -18,10 +19,10 @@ pub fn init_player(
         }
     };
 
-    world
+    let player = world
         .create_entity()
         .with(Player::default())
-        .with(transform)
+        .with(transform.clone())
         .with(sprite_render)
         .with(Velocity::default())
         .with(ScaleOnce::default())
@@ -46,5 +47,9 @@ pub fn init_player(
         .with(player_settings.flame)
         .with(player_settings.wood_inventory)
         .with(player_settings.animations)
-        .build()
+        .build();
+
+    let _halo = init_halo_for(world, player, player_settings.halo, transform);
+
+    player
 }
