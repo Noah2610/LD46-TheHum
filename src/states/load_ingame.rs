@@ -3,9 +3,12 @@
 use super::menu_prelude::*;
 use super::state_prelude::*;
 use crate::level_loader;
+use climer::Timer;
+use std::time::Duration;
 
 pub struct LoadIngame {
     level_name: String,
+    timer:      Option<Timer>,
     ui_data:    UiData,
 }
 
@@ -13,6 +16,7 @@ impl LoadIngame {
     pub fn new(level_name: String) -> Self {
         Self {
             level_name,
+            timer: None,
             ui_data: Default::default(),
         }
     }
@@ -25,11 +29,22 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
             &mut data,
             resource("ui/load_ingame.ron").to_str().unwrap(),
         );
+
         level_loader::load_level(
             resource(format!("levels/{}", &self.level_name)),
             data.world,
         )
         .unwrap();
+
+        let timer_duration = Duration::from_millis(
+            data.world
+                .read_resource::<Settings>()
+                .general
+                .load_ingame_state_duration_ms,
+        );
+        let mut timer = Timer::new(Some(timer_duration.into()), None);
+        timer.start().unwrap();
+        self.timer = Some(timer);
     }
 
     fn on_stop(&mut self, mut data: StateData<GameData<'a, 'b>>) {
@@ -44,7 +59,18 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
             .update(data.world, DispatcherId::LoadIngame)
             .unwrap();
 
-        Trans::Switch(Box::new(Ingame::default()))
+        let timer = self
+            .timer
+            .as_mut()
+            .expect("Timer for `LoadIngame` state should exist");
+
+        timer.update().unwrap();
+
+        if timer.state.is_finished() {
+            Trans::Switch(Box::new(Ingame::default()))
+        } else {
+            Trans::None
+        }
     }
 
     fn fixed_update(
