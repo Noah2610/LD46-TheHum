@@ -1,8 +1,8 @@
 // src/settings/sounds_settings.rs
 #![enable(implicit_some)]
 (
-    update_interval_ms: 1000,
-    play_chance:        0.5,
+    update_interval_ms: 10000,
+    play_chance:        0.2,
     sound_groups: [
         (
             name: "craw",

@@ -29,6 +29,7 @@ impl<'a> System<'a> for PlayRandomSoundsSystem {
 
         if timer.state.is_finished() {
             if let Some(random_sound_key) = settings.sounds.random_sound_key() {
+                dbg!("PLAY SOUND RANDOM");
                 sound_player.add_action(SoundAction::Play(random_sound_key));
             }
         }

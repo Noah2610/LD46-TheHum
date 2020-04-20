@@ -71,8 +71,8 @@ where
                 let prev_volume = self.prev_volume.get_or_insert(1.0);
 
                 if *prev_volume != new_volume {
-                    #[cfg(feature = "debug")]
-                    eprintln!("[DBG] proximity volume: {}", new_volume);
+                    // #[cfg(feature = "debug")]
+                    // eprintln!("[DBG] proximity volume: {}", new_volume);
 
                     song.set_volume(new_volume);
                     *prev_volume = new_volume;
