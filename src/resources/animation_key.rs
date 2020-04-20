@@ -3,8 +3,10 @@ pub enum AnimationKey {
     Idle,
     Walk,
     Jump,
-    CrippledWalk,
     CrippledIdle,
+    CrippledWalk,
+    ClimbingIdle,
+    Climbing,
 }
 
 #[derive(PartialEq, Eq, Hash, Clone, Deserialize, Debug)]

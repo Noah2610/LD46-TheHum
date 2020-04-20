@@ -12,6 +12,7 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
         WriteStorage<'a, Transform>,
         WriteStorage<'a, AnimationsContainer<AnimationKey>>,
         ReadStorage<'a, BeartrapAffected>,
+        ReadStorage<'a, LadderClimber>,
     );
 
     fn run(
@@ -22,14 +23,23 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
             mut transform_store,
             mut animations_container_store,
             beartrap_affected_store,
+            ladder_climber_store,
         ): Self::SystemData,
     ) {
-        for (player, velocity, transform, animations, beartrap_affected) in (
+        for (
+            player,
+            velocity,
+            transform,
+            animations,
+            beartrap_affected,
+            ladder_climber,
+        ) in (
             &player_store,
             &velocity_store,
             &mut transform_store,
             &mut animations_container_store,
             &beartrap_affected_store,
+            &ladder_climber_store,
         )
             .join()
         {
@@ -41,22 +51,34 @@ impl<'a> System<'a> for UpdatePlayerAnimationSystem {
                 scale.x = scale.x.abs();
             }
 
-            if player.on_ground {
-                if velocity.x.abs() < VEL_PADDING {
-                    let _ = if beartrap_affected.is_crippled() {
-                        animations.play(AnimationKey::CrippledIdle)
+            if !ladder_climber.is_climbing {
+                // NOT CLIMBING
+                if player.on_ground {
+                    if velocity.x.abs() < VEL_PADDING {
+                        let _ = if beartrap_affected.is_crippled() {
+                            animations.play(AnimationKey::CrippledIdle)
+                        } else {
+                            animations.play(AnimationKey::Idle)
+                        };
                     } else {
-                        animations.play(AnimationKey::Idle)
-                    };
+                        let _ = if beartrap_affected.is_crippled() {
+                            animations.play(AnimationKey::CrippledWalk)
+                        } else {
+                            animations.play(AnimationKey::Walk)
+                        };
+                    }
                 } else {
-                    let _ = if beartrap_affected.is_crippled() {
-                        animations.play(AnimationKey::CrippledWalk)
-                    } else {
-                        animations.play(AnimationKey::Walk)
-                    };
+                    let _ = animations.play(AnimationKey::Jump);
                 }
             } else {
-                let _ = animations.play(AnimationKey::Jump);
+                // IS CLIMBING
+                if velocity.x.abs() < VEL_PADDING
+                    && velocity.y.abs() < VEL_PADDING
+                {
+                    let _ = animations.play(AnimationKey::ClimbingIdle);
+                } else {
+                    let _ = animations.play(AnimationKey::Climbing);
+                }
             }
         }
     }
