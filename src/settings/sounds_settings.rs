@@ -2,6 +2,7 @@
 
 use crate::resources::prelude::SoundKey;
 use rand::seq::SliceRandom;
+use rand::Rng;
 
 #[derive(Clone, Deserialize)]
 pub struct SoundsSettings {
@@ -13,9 +14,14 @@ pub struct SoundsSettings {
 impl SoundsSettings {
     pub fn random_sound_key(&self) -> Option<SoundKey> {
         let mut rng = rand::thread_rng();
-        self.sound_groups.choose(&mut rng).and_then(|group| {
-            group.sounds.choose(&mut rng).map(|sound| sound.key.clone())
-        })
+        let random_num = rng.gen_range(0.0, 1.0);
+        if random_num < self.play_chance {
+            self.sound_groups.choose(&mut rng).and_then(|group| {
+                group.sounds.choose(&mut rng).map(|sound| sound.key.clone())
+            })
+        } else {
+            None
+        }
     }
 }
 

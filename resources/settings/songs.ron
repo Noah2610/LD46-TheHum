@@ -7,7 +7,7 @@
             should_loop: true,
         ),
         Ambience: (
-            file: "title.wav",
+            file: "mainbgm.wav",
             should_loop: true,
         ),
         Bonfire: (
@@ -15,7 +15,7 @@
             should_loop: true,
         ),
         Radio: (
-            file: "mainbgm.wav",
+            file: "radiotrack.wav",
             should_loop: true,
         ),
     },
