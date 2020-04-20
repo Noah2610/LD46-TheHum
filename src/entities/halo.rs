@@ -34,7 +34,8 @@ pub fn init_halo_for(
         .with(Size::new(0.0, 0.0))
         .with(sprite_render)
         .with(ScaleOnce::default())
-        .with(Transparent);
+        .with(Transparent)
+        .with(Follow::new(parent));
 
     if let Some(mut animation) = halo_settings.animation {
         animation.play_cycle();
