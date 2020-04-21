@@ -15,4 +15,5 @@ pub struct PlayerSettings {
     pub halo:           HaloSettings,
     pub wood_inventory: WoodInventory,
     pub animations:     AnimationsContainer<AnimationKey>,
+    pub loader:         Loader,
 }

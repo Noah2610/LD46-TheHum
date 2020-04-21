@@ -46,5 +46,6 @@ pub fn init_beartrap(
         .with(Collidable::new(CollisionTag::Beartrap))
         // .with(VisibleInFlame::default())
         .with(Hidden)
+        .with(Loadable::default())
         .build()
 }

@@ -33,6 +33,7 @@ pub fn init_wood_with_storages(
         transparent_store,
         visible_in_flame_store,
         hidden_store,
+        loadable_store,
     } = storages;
 
     let wood_settings = settings.wood.clone();
@@ -59,6 +60,7 @@ pub fn init_wood_with_storages(
     transparent_store.insert(entity, Transparent)?;
     visible_in_flame_store.insert(entity, VisibleInFlame::default())?;
     hidden_store.insert(entity, Hidden)?;
+    loadable_store.insert(entity, Loadable::default())?;
 
     Ok(entity)
 }
@@ -76,4 +78,5 @@ pub struct InitWoodStorages<'a> {
     pub transparent_store:      WriteStorage<'a, Transparent>,
     pub visible_in_flame_store: WriteStorage<'a, VisibleInFlame>,
     pub hidden_store:           WriteStorage<'a, Hidden>,
+    pub loadable_store:         WriteStorage<'a, Loadable>,
 }

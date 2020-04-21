@@ -74,14 +74,23 @@ pub(super) fn build_game_data<'a, 'b>(
         .with_bundle(DispatcherId::Ingame, physics_bundle)?
         .with_bundle(DispatcherId::Ingame, animation_bundle)?
         .with_bundle(DispatcherId::Ingame, reactive_animation_bundle)?
-        .with_bundle(DispatcherId::MainMenu, PhysicsBundle::<CollisionTag, SolidTag>::new())?
-        .with_bundle(DispatcherId::MainMenu, AnimationBundle::<AnimationKey>::new())?
+        .with_bundle(
+            DispatcherId::MainMenu,
+            PhysicsBundle::<CollisionTag, SolidTag>::new(),
+        )?
+        .with_bundle(
+            DispatcherId::MainMenu,
+            AnimationBundle::<AnimationKey>::new(),
+        )?
         .with_bundle(
             DispatcherId::MainMenu,
             AnimationBundle::<ReactiveAnimationKey>::new()
                 .with_name_suffix("_reactive"),
         )?
-        .with_bundle(DispatcherId::GameOver, AnimationBundle::<AnimationKey>::new())?
+        .with_bundle(
+            DispatcherId::GameOver,
+            AnimationBundle::<AnimationKey>::new(),
+        )?
         .with(
             DispatcherId::MainMenu,
             UpdatePlayerAnimationSystem::default(),
@@ -129,6 +138,22 @@ pub(super) fn build_game_data<'a, 'b>(
             ConfineEntitiesSystem::default(),
             "confine_entities_system",
             &["move_entities_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            DeleteWoodIndicatorSystem::default(),
+            "delete_wood_indicator_system",
+            &["spawn_wood_system"],
+        )?
+        .with(
+            DispatcherId::Ingame,
+            EntityLoaderSystem::default(),
+            "entity_loader_system",
+            &[
+                "move_entities_system",
+                "follow_system",
+                "confine_entities_system",
+            ],
         )?
         .with(
             DispatcherId::Ingame,
@@ -243,9 +268,7 @@ pub(super) fn build_game_data<'a, 'b>(
             DeleteWoodIndicatorSystem::default(),
             "delete_wood_indicator_system",
             &["spawn_wood_system"],
-        )?
-        // - comment for easier copy/pasting -
-        ;
+        )?;
 
     if let Some(proximity_settings) =
         settings.songs.songs_proximity.get(&SongKey::Bonfire)

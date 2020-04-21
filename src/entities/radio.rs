@@ -1,9 +1,9 @@
 use super::init_prelude::*;
 
 pub fn init_radio(world: &mut World, transform: Transform) -> Entity {
-    let radio_settings = world.read_resource::<Settings>().radio.clone();
+    let _radio_settings = world.read_resource::<Settings>().radio.clone();
 
-    let mut radio_builder = world
+    let radio_builder = world
         .create_entity()
         .with(Radio::default())
         .with(transform)

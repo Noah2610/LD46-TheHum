@@ -14,5 +14,6 @@ pub fn init_ladder(
         .with(hitbox)
         .with(Collidable::new(CollisionTag::Ladder))
         .with(Ladder::default())
+        .with(Loadable::default())
         .build()
 }

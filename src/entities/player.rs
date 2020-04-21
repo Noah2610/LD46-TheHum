@@ -42,6 +42,7 @@ pub fn init_player(
         .with(player_settings.size)
         .with(player_settings.hitbox)
         .with(player_settings.movable)
+        .with(player_settings.loader)
         .with({
             let mut fric = player_settings.base_friction;
             fric.set_enabled(&Axis::Y, false);
