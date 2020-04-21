@@ -30,59 +30,11 @@ Container(
                 opaque:         false,
             ),
             text: (
-                text:      "LD46 The Flame's Light",
+                text:      "The Flame's Light",
                 font_size: 32.0,
                 color:     (1.0, 0.0, 0.0, 1.0),
                 font:      File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
                 align:     Middle,
-            ),
-        ),
-
-        // START
-        Button(
-            transform: (
-                id:             "btn_start",
-                x:              -0.25,
-                y:              -0.25,
-                z:              1.0,
-                width:          0.25,
-                height:         0.1,
-                anchor:         Middle,
-                pivot:          Middle,
-                mouse_reactive: true,
-                percent:        true,
-                opaque:         true,
-            ),
-            button: (
-                text:              "START",
-                font_size:         24.0,
-                font:              File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
-                normal_text_color: (1.0, 1.0, 1.0, 1.0),
-                hover_text_color:  (0.5, 0.5, 0.5, 1.0),
-            ),
-        ),
-
-        // QUIT
-        Button(
-            transform: (
-                id:             "btn_quit",
-                x:              0.25,
-                y:              -0.25,
-                z:              1.0,
-                width:          0.25,
-                height:         0.1,
-                anchor:         Middle,
-                pivot:          Middle,
-                mouse_reactive: true,
-                percent:        true,
-                opaque:         true,
-            ),
-            button: (
-                text:              "QUIT",
-                font_size:         24.0,
-                font:              File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
-                normal_text_color: (1.0, 1.0, 1.0, 1.0),
-                hover_text_color:  (0.5, 0.5, 0.5, 1.0),
             ),
         ),
     ],

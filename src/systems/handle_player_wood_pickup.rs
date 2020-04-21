@@ -7,6 +7,7 @@ pub struct HandlePlayerWoodPickupSystem;
 impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
     type SystemData = (
         Entities<'a>,
+        Write<'a, SoundPlayer<SoundKey>>,
         Read<'a, InputManager<IngameBindings>>,
         ReadStorage<'a, Player>,
         WriteStorage<'a, WoodInventory>,
@@ -17,6 +18,7 @@ impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
         &mut self,
         (
             entities,
+            mut sound_player,
             input_manager,
             player_store,
             mut wood_inventory_store,
@@ -39,6 +41,9 @@ impl<'a> System<'a> for HandlePlayerWoodPickupSystem {
                         .exp(&query_exp)
                         .run()
                     {
+                        sound_player.add_action(SoundAction::Play(
+                            "woodblock".to_string(),
+                        ));
                         wood_inventory.add_action(WoodInventoryAction::Add(1));
                         let _ =
                             entities.delete(entities.entity(wood_collision.id));

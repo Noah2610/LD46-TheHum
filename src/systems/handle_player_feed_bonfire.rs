@@ -7,6 +7,7 @@ pub struct HandlePlayerFeedBonfireSystem;
 impl<'a> System<'a> for HandlePlayerFeedBonfireSystem {
     type SystemData = (
         Entities<'a>,
+        Write<'a, SoundPlayer<SoundKey>>,
         Read<'a, InputManager<IngameBindings>>,
         ReadStorage<'a, Player>,
         ReadStorage<'a, Collider<CollisionTag>>,
@@ -18,6 +19,7 @@ impl<'a> System<'a> for HandlePlayerFeedBonfireSystem {
         &mut self,
         (
             entities,
+            mut sound_player,
             input_manager,
             player_store,
             collider_store,
@@ -46,6 +48,10 @@ impl<'a> System<'a> for HandlePlayerFeedBonfireSystem {
                     let should_transfer_wood = !player_inventory.is_empty();
 
                     if should_transfer_wood {
+                        sound_player.add_action(SoundAction::Play(
+                            "woodblock".to_string(),
+                        ));
+
                         player_inventory
                             .add_action(WoodInventoryAction::Remove(1));
 

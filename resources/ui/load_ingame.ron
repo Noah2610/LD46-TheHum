@@ -30,9 +30,12 @@ Container(
                 opaque:         false,
             ),
             text: (
-                text:      "Play With Headphones",
+                text:      "PLAY WITH HEADPHONES",
                 font_size: 32.0,
-                color:     (1.0, 0.0, 0.0, 1.0),
+                // 0.4588235294117647
+                // 0.00784313725490196
+                // 0.07450980392156863
+                color:     (0.4588235294117647, 0.00784313725490196, 0.07450980392156863, 1.0),
                 font:      File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
                 align:     Middle,
             ),

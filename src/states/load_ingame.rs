@@ -2,6 +2,7 @@
 
 use super::menu_prelude::*;
 use super::state_prelude::*;
+use crate::components::prelude::{ActionQueue, SoundAction, SoundPlayer};
 use crate::level_loader;
 use climer::Timer;
 use std::time::Duration;
@@ -39,6 +40,14 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for LoadIngame {
         let mut timer = Timer::new(Some(timer_duration.into()), None);
         timer.start().unwrap();
         self.timer = Some(timer);
+
+        {
+            let mut sound_player =
+                data.world.write_resource::<SoundPlayer<SoundKey>>();
+            sound_player.add_action(SoundAction::Play(
+                "play_with_headphones".to_string(),
+            ));
+        }
     }
 
     fn on_stop(&mut self, mut data: StateData<GameData<'a, 'b>>) {
