@@ -14,7 +14,7 @@ use crate::level_loader::load_level;
 use amethyst::ecs::{Join, ReadStorage, WriteStorage};
 use deathframe::amethyst;
 
-const DEFAULT_LEVEL: &str = "dev.json";
+const DEFAULT_LEVEL: &str = "level.json";
 const MAIN_MENU_LEVEL: &str = "main_menu.json";
 const CUTSCENE_PLAYER_WALK_DIR: f32 = 1.0;
 
