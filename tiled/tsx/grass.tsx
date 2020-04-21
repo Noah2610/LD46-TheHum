@@ -52,25 +52,25 @@
  <tile id="72" type="Grass_72"/>
  <tile id="73" type="Grass_73"/>
  <tile id="74" type="Grass_74"/>
- <tile id="75" type="Grass_0"/>
- <tile id="76" type="Grass_0"/>
- <tile id="77" type="Grass_0"/>
+ <tile id="75" type="Grass_75"/>
+ <tile id="76" type="Grass_76"/>
+ <tile id="77" type="Grass_77"/>
  <tile id="78" type="Grass_78"/>
  <tile id="79" type="Grass_79"/>
  <tile id="80" type="Grass_80"/>
  <tile id="81" type="Grass_81"/>
- <tile id="82" type="Grass_0"/>
- <tile id="83" type="Grass_0"/>
- <tile id="90" type="Grass_0"/>
- <tile id="91" type="Grass_0"/>
- <tile id="92" type="Grass_0"/>
- <tile id="93" type="Grass_0"/>
- <tile id="94" type="Grass_0"/>
- <tile id="95" type="Grass_0"/>
- <tile id="96" type="Grass_0"/>
- <tile id="97" type="Grass_0"/>
- <tile id="98" type="Grass_0"/>
- <tile id="99" type="Grass_0"/>
- <tile id="100" type="Grass_0"/>
- <tile id="101" type="Grass_0"/>
+ <tile id="82" type="Grass_82"/>
+ <tile id="83" type="Grass_83"/>
+ <tile id="90" type="Grass_90"/>
+ <tile id="91" type="Grass_91"/>
+ <tile id="92" type="Grass_92"/>
+ <tile id="93" type="Grass_93"/>
+ <tile id="94" type="Grass_94"/>
+ <tile id="95" type="Grass_95"/>
+ <tile id="96" type="Grass_96"/>
+ <tile id="97" type="Grass_97"/>
+ <tile id="98" type="Grass_98"/>
+ <tile id="99" type="Grass_99"/>
+ <tile id="100" type="Grass_100"/>
+ <tile id="101" type="Grass_101"/>
 </tileset>
