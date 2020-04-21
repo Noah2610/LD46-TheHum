@@ -13,14 +13,14 @@
     )],
     bonfire: (
         flame_decrease: (
-            step: 0.03,
+            step: 0.05,
             interval_ms: 100,
             // Increase the flame radius decrease step by this value
             // for each wood the bonfire has.
             // NOTE: This has to be larger than 0.0, for the flame to decrease at all.
             // Pseudo formula:
             //     step += woods * wood_decrease
-            wood_decrease: 0.001,
+            wood_decrease: 0.005,
         ),
     ),
     flame: (

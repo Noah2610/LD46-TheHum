@@ -8,8 +8,8 @@
     hitbox: [(
         top:     16.0,
         bottom: -24.0,
-        left:   -8.0,
-        right:   8.0,
+        left:   -7.0,
+        right:   7.0,
     )],
     movable: (
         acceleration:               450.0,
