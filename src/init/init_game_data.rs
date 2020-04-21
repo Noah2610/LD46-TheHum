@@ -141,12 +141,6 @@ pub(super) fn build_game_data<'a, 'b>(
         )?
         .with(
             DispatcherId::Ingame,
-            DeleteWoodIndicatorSystem::default(),
-            "delete_wood_indicator_system",
-            &["spawn_wood_system"],
-        )?
-        .with(
-            DispatcherId::Ingame,
             EntityLoaderSystem::default(),
             "entity_loader_system",
             &[
