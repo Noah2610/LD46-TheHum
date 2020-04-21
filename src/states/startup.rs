@@ -72,6 +72,20 @@ fn load_sounds(world: &mut World) {
             world,
         )
         .unwrap();
+    sounds
+        .load_audio(
+            "play_with_headphones".to_string(),
+            resource("audio/sfx/play_with_headphones.wav"),
+            world,
+        )
+        .unwrap();
+    sounds
+        .load_audio(
+            "woodblock".to_string(),
+            resource("audio/sfx/woodblock.wav"),
+            world,
+        )
+        .unwrap();
 
     for sound_group in sounds_settings.sound_groups {
         for sound in sound_group.sounds {
