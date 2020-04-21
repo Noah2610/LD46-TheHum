@@ -1,7 +1,22 @@
-# LD46
-Our LD46 game jam entry.  
-Setup with [`deathframe-template`].  
-Using [`amethyst`] and [`deathframe`].
+# The Hum - LD46
+## Description
+Feed the bonfire.  
+_Keep it alive._  
+
+![screenshot](./screenshots/ingame.png)
+
+## Controls
+| Key          | Action                  |
+|:------------:|:----------------------- |
+| `A` / `D`    | Move left / right       |
+| `W` / `S`    | Climb ladders up / down |
+| `SPACE`      | Jump                    |
+| `E`          | Interact                |
+| `D`, `ENTER` | Start game              |
+
+## Development
+Using [`amethyst`] and [`deathframe`].  
+Setup with [`deathframe-template`].
 
 ## License
 Distributed under the terms of the [MIT license].
