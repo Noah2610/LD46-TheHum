@@ -104,7 +104,7 @@ function bundle_release {
 }
 
 function get_bundle_name {
-    echo "${GAME_NAME}-${VERSION}-${SUFFIX}"
+    echo "${TARGET_BINARY_FILENAME}-${VERSION}-${SUFFIX}"
 }
 
 main "$@"
