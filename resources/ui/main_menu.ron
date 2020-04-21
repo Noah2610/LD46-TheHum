@@ -30,9 +30,9 @@ Container(
                 opaque:         false,
             ),
             text: (
-                text:      "Howling Woods",
-                font_size: 48.0,
-                color:     (0.9, 0.025, 0.025, 1.0),
+                text:      "THE HUM",
+                font_size: 64.0,
+                color:     (0.9, 0.0, 0.05, 1.0),
                 font:      File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
                 align:     Middle,
             ),
