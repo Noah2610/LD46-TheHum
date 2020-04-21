@@ -2,6 +2,8 @@
 
 use super::menu_prelude::*;
 use super::state_prelude::*;
+// TODO terrible
+use crate::systems::system_prelude::*;
 
 #[derive(Default)]
 pub struct GameOver {
@@ -13,6 +15,28 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for GameOver {
         self.create_ui(
             &mut data,
             resource("ui/game_over.ron").to_str().unwrap(),
+        );
+
+        data.world.exec(
+            |(entities, bonfire_store, mut animations_store, halo_store): (
+                Entities,
+                ReadStorage<Bonfire>,
+                WriteStorage<AnimationsContainer<AnimationKey>>,
+                ReadStorage<Halo>,
+            )| {
+                for (bonfire_entity, _, animations) in
+                    (&entities, &bonfire_store, &mut animations_store).join()
+                {
+                    let _ = animations.play(AnimationKey::BonfireBurnt);
+                    for (halo_entity, halo) in (&entities, &halo_store).join() {
+                        if let Some(halo_bonfire_entity) = halo.bonfire_entity {
+                            if bonfire_entity == halo_bonfire_entity {
+                                let _ = entities.delete(halo_entity);
+                            }
+                        }
+                    }
+                }
+            },
         );
     }
 

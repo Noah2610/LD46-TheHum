@@ -102,7 +102,7 @@ impl<'a, 'b> State<GameData<'a, 'b>, StateEvent> for MainMenu {
                         WriteStorage<Movable>,
                         ReadStorage<Transform>,
                     )| {
-                        if let Some((player, movable, transform)) = (
+                        if let Some((_, movable, transform)) = (
                             &mut player_store,
                             &mut movable_store,
                             &transform_store,
