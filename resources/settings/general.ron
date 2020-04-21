@@ -3,7 +3,7 @@
 (
     // How fast the player must be moving before updating animation
     // from `Idle` to `Walk`, or before flipping sprite horizontally.
-    player_animation_update_velocity_padding: 8.0,
+    player_animation_update_velocity_padding: 2.0,
     // How long the game stay in the `LoadIngame`, before switching to `Ingame`.
     load_ingame_state_duration_ms: 3000,
 )
