@@ -87,6 +87,12 @@ pub(super) fn build_game_data<'a, 'b>(
             AnimationBundle::<ReactiveAnimationKey>::new()
                 .with_name_suffix("_reactive"),
         )?
+        .with(
+            DispatcherId::MainMenu,
+            EntityLoaderSystem::default(),
+            "entity_loader_system",
+            &["move_entities_system"],
+        )?
         .with_bundle(
             DispatcherId::GameOver,
             AnimationBundle::<AnimationKey>::new(),
