@@ -1582,7 +1582,7 @@ checksum = "b294d6fa9ee409a054354afc4352b0b9ef7ca222c69b8812cbea9e7d2bf3783f"
 
 [[package]]
 name = "ld46"
-version = "1.0.1"
+version = "1.0.2"
 dependencies = [
  "climer",
  "deathframe",
