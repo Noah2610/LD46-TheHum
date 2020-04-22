@@ -15,24 +15,47 @@ Container(
         opaque:         false,
     ),
 
+    background: SolidColor(0.0, 0.0, 0.0, 0.8),
+
     children: [
         Label(
             transform: (
                 id:             "game_over_title",
                 x:              0.0,
-                y:              0.0,
+                y:              24.0,
                 z:              1.0,
-                width:          0.75,
-                height:         0.25,
+                width:          1028.0,
+                height:         128.0,
                 anchor:         Middle,
                 mouse_reactive: false,
-                percent:        true,
+                percent:        false,
                 opaque:         false,
             ),
             text: (
                 text:      "You didn't keep the flame alive...",
                 font_size: 32.0,
-                color:     (1.0, 0.0, 0.0, 1.0),
+                color:     (0.9, 0.0, 0.05, 1.0),
+                font:      File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
+                align:     Middle,
+            ),
+        ),
+        Label(
+            transform: (
+                id:             "game_over_woods",
+                x:              0.0,
+                y:              -24.0,
+                z:              1.0,
+                width:          1028.0,
+                height:         128.0,
+                anchor:         Middle,
+                mouse_reactive: false,
+                percent:        false,
+                opaque:         false,
+            ),
+            text: (
+                text:      "You fed the bonfire <WOODS> wood logs.",
+                font_size: 24.0,
+                color:     (0.6, 0.6, 0.6, 1.0),
                 font:      File("resources/fonts/undefined-medium.ttf", ("TTF", ())),
                 align:     Middle,
             ),
