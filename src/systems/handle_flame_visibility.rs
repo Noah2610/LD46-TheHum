@@ -11,6 +11,8 @@ impl<'a> System<'a> for HandleFlameVisibilitySystem {
         ReadStorage<'a, VisibleInFlame>,
         ReadStorage<'a, Transform>,
         WriteStorage<'a, Hidden>,
+        ReadStorage<'a, Loadable>,
+        WriteStorage<'a, Loaded>,
     );
 
     fn run(
@@ -21,12 +23,17 @@ impl<'a> System<'a> for HandleFlameVisibilitySystem {
             visible_in_flame_store,
             transform_store,
             mut hidden_store,
+            loadable_store,
+            mut loaded_store,
         ): Self::SystemData,
     ) {
         let mut visibility_loader = EntityComponentInserter::default()
             .with_priority(InsertionAction::Remove);
+        let mut loaded_loader = EntityComponentInserter::default()
+            .with_priority(InsertionAction::Insert);
 
-        for (flame, flame_transform) in (&flame_store, &transform_store).join()
+        for (flame, flame_transform, loadable_opt) in
+            (&flame_store, &transform_store, loadable_store.maybe()).join()
         {
             let flame_pos = {
                 let trans = flame_transform.translation();
@@ -48,12 +55,19 @@ impl<'a> System<'a> for HandleFlameVisibilitySystem {
                 };
                 if is_pos_in_radius(target_pos) {
                     visibility_loader.remove(target_entity);
+                    if loadable_opt.is_some() {
+                        loaded_loader.insert(target_entity);
+                    }
                 } else {
                     visibility_loader.insert(target_entity);
+                    if loadable_opt.is_some() {
+                        loaded_loader.remove(target_entity);
+                    }
                 }
             }
         }
 
         visibility_loader.run(&mut hidden_store).unwrap();
+        loaded_loader.run(&mut loaded_store).unwrap();
     }
 }
