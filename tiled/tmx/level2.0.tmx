@@ -811,7 +811,6 @@
   <object id="49" name="WoodSpawner" type="WoodSpawner" x="420" y="448" width="32" height="20"/>
   <object id="50" name="BEARTRAP" type="Beartrap(23)" x="456" y="464" width="8" height="4"/>
   <object id="51" name="BEARTRAP" type="Beartrap(18)" x="52" y="532" width="8" height="4"/>
-  <object id="52" name="BEARTRAP" type="Beartrap(19)" x="80" y="532" width="8" height="4"/>
   <object id="53" name="BEARTRAP" type="Beartrap(22)" x="140" y="532" width="8" height="4"/>
   <object id="54" name="BEARTRAP" type="Beartrap(12)" x="764" y="548" width="8" height="4"/>
   <object id="55" name="BEARTRAP" type="Beartrap(3)" x="168" y="332" width="8" height="4"/>
